@@ -1,4 +1,7 @@
 # TODO list
+This Markdown page shows all current (and most completed) tasks for this Project. It also lists and potential features that could be implementated in SlickCMS.
+
+Features that are determined to be worthy of inclusion will be added as Issues to the GitHub Issues list.
 
 ## Tasks
 * ~~Current Progress Check~~
