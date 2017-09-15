@@ -1,6 +1,7 @@
-#TODO list
+# TODO list
 
 ## Tasks
+* ~~Current Progress Check~~
 * Port SlickCMS code from `C:\Users\matt_000\Google Drive\Code\slickhouse` to Repo
 * Put Azure DB back online
 * Export Azure DB and add to Repo
