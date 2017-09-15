@@ -29,6 +29,7 @@ Features that are determined to be worthy of inclusion will be added as Issues t
 * See Trello Editorial Workflow
 * Emoji cheat sheet - https://www.webpagefx.com/tools/emoji-cheat-sheet/
 * Check chrome://bookmarks/ for additional potential features - `Slickhouse > SlickCMS Features`
+* Analyse Competitors
 * To be continued...
 
 ## Software
