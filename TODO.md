@@ -33,7 +33,7 @@ Features that are determined to be worthy of inclusion will be added as Issues t
 * To be continued...
 
 ## Software
-* Google Drive (syncing progress between development machines)
+* Google Drive (working copy)
 * SourceTree (committing to GitHub)
 * Visual Studio Code (smaller code changes)
 * Visual Studio 2017 Community (larger code changes)
