@@ -1,13 +1,13 @@
 # TODO list
 This Markdown page shows all current (and most completed) **Tasks** for this Project. It also lists any potential **Features** that could be implementated in SlickCMS.
 
-Features that are determined to be worthy of inclusion will be added as Issues to the GitHub Issues list.
+**Features** that are determined to be worthy of inclusion will be added as **Issues** to the GitHub Issues list.
 
 **Software** lists all software used by the author for developing this Project.
 
 ## Tasks
 * ~~Current Progress Check~~
-* Port SlickCMS code from `C:\Users\matt_000\Google Drive\Code\slickhouse` to Repo
+* Port SlickCMS code from `~\Google Drive\Code\slickhouse` to Repo
 * Put Azure DB back online
 * Export Azure DB and add to Repo
 * Generate scripts to create DB and add to Repo
@@ -33,8 +33,7 @@ Features that are determined to be worthy of inclusion will be added as Issues t
 * To be continued...
 
 ## Software
-* Google Drive (working copy)
-* SourceTree (committing to GitHub)
+* SourceTree (Version Control alongside GitHub)
 * Visual Studio Code (smaller code changes)
 * Visual Studio 2017 Community (larger code changes)
 * SQL Server Express Edition (version TBC)
