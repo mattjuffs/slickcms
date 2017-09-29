@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS.Data
+namespace SlickCMS
 {
     using System;
     using System.Collections.Generic;

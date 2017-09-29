@@ -48,78 +48,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Category.cs">
+    <Compile Include="Category.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Comment.cs">
+    <Compile Include="Comment.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Image.cs">
+    <Compile Include="Image.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Link.cs">
+    <Compile Include="Link.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Post.cs">
+    <Compile Include="Post.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Extension.cs" />
-    <Compile Include="Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\Relationship.cs">
+    <Compile Include="Relationship.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SlickCMS.Context.cs">
+    <Compile Include="SlickCMS.Context.cs" />
+    <Compile Include="SlickCMS.Context1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SlickCMS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SlickCMS.cs">
+    <Compile Include="SlickCMS.cs" />
+    <Compile Include="SlickCMS.Designer.cs">
+      <DependentUpon>SlickCMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlickCMS1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SlickCMS.Designer.cs">
+    <Compile Include="SlickCMS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SlickCMS.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\Tag.cs">
+    <Compile Include="Tag.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\User.cs">
+    <Compile Include="User.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Data\SlickCMS.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SlickCMS.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="Data\SlickCMS.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
+    <EntityDeploy Include="SlickCMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SlickCMS1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SlickCMS.edmx.diagram">
       <DependentUpon>SlickCMS.edmx</DependentUpon>
-      <LastGenOutput>SlickCMS.Context.cs</LastGenOutput>
-    </None>
-    <None Include="Data\SlickCMS.edmx.diagram">
-      <DependentUpon>SlickCMS.edmx</DependentUpon>
-    </None>
-    <None Include="Data\SlickCMS.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SlickCMS.edmx</DependentUpon>
-      <LastGenOutput>SlickCMS.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Services\" />
+    <Content Include="SlickCMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SlickCMS.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="SlickCMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SlickCMS1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

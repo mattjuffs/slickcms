@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS.Data
+namespace SlickCMS
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Link
     {
-        public int CategoryID { get; set; }
+        public int LinkID { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string URL { get; set; }
         public string Description { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public System.DateTime DateModified { get; set; }
+        public int Published { get; set; }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS", "SlickCMS\SlickCMS.csproj", "{A718E9D9-A666-4E2F-BC00-067AB2C567CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Data", "SlickCMS.Data\SlickCMS.Data.csproj", "{A718E9D9-A666-4E2F-BC00-067AB2C567CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Core", "SlickCMS.Core\SlickCMS.Core.csproj", "{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}"
 EndProject
