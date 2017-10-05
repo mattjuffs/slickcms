@@ -53,8 +53,8 @@ namespace SlickCMS.Core
                 using (var client = new SmtpClient())
                 {
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.Host = "smtp.mailgun.org";
-                    client.Credentials = new System.Net.NetworkCredential("postmaster@mailgun.slickhouse.com", "2ba1e5daa482474bd6a2e6cd5216426e");
+                    client.Host = "smtp.example.com";
+                    client.Credentials = new System.Net.NetworkCredential("username@mailserver.example.com", "password-goes-here");
 
                     client.Send(mailMessage);
                 }
@@ -76,8 +76,6 @@ namespace SlickCMS.Core
             {
                 // TODO
                 return false;
-
-                return true;
             }
             catch (Exception ex)
             {
