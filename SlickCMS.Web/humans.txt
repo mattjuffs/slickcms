@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+	Developer: Matthew Juffs
+	Site: http://slickhouse.com/
+	Twitter: https://twitter.com/slickhouse
+	GitHub: https://github.com/mattjuffs
+	Location: Derbyshire, UK
+
+# THANKS AND INFLUENCES
+	HTML5 Boilerplate (http://html5boilerplate.com/)
+	Twitter's Bootstrap (http://twitter.github.com/bootstrap/)
+	Google's 2011 style changes
+	StackOverflow
+
+# TECHNOLOGY COLOPHON
+	Standards: HTML5, CSS3
+	Components: Modernizr, jQuery
+	Software: Microsoft Visual Studio 2012, Google Chrome

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Error</title>
+
+	<!--
+		Open Sans (Normal 400) for paragraphs
+        Open Sans (Normal 400 Italic) for italic text within paragraphs
+        Open Sans (Bold 700) for bold text within paragraphs and headings
+        Open Sans (Bold 700 Italic) for italic boold text within paragraphs and headings
+		
+		http://www.google.com/fonts/#UsePlace:use/Collection:Open+Sans:400italic,700italic,400,700
+	-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+    <style>
+        body
+        {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            color: #444444;
+        }
+        
+        header
+        {
+            width: 100%;
+            background-color: #F1F1F1;
+            margin: 0;
+            padding: 40px 0 10px 0;
+            border-bottom: 1px solid #CCCCCC;
+        }
+        
+        h1
+        {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: #222222;
+            margin: 0px auto 0px auto;
+        }
+        
+        .error
+        {
+            color: red;
+        }
+        
+        main
+        {
+            margin: 0px auto 0px auto;
+            font-size: 16px;
+        }
+        
+        a
+        {
+            color: #0099FF;
+            text-decoration: none;
+            border-bottom: 1px solid #0099FF;
+        }
+        
+            a:hover
+            {
+                color: #FF9900;
+                border-bottom: 1px solid #FF9900;
+            }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5em;
+            margin: 10px;
+        }
+
+        @media only screen and (min-width: 320px) {
+            main {width: 90%;}
+            h1 {width: 90%;}
+        }
+
+        @media only screen and (min-width: 960px) {
+            main {width: 960px;}
+            h1 {width: 960px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>An <span class="error">error</span> has occurred</h1>
+    </header>
+    
+    <main role="main">
+        <p>Sorry, an <span class="error">error</span> has occurred and the administrators have been informed. Please visit <a href="/">the homepage</a> to try again!</p>
+    </main>
+</body>
+</html>

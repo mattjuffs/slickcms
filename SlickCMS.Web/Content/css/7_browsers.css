@@ -1,0 +1,7 @@
+﻿/*  ==========================================================================
+    Browsers - overrides to fix specific browser issues
+    ========================================================================== */
+
+/* IE 8 doesn't appear to read the Media Queries at all, so specifying here instead */
+.ie8 #menu {display: block;}
+.ie8 #mobileMenu {display: none;}

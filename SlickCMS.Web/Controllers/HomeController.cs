@@ -26,5 +26,10 @@ namespace SlickCMS.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Framework()
+        {
+            return View();
+        }
     }
 }

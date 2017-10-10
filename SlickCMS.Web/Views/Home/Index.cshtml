@@ -1,31 +1,62 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<h1 class="title"><span>Slickhouse framework</span></h1>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!--pages are made up of blocks, which are usually centred divs 960px wide on a large resolution screen-->
+<div class="block">
+    <!--[if lt IE 7]>
+        <p class="warning">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <!--alternatively, move the h1 into main and drop the title class-->
+    <!--<h1>Slickhouse framework</h1>-->
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    <section>
+        <p class="information" id="smartphone">Smartphone (320px+)</p>
+        <p class="information" id="tablet">Tablet (600px+)</p>
+        <p class="information" id="netbook">Netbook (960px+)</p>
+        <p class="information" id="laptop">Laptop (1280px+)</p>
+        <p class="information" id="desktop">Desktop (1824px+)</p>
+    </section>
+
+    <section>
+        <h2 id="bookmarkIntroduction">Introduction</h2>
+        <div class="row-fluid">
+            <div class="span8">
+                <p>
+                    Slickhouse framework is an HTML5, CSS3 and jQuery collection of files for use in all future Slickhouse projects.
+                    It started as HTML5 Boilerplate, with a sprinkling of Bootstrap grids and evolved into what you see on the screen.
+                </p>
+                <p>
+                    Using the latest browser technologies, it will allow for continuous improvements of the look and feel of Slickhouse.
+                    Feel free to use it within your own projects and contribute to help.
+                </p>
+                <hr />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et diam vehicula, tristique eros sed, rhoncus turpis. Vestibulum imperdiet sem tellus, quis consequat est imperdiet non. Etiam eleifend, quam a porta venenatis, ante tellus pharetra massa, at sollicitudin dui nibh non velit. Nulla et nisi orci. Proin nibh sem, condimentum eget justo ut, ornare egestas risus. Nam massa lacus, fringilla at euismod vitae, bibendum a turpis. Proin nec pulvinar metus. Fusce mollis at dui convallis tincidunt. Nullam auctor nibh quis velit tincidunt cursus. Nulla gravida tortor in tincidunt sagittis. Morbi rhoncus velit tortor, nec hendrerit quam malesuada quis.</p>
+                <p>Morbi tellus libero, elementum sed iaculis in, cursus a elit. Praesent sed ultrices justo, at suscipit velit. Aliquam sed libero eget est malesuada porta. Sed ut pellentesque libero. Maecenas tincidunt lacus ac nibh rhoncus condimentum. Sed in fermentum mauris. Mauris sit amet tortor facilisis, vestibulum lacus vel, eleifend felis. Etiam purus lacus, congue ac urna nec, imperdiet tincidunt odio. Praesent elementum elementum volutpat.</p>
+                <p>Sed purus mi, vehicula egestas lorem consequat, facilisis fermentum nisi. Vivamus rutrum libero ac imperdiet eleifend. Aliquam erat volutpat. Sed metus sapien, volutpat quis venenatis sed, vestibulum non eros. Nunc purus orci, tristique ut posuere a, accumsan vitae erat. Vivamus nec dui varius, sodales eros et, pharetra turpis. Praesent feugiat mauris et justo tristique, quis sodales tortor rhoncus. Vestibulum id metus facilisis, lobortis diam ac, consectetur orci. Sed non dolor vel quam scelerisque fringilla. Vestibulum non ante arcu. Nullam diam elit, tempus non tempus quis, condimentum eget tellus. Pellentesque eget lectus venenatis, tincidunt mi ut, ullamcorper leo. Etiam at tellus quis nulla feugiat dapibus.</p>
+            </div>
+            <div class="span4">
+                <nav>
+                    <ul>
+                        <!--NOTE: using the id of bookmark[Element] to avoid conflicts with framework id-->
+                        <li><a href="#bookmarkIntroduction" class="scroll">Introduction</a></li>
+                        <li><a href="#bookmarkFeatures" class="scroll">Features</a></li>
+                        <li><a href="#bookmarkTypography" class="scroll">Typography</a></li>
+                        <li><a href="#bookmarkMessages" class="scroll">Messages</a></li>
+                        <li><a href="#bookmarkTables" class="scroll">Tables</a></li>
+                        <li><a href="#bookmarkLists" class="scroll">Lists</a></li>
+                        <li><a href="#bookmarkBlockquotes" class="scroll">Blockquotes</a></li>
+                        <li><a href="#bookmarkForms" class="scroll">Forms</a></li>
+                        <li><a href="#bookmarkCode" class="scroll">Code</a></li>
+                        <li><a href="#bookmarkBreadcrumbs" class="scroll">Breadcrumbs</a></li>
+                        <li><a href="#bookmarkPagination" class="scroll">Pagination</a></li>
+                        <li><a href="#bookmarkGridSystem" class="scroll">GridSystem</a></li>
+                        <li><a href="#bookmarkImages" class="scroll">Images</a></li>
+                        <li><a href="#bookmarkColours" class="scroll">Colours</a></li>
+                        <li><a href="#bookmarkHTML5" class="scroll">HTML5</a></li>
+                        <li><a href="#bookmarkTODO" class="scroll">TODO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
 </div>

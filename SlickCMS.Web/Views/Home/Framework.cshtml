@@ -1,0 +1,912 @@
+﻿<h1 class="title"><span>Slickhouse framework</span></h1>
+
+<!--pages are made up of blocks, which are usually centred divs 960px wide on a large resolution screen-->
+<div class="block">
+    <!--[if lt IE 7]>
+        <p class="warning">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <!--alternatively, move the h1 into main and drop the title class-->
+    <!--<h1>Slickhouse framework</h1>-->
+
+    <section>
+        <p class="information" id="smartphone">Smartphone (320px+)</p>
+        <p class="information" id="tablet">Tablet (600px+)</p>
+        <p class="information" id="netbook">Netbook (960px+)</p>
+        <p class="information" id="laptop">Laptop (1280px+)</p>
+        <p class="information" id="desktop">Desktop (1824px+)</p>
+    </section>
+
+    <section>
+        <h2 id="bookmarkIntroduction">Introduction</h2>
+        <div class="row-fluid">
+            <div class="span8">
+                <p>
+                    Slickhouse framework is an HTML5, CSS3 and jQuery collection of files for use in all future Slickhouse projects.
+                    It started as HTML5 Boilerplate, with a sprinkling of Bootstrap grids and evolved into what you see on the screen.
+                </p>
+                <p>
+                    Using the latest browser technologies, it will allow for continuous improvements of the look and feel of Slickhouse.
+                    Feel free to use it within your own projects and contribute to help.
+                </p>
+                <hr />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et diam vehicula, tristique eros sed, rhoncus turpis. Vestibulum imperdiet sem tellus, quis consequat est imperdiet non. Etiam eleifend, quam a porta venenatis, ante tellus pharetra massa, at sollicitudin dui nibh non velit. Nulla et nisi orci. Proin nibh sem, condimentum eget justo ut, ornare egestas risus. Nam massa lacus, fringilla at euismod vitae, bibendum a turpis. Proin nec pulvinar metus. Fusce mollis at dui convallis tincidunt. Nullam auctor nibh quis velit tincidunt cursus. Nulla gravida tortor in tincidunt sagittis. Morbi rhoncus velit tortor, nec hendrerit quam malesuada quis.</p>
+                <p>Morbi tellus libero, elementum sed iaculis in, cursus a elit. Praesent sed ultrices justo, at suscipit velit. Aliquam sed libero eget est malesuada porta. Sed ut pellentesque libero. Maecenas tincidunt lacus ac nibh rhoncus condimentum. Sed in fermentum mauris. Mauris sit amet tortor facilisis, vestibulum lacus vel, eleifend felis. Etiam purus lacus, congue ac urna nec, imperdiet tincidunt odio. Praesent elementum elementum volutpat.</p>
+                <p>Sed purus mi, vehicula egestas lorem consequat, facilisis fermentum nisi. Vivamus rutrum libero ac imperdiet eleifend. Aliquam erat volutpat. Sed metus sapien, volutpat quis venenatis sed, vestibulum non eros. Nunc purus orci, tristique ut posuere a, accumsan vitae erat. Vivamus nec dui varius, sodales eros et, pharetra turpis. Praesent feugiat mauris et justo tristique, quis sodales tortor rhoncus. Vestibulum id metus facilisis, lobortis diam ac, consectetur orci. Sed non dolor vel quam scelerisque fringilla. Vestibulum non ante arcu. Nullam diam elit, tempus non tempus quis, condimentum eget tellus. Pellentesque eget lectus venenatis, tincidunt mi ut, ullamcorper leo. Etiam at tellus quis nulla feugiat dapibus.</p>
+            </div>
+            <div class="span4">
+                <nav>
+                    <ul>
+                        <!--NOTE: using the id of bookmark[Element] to avoid conflicts with framework id-->
+                        <li><a href="#bookmarkIntroduction" class="scroll">Introduction</a></li>
+                        <li><a href="#bookmarkFeatures" class="scroll">Features</a></li>
+                        <li><a href="#bookmarkTypography" class="scroll">Typography</a></li>
+                        <li><a href="#bookmarkMessages" class="scroll">Messages</a></li>
+                        <li><a href="#bookmarkTables" class="scroll">Tables</a></li>
+                        <li><a href="#bookmarkLists" class="scroll">Lists</a></li>
+                        <li><a href="#bookmarkBlockquotes" class="scroll">Blockquotes</a></li>
+                        <li><a href="#bookmarkForms" class="scroll">Forms</a></li>
+                        <li><a href="#bookmarkCode" class="scroll">Code</a></li>
+                        <li><a href="#bookmarkBreadcrumbs" class="scroll">Breadcrumbs</a></li>
+                        <li><a href="#bookmarkPagination" class="scroll">Pagination</a></li>
+                        <li><a href="#bookmarkGridSystem" class="scroll">GridSystem</a></li>
+                        <li><a href="#bookmarkImages" class="scroll">Images</a></li>
+                        <li><a href="#bookmarkColours" class="scroll">Colours</a></li>
+                        <li><a href="#bookmarkHTML5" class="scroll">HTML5</a></li>
+                        <li><a href="#bookmarkTODO" class="scroll">TODO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="bookmarkFeatures">Features</h2>
+        <div class="row-fluid">
+            <div class="span9">
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li><a href="http://jquery.com/">jQuery</a></li>
+                    <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> underpinnings</li>
+                    <li><a href="http://modernizr.com/">Modernizr</a> browser feature detection</li>
+                    <li><a href="http://necolas.github.com/normalize.css/">Normalize</a> CSS normalisation</li>
+                    <li><a href="http://twitter.github.com/bootstrap/">Bootstrap</a>'s grid system</li>
+                    <li>3 utilised Media Queries with more if required</li>
+                    <li><a href="http://ckeditor.com/">CKEditor</a> integration</li>
+                    <li><a href="http://leandrovieira.com/projects/jquery/lightbox/">jQuery lightbox</a> plugin</li>
+                    <li><a href="http://responsive-slides.viljamis.com/">Responsive Slides</a> jQuery plugin</li>
+                    <li>Apple Touch icons</li>
+                    <li>Error page</li>
+                    <li>Google Web Fonts</li>
+                    <li>Most common HTML elements all on the one page</li>
+                    <li><em>...and more!</em></li>
+                </ul>
+            </div>
+            <div class="span3">
+                <a href="http://www.w3.org/html/logo/">
+                    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png"
+                         width="165" height="64"
+                         alt="HTML5 Powered with CSS3 / Styling, and Semantics"
+                         title="HTML5 Powered with CSS3 / Styling, and Semantics" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--NOTE: example article taken from slickhouse.com-->
+    <article>
+        <h2><a href="http://slickhouse.com/2011-09-15/windows-8-dual-boot-and-initial-impressions/">Windows 8 dual boot and initial impressions</a></h2>
+        <p>Matt's step-by-step guide to dual booting Windows 8 Developer Preview alongside Windows 7:</p>
+        <p>Items you will need:</p>
+        <ul>
+            <li>USB Drive (I used a 20GB Maxtor inside an IDE to USB enclosure)</li>
+            <li>Existing Windows 7 installation on a laptop/desktop</li>
+        </ul>
+        <p>Create a partition to install Windows 8 onto:</p>
+        <ol>
+            <li>Start > right-click on Computer > Manage</li>
+            <li>Go to Disk Management</li>
+            <li>Locate the partition that Windows 7 is installed on</li>
+            <li>Right-click and you should get the option to Shrink Volume</li>
+            <li>Choose a new volume size, to allow you at least 20GB of free space for Windows 8</li>
+            <li>Confirm and wait a few minutes for the Volume to be resized</li>
+            <li>You can now righ-click on the new unallocated space and create a new Volume</li>
+            <li>Assign it a drive letter, name it and format it to NTFS (Quick)</li>
+        </ol>
+        <p>With the partition created, it's onto setting up Windows 8 on the USB drive:</p>
+        <ol>
+            <li><a href="http://msdn.microsoft.com/en-us/windows/apps/br229516">Download the relevant ISO</a> (preferably 64-bit with Developer Tools)</li>
+            <li>Download 7Zip (free, open-source, highly recommended)</li>
+            <li>Extract the ISO file to the same place you downloaded it to</li>
+            <li>Format your USB drive to NTFS</li>
+            <li>Copy the contents of the extract ISO to your USB drive</li>
+            <li>Open a command prompt (Start > Run > cmd)</li>
+            <li>Navigate to the folder you extracted the ISO (e.g. cd \Users\Matt\Downloads\Windows8)</li>
+            <li>Navigate further to the boot folder (e.g. cd \boot) within the extracted ISO</li>
+            <li>Run the command "bootsect.exe /nt60 E:" where E: is the drive letter of your recently formatted USB drive</li>
+        </ol>
+        <p>You will now have a partition to install Windows 8 onto and a USB drive with the Windows 8 ISO contents on, ready for installation.</p>
+        <p>The next stage is relatively easy:</p>
+        <ol>
+            <li>Restart your computer</li>
+            <li>Hit F2/DEL to enter Setup (BIOS)</li>
+            <li>As long as your computer is fairly new, you should see an option to specify the USB drive to boot from</li>
+            <li>Re-arrange the boot order so that USB drive is the first device</li>
+            <li>Save and Exit Setup (BIOS)</li>
+            <li>You'll then begin to see the Windows 8 installer do its thing</li>
+            <li>Follow the instructions when prompted and sit back, whilst it installs</li>
+            <li>The installer will restart once it has completed, so you will need to enter Setup (BIOS) again</li>
+            <li>Change the boot order once again, so that your hard drive is the first device</li>
+            <li>Save and Exit Setup (BIOS)</li>
+            <li>The installer will continue and you'll eventually be presented with a new Windows 8 style boot menu</li>
+            <li>Choose Windows 8 Developer Preview, or leave it be (it'll default to Windows 8)</li>
+        </ol>
+        <p>You'll then be asked a number of questions to setup your new Windows 8 Developer Preview install - allowing you to enjoy Microsoft's latest operating system.</p>
+        <p>I've had a few hours play with it so far and am highly impressed. Initially I started with it running within a Virtual Box VM, but I found it to be too restrictive. So I opted for the dual boot scenario as outlined above. This allows me to try Windows 8 on the raw hardware, but keeping my existing Windows 7 installation intact. Once the Developer Preview expires or if I find any incompatability issues, I can simply boot back into Windows 7 and continue.</p>
+        <p>Performance wise, the operating system feels a lot snappier than my Windows 7 install. But that's probably due to the crap it has accumulated over the past year - and the lack of software installed on Windows 8. Dare I say it: Internet Explorer 10 feels quicker than Chrome; yes it does. My only gripe would be the lack of mouse gestures via a laptop's touchpad - having to use the scroll bars on the main Metro UI is awkward and fiddly.</p>
+        <p>Also, I'm unsure as to why there is Internet Explorer 10 with the standard Aero UI and then there's the full-screen Metro version. They both have their purpose, but users may get confused and not know what tab they have open in which. Speaking of tabs - I'm lost in the Metro version with multiple tabs open, as there's no visual indication of which tab you are currently on and how many you have open, due to the lack of tool/status bars.</p>
+        <p>Overall, for a Developer Preview (pre-Beta?) Windows 8 is outstanding. The initial discussions surrounding the release are positive and it seems Microsoft have learnt from both its mistakes and also its competitors successes. A single operating system for all devices - Phones, Tablets, Netbooks, Laptops, Desktops, Servers makes complete sense and is what Microsoft has been striving to achieve with the whole Windows thing since, well forever. Hopefully they can get it right, keeping the device specific features at the forefront on the relevant devices, rather than a one UI for all.</p>
+        <p><strong>Update</strong>: I've uploaded a few screenshots to <a href="https://picasaweb.google.com/slickhouse/Windows8?authuser=0&amp;feat=directlink">Picasa Web Albums</a>.</p>
+        <p>Posted: <time>2014-01-28 00:00</time></p>
+    </article>
+
+    <section>
+        <h2 id="bookmarkTypography">Typography <span>paragraphs, links, horizontal rules and address</span></h2>
+        <h2>h2 heading <span>explanation text</span></h2>
+        <h3>h3 heading</h3>
+        <h4>h4 heading</h4>
+        <h5>h5 heading</h5>
+        <h6>h6 heading</h6>
+        <p>Lorem <a href="#">ipsum</a> dolor sit amet, consectetur adipiscing elit. Praesent eget ligula libero, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, <a href="#">quam diam egestas</a> purus, vitae varius sem leo vitae tellus.</p>
+        <p>Lorem <strong>ipsum dolor</strong> sit amet, consectetur adipiscing elit. Praesent eget ligula libero, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <hr />
+        <p>Lorem ipsum <em>dolor sit amet</em>, consectetur adipiscing elit. Praesent eget ligula libero, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur <b>adipiscing elit</b>. Praesent eget ligula libero, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <p class="columns4"><strong>4 Columns example</strong>:<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i>Praesent eget ligula libero</i>, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <p class="columns3"><strong>3 Columns example</strong>:<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i>Praesent eget ligula libero</i>, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <p class="columns2"><strong>2 Columns example</strong>:<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i>Praesent eget ligula libero</i>, vel pulvinar leo. Vivamus dui dolor, dictum vel sollicitudin eu, mattis in tellus. Praesent dapibus arcu ligula, tempus cursus felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam molestie imperdiet convallis. Donec non mi lectus. Etiam purus mi, facilisis et viverra non, fermentum quis tellus. Pellentesque consectetur, neque vel ultricies porttitor, magna lectus tempus magna, sit amet pretium nunc elit ac eros. Curabitur tincidunt, felis in ullamcorper feugiat, quam diam egestas purus, vitae varius sem leo vitae tellus.</p>
+        <hr />
+        <p>Address:</p>
+        <blockquote>The <code>address</code> element represents the contact information for its nearest article or body element ancestor. If that is the body element, then the contact information applies to the document as a whole.</blockquote>
+        <blockquote>The address element must not be used to represent arbitrary addresses (e.g. postal addresses), unless those addresses are in fact the relevant contact information. (The p element is the appropriate element for marking up postal addresses in general.) The address element must not contain information other than contact information.</blockquote>
+        <address>
+            Written by <a href="mailto:matt@slickhouse.com">Matthew Juffs</a><br />
+            Website: <a href="http://slickhouse.com/">slickhouse.com</a>
+        </address>
+        <p>The below line demonstrates the different Open Sans font styles and weights available:</p>
+        <p>Normal text, <strong>bold text</strong>, <em>italic text</em>, <strong><em>bold and italic text</em></strong>.</p>
+    </section>
+
+    <section>
+        <h2 id="bookmarkMessages">Messages <span>for providing feedback to users</span></h2>
+        <p class="success">This is a success message</p>
+        <p class="warning">This is a warning message</p>
+        <p class="error">This is an error message</p>
+        <p class="information">This is an information message</p>
+    </section>
+
+    <section>
+        <h2 id="bookmarkTables">Tables</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Date</td>
+                        <td>Another</td>
+                        <td>Another</td>
+                        <td>Another</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="7"><small>NOTE: data is approximate</small></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Matt</td>
+                        <td>2011-09-24 00:00</td>
+                        <td>123</td>
+                        <td>456</td>
+                        <td>abuwhbguierhtuqib</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    <tr class="alt">
+                        <td>2</td>
+                        <td>Matthew</td>
+                        <td>2011-09-24 00:00</td>
+                        <td>123</td>
+                        <td>456</td>
+                        <td>abuwhbguierhtuqib</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>M</td>
+                        <td>2011-09-24 00:00</td>
+                        <td>123</td>
+                        <td>456</td>
+                        <td>abuwhbguierhtuqib</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    <tr class="alt">
+                        <td>4</td>
+                        <td>MJ</td>
+                        <td>2011-09-24 00:00</td>
+                        <td>123</td>
+                        <td>456</td>
+                        <td>jwrioghjo3ihtio</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="bookmarkLists">Lists</h2>
+        <p>Unordered list:</p>
+        <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ul>
+        <p>Ordered list:</p>
+        <ol>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ol>
+        <p>List with no-list-style</p>
+        <ul class="no-list-style">
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="bookmarkBlockquotes">Blockquotes</h2>
+        <blockquote>
+            Hello<br />
+            <cite>Matthew Juffs, 2011-09-24</cite>
+        </blockquote>
+    </section>
+
+    <section>
+        <h2 id="bookmarkForms">Forms <span>and Form elements</span></h2>
+        <form method="post" action="framework.html">
+            <!--OPTIONAL: add "novalidate" attribute to <form> to switch off Validation-->
+            <!--NOTE: for a complete list of new HTML5 attributes see http://www.w3schools.com/html/html5_form_attributes.asp-->
+            <div class="ckeditor-wrapper">
+                <label for="ckeditor">CKEditor</label><br />
+                <input type="text" name="ckeditor" id="ckeditor" />
+            </div>
+
+            <fieldset>
+                <!--NOTE: groups related elements in a form-->
+                <legend>Inputs</legend>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtStandardInput">Standard Text Input</label><br />
+                            <input type="text" name="txtStandardInput" id="txtStandardInput" placeholder="Standard Text Input" required /><!--NOTE: use to specify required fields-->
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtPasswordInput">Password Input</label><br />
+                            <input type="password" name="txtPasswordInput" id="txtPasswordInput" placeholder="Minimum 8 characters" required />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtEmailInput">Email Input</label><br />
+                            <input type="email" name="txtEmailInput" id="txtEmailInput" placeholder="your.name@domain.com" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtUrlInput">Url Input</label><br />
+                            <input type="url" name="txtUrlInput" id="txtUrlInput" placeholder="http://" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtNumberInput">Number Input</label><br />
+                            <input type="number" min="0" max="10" step="1" value="5" name="txtNumberInput" id="txtNumberInput" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtRangeInput">Range Input</label><br />
+                            <input type="range" min="0" max="10" step="1" value="5" name="txtRangeInput" id="txtRangeInput" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="File">File</label><br />
+                            <input type="file" name="File" id="File" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="btnSubmit01">Submit Button</label><br />
+                            <button class="btn" type="submit" name="btnSubmit01" id="btnSubmit01">Submit</button>
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Date Inputs</legend>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtDateInput">Date Input</label><br />
+                            <!--NOTE: The date input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="date" name="txtDateInput" id="txtDateInput" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtDatetimeInput">Datetime Input</label><br />
+                            <!--NOTE: The datetime input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="datetime" name="txtDatetimeInput" id="txtDatetimeInput" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtDatetimeLocalInput">Datetime-local Input</label><br />
+                            <!--NOTE: The datetime-local input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="datetime-local" name="txtDatetimeLocalInput" id="txtDatetimeLocalInput" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtMonthInput">Month Input</label><br />
+                            <!--NOTE: The month input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="month" name="txtMonthInput" id="txtMonthInput" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtWeekInput">Week Input</label><br />
+                            <!--NOTE: The week input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="week" name="txtWeekInput" id="txtWeekInput" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtTimeInput">Time Input</label><br />
+                            <!--NOTE: The time input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="time" name="txtTimeInput" id="txtTimeInput" />
+                        </p>
+                    </div>
+                </div>
+                <p><small>NOTE: not all datetime inputs work in all HTML5 Browsers!</small></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Legend</legend>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="TextArea">Text Area</label><br />
+                            <textarea name="TextArea" id="TextArea"></textarea>
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtColor">Color/Colour</label><br />
+                            <!--NOTE: The color input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.-->
+                            <input type="color" name="txtColor" id="txtColor" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="Select">Select</label><br />
+                            <select name="Select" id="Select">
+                                <option value="">Please choose an option</option>
+                                <optgroup label="Stuff">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </optgroup>
+                                <option>Option A</option>
+                                <option>Option B</option>
+                                <option>Option C</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="SelectMultiple">Select Multiple</label><br />
+                            <select multiple="multiple" name="SelectMultiple" id="SelectMultiple">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                                <option>Option 6</option>
+                                <option>Option 7</option>
+                                <option>Option 8</option>
+                                <option>Option 9</option>
+                                <option>Option 10</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            Radio<br />
+                            <input type="radio" name="myGroup" id="yes" value="yes" /><label for="yes">Yes</label><br />
+                            <input type="radio" name="myGroup" id="no" value="no" /><label for="no">No</label>
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            Checkbox<br />
+                            <input type="checkbox" />Option 1<br />
+                            <input type="checkbox" />Option 2<br />
+                            <input type="checkbox" />Option 2
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtTelInput">Tel(ephone) Input</label><br />
+                            <input type="tel" name="txtTelInput" id="txtTelInput" placeholder="01234 567 890" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="BrowsersList">List (of Browsers)</label><br />
+                            <input list="browsers" name="BrowsersList" id="BrowsersList" />
+                            <datalist id="browsers">
+                                <option value="Google Chrome">Google Chrome</option>
+                                <option value="Microsoft Internet Explorer">Microsoft Internet Explorer</option>
+                                <option value="Mozilla Firefox">Mozilla Firefox</option>
+                                <option value="Opera">Opera</option>
+                                <option value="Apple Safari">Apple Safari</option>
+                            </datalist>
+                        </p>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>
+                            <label for="txtActiveTextInput">Active Text Input</label><br />
+                            <input type="text" name="txtActiveTextInput" id="txtActiveTextInput" placeholder="Active Text Input" />
+                        </p>
+                    </div>
+                    <div class="span6">
+                        <p>
+                            <label for="txtDisabledTextInput">Disabled Text Input</label><br />
+                            <input type="text" name="txtDisabledTextInput" id="txtDisabledTextInput" placeholder="Disabled Text Input" disabled />
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <h3>Buttons</h3>
+            <p>4 different examples of the HTML required for a button:</p>
+            <div class="row-fluid">
+                <div class="span8">
+                    <ul class="no-list-style">
+                        <li>
+                            <a class="btn" href="#">Link</a><br />
+                            <pre>&lt;a class="btn" href="#"&gt;Link&lt;/a&gt;</pre>
+                        </li>
+                        <li>
+                            <button class="btn" type="submit">Button</button><br />
+                            <pre>&lt;button class="btn" type="submit"&gt;Button&lt;/button&gt;</pre>
+                        </li>
+                        <li>
+                            <input class="btn" type="button" value="Input" /><br />
+                            <pre>&lt;input class="btn" type="button" value="Input" /&gt;</pre>
+                        </li>
+                        <li>
+                            <input class="btn" type="submit" value="Submit" /><br />
+                            <pre>&lt;input class="btn" type="submit" value="Submit" /&gt;</pre>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p>Buttons are available in different colours too:</p>
+            <ul class="no-list-style">
+                <li><a class="btn" href="#">Default</a></li>
+                <li><a class="btn btn-primary" href="#">Primary</a></li>
+                <li><a class="btn btn-info" href="#">Info</a></li>
+                <li><a class="btn btn-success" href="#">Success</a></li>
+                <li><a class="btn btn-warning" href="#">Warning</a></li>
+                <li><a class="btn btn-danger" href="#">Danger</a></li>
+                <li><a class="btn btn-inverse" href="#">Inverse</a></li>
+            </ul>
+            <p>And the size can be varied:</p>
+            <ul class="no-list-style">
+                <li><a class="btn" href="#">Default</a></li>
+                <li><a class="btn btn-large" href="#">Large</a></li>
+                <li><a class="btn btn-small" href="#">Small</a></li>
+                <li><a class="btn btn-mini" href="#">Mini</a></li>
+            </ul>
+        </form>
+    </section>
+
+    <section>
+        <h2 id="bookmarkCode">Code</h2>
+        <p>
+            <code>&lt;code&gt;</code> displays inline:
+            <code>
+                if (this.IsFun())
+                {
+                Console.WriteLine("This is fun!");
+                }
+            </code> like this.
+        </p>
+        <p><code>&lt;pre&gt;</code> is a block element and maintains the original layout:</p>
+        <pre>
+    if (DateTime.Now > new DateTime(2011, 1, 1))
+    {
+        Console.WriteLine("New Years Day 2011 has been and gone");
+    }</pre>
+    </section>
+
+    <section>
+        <h2 id="bookmarkBreadcrumbs">Breadcrumbs</h2>
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/">Home</a></li>
+            <li><a href="/Page1">Page 1</a></li>
+            <li><a href="/Page1/Page2">Page 2</a></li>
+            <li class="current"><a href="/Page1/Page2/Page3">Page 3</a></li>
+        </ol>
+    </section>
+
+    <section>
+        <h2 id="bookmarkPagination">Pagination <span>for navigating between pages of related content</span></h2>
+        <ol class="pagination clearfix">
+            <!--NOTE: no href as these don't need to link anywhere-->
+            <!--<li class="disabled"><a href="/Previous">&laquo; Previous</a></li>-->
+            <li class="disabled"><a>&laquo; Previous</a></li>
+
+            <li class="current"><a href="/Page1">1</a></li>
+            <li><a href="/Page2">2</a></li>
+            <li><a href="/Page3">3</a></li>
+            <li><a href="/Page4">4</a></li>
+            <li><a href="/Page5">5</a></li>
+            <li><a href="/Next">Next &raquo;</a></li>
+            <li><a href="/ViewAll">View All</a></li>
+
+            <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
+            <li class="disabled"><a>Clear View All</a></li>
+        </ol>
+    </section>
+
+    <section>
+        <h2 id="bookmarkGridSystem">Grid system <span>thanks to Bootstrap</span></h2>
+        <div class="grid-demo">
+            <div class="row-fluid">
+                <div class="span12">span12</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span11">span11</div>
+                <div class="span1">span1</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span10">span10</div>
+                <div class="span2">span2</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span9">span9</div>
+                <div class="span3">span3</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span8">span8</div>
+                <div class="span4">span4</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span7">span7</div>
+                <div class="span5">span5</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">span6</div>
+                <div class="span6">span6</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">span6</div>
+                <div class="span6">span6</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span5">span5</div>
+                <div class="span2">span2</div>
+                <div class="span5">span5</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4">span4</div>
+                <div class="span4">span4</div>
+                <div class="span4">span4</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span3">span3</div>
+                <div class="span3">span3</div>
+                <div class="span3">span3</div>
+                <div class="span3">span3</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2">span2</div>
+                <div class="span2">span2</div>
+                <div class="span2">span2</div>
+                <div class="span2">span2</div>
+                <div class="span2">span2</div>
+                <div class="span2">span2</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+                <div class="span1">span1</div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            span6 within span6
+                            <div class="row-fluid">
+                                <div class="span3">span3</div>
+                                <div class="span3">span3</div>
+                                <div class="span3">span3</div>
+                                <div class="span3">span3</div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            span6 within span6
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="row-fluid">
+                        <div class="span6">
+                            span6 within span6
+                        </div>
+                        <div class="span6">
+                            span6 within span6
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="bookmarkImages">Images</h2>
+        <p>The following images use both <em>responsive slides</em> and <em>lightbox</em> jQuery plugins:</p>
+        <ul class="rslides">
+            <li><a href="/Content/images/starwars_50.jpg" class="lightbox"><img src="/Content/images/starwars_50.jpg" alt="Example image using Star Wars painting" title="This is an example description" width="742" height="367" /></a></li>
+            <li><a href="/Content/images/starwars_50_2.jpg" class="lightbox"><img src="/Content/images/starwars_50_2.jpg" alt="Example image using Star Wars painting" title="This is an example description" width="742" height="367" /></a></li>
+        </ul>
+
+        <h3>Placeholder images</h3>
+        <p><a href="http://placehold.it/">Placehold.it</a> can be used to generate placeholder images of various sizes:</p>
+        <p><img src="http://placehold.it/960x100.png/0099ff/ffffff/&amp;text=Placeholder+image" alt="Placeholder image" /></p>
+
+        <p>The width, height, image type, background color, text color and text can be specified in the url.</p>
+
+        <div class="row-fluid">
+            <div class="span6">
+                <p><img src="http://placehold.it/450x150.png/0099ff/ffffff" alt="Placeholder image" /></p>
+            </div>
+            <div class="span6">
+                <p><img src="http://placehold.it/450x150.png/0099ff/ffffff" alt="Placeholder image" /></p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4"><p><img src="http://placehold.it/350x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span4"><p><img src="http://placehold.it/350x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span4"><p><img src="http://placehold.it/350x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+        </div>
+        <div class="row-fluid">
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span2"><p><img src="http://placehold.it/150x150.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+        </div>
+        <div class="row-fluid">
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span1"><p><img src="http://placehold.it/75x75.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="bookmarkColours">Colours</h2>
+        <p>The following colours are used by default within the framework for different shades of grey:</p>
+        <ul class="colour-palette">
+            <li class="colourF1F1F1">#F1F1F1 - backgrounds</li>
+            <li class="colourCCCCCC">#CCCCCC - borders</li>
+            <li class="colour444444">#444444 - body text</li>
+            <li class="colour222222">#222222 - headings</li>
+        </ul>
+        <p>The following blue/orange complement each other and have been used on Slickhouse projects since 2005:</p>
+        <ul class="colour-palette">
+            <li class="colour0099FF">#0099FF</li><!--blue-->
+            <li class="colourFF9900">#FF9900</li><!--orange-->
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="bookmarkHTML5">HTML5 <span>new elements</span></h2>
+        <p>The follow elements are now available in HTML5:</p>
+        <ul>
+            <li><code>&lt;section&gt;</code> defines a section in the document</li>
+            <li><code>&lt;article&gt;</code> defines an article in the document</li>
+            <li><code>&lt;aside&gt;</code> defines content aside from the page content</li>
+            <li><code>&lt;mark&gt;</code> defines <mark>marked</mark> or highlighted text</li>
+        </ul>
+        <p>There are many other HTML5 elements - most of which are in use on this page.</p>
+
+        <h3>Details</h3>
+        <blockquote>
+            The details element is not supported properly by browsers yet. It would probably be better to wait for implementations.<br />
+            <cite>http://validator.w3.org/</cite>
+        </blockquote>
+        <details>
+            <summary>Q. What can you use <code>&lt;details&gt;</code> for?</summary>
+            <p><code>&lt;details&gt;</code> defines additional details that the user can view or hide</p>
+        </details>
+        <details>
+            <summary>Q. What can you use <code>&lt;summary&gt;</code> for?</summary>
+            <p><code>&lt;summary&gt;</code> defines a visible heading for a <code>&lt;details&gt;</code> element</p>
+        </details>
+
+        <h3>Progress bar</h3>
+        <p>Defines the progress of a task, for example:</p>
+        <p><progress value="100" max="100"></progress> Task 1 100%</p>
+        <p><progress value="75" max="100"></progress> Task 2 75%</p>
+        <p><progress value="50" max="100"></progress> Task 3 50%</p>
+        <p><progress value="25" max="100"></progress> Task 4 25%</p>
+        <p><progress value="0" max="100"></progress> Task 5 0%</p>
+
+        <h3>Figure and Figcaption</h3>
+        <p><code>&lt;figure&gt;</code> Defines self-contained content, like illustrations, diagrams, photos, code listings, etc.</p>
+        <p><code>&lt;figcaption&gt;</code> Defines a caption for a <code>&lt;figure&gt;</code> element</p>
+        <figure>
+            <img src="http://placehold.it/350x150.png/0099ff/ffffff&amp;text=Image+within+a+figure" alt="Placeholder image" />
+            <figcaption>A <code>&lt;figcaption&gt;</code> beneath an <code>&lt;img&gt;</code> within a <code>&lt;figure&gt;</code></figcaption>
+        </figure>
+    </section>
+</div>
+
+<div class="hero">
+    <div class="block">
+        <div class="row-fluid">
+            <div class="span4"><p><img src="http://placehold.it/350x350.png/0099ff/ffffff" alt="Placeholder image" /></p></div>
+            <div class="span8">
+                <h2>Hero</h2>
+                <p>This full-width element can be used to make content stand out from the rest of the page and also break up the flow.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="block">
+    <section>
+        <h2 id="bookmarkTODO">TODO</h2>
+        <p>The following items need completing:</p>
+
+        <h3 class="completed">Upgrade/Update</h3>
+        <ul>
+            <li class="completed">Drop jQuery UI</li>
+            <li class="completed">Latest jQuery lightbox plugin</li>
+            <li class="completed">Latest CKEditor plugin - cutdown/light?</li>
+            <li class="completed">Latest jQuery</li>
+            <li class="completed">Latest HTML5BP</li>
+            <li class="completed">Latest Normalize</li>
+        </ul>
+
+        <h3 class="completed">Improve/complete existing code</h3>
+        <ul>
+            <li class="completed">TODO comments within CSS/JS</li>
+            <li class="completed">Tidy up existing code</li>
+            <li class="completed">Incorporate Bootstrap's grid system</li>
+            <li class="completed">Reduce colours to a select colour palette <small>(add a colour palette section)</small></li>
+            <li class="completed">Style tables so that they don't break the media queries</li>
+            <li class="completed">Ensure all classes/IDs have the same naming convention i.e. <em>className</em> or <em>class-name</em></li>
+            <li class="completed">Header style</li>
+            <li class="completed">Footer HTML as per Slickhouse/Cupcakery mockups <small>(add nav elements etc. and an inner element to use instead of p for centering)</small></li>
+            <li class="completed">Link styling <small>3 separate styles - nav, content, footer</small></li>
+            <li class="completed">Copy pagination style from SlickCMS</li>
+            <li class="completed">Breadcrumbs - to be unordered list instead for semantic reasons, styled with a light-grey background, as per h1</li>
+            <li class="completed">Media Queries <small>(check Courthouse bug fixes, if any)</small></li>
+            <li class="completed">Mobile Menu to be a list instead of dropdown <small>(see <a href="http://ink.sapo.pt/">http://ink.sapo.pt/</a>)</small></li>
+            <li class="completed">#links appear underneath the header</li>
+            <li class="completed">Form elements have rounded corners on iOS</li>
+            <li class="completed">Move search into mobile menu to increase vertical height</li>
+            <li class="completed">Change mobileMenu icon to be max-width/max-height using ems to render better on retina displays</li>
+            <li class="completed">Fix CKEditor and previous fieldset breaking smartphone media query</li>
+            <li class="completed">Confirm Favicon and Apple touch icons - <a href="http://www.netmagazine.com/features/create-perfect-favicon">see .net</a></li>
+            <li class="completed">Font-face as per Slickhouse V10 mockup (put on 2 lines, so it's easy to replace with Cupcakery's font-face choices)</li>
+            <li class="completed">Error page from Courthouse (grey with red text elements)</li>
+            <li class="completed"><a href="http://stackoverflow.com/questions/717628/asp-net-mvc-404-error-handling">Error page</a> settings in web.config</li>
+            <li class="completed">Checkboxes and Radio buttons don't have any styling in Chrome</li>
+            <li class="completed">Search disappears when using header navigation</li>
+        </ul>
+
+        <h3 class="completed">Additional features</h3>
+        <ul>
+            <li class="completed">Revise Introduction</li>
+            <li class="completed">Feature list</li>
+            <li class="completed">Header #links</li>
+            <li class="completed">Button colours</li>
+            <li class="completed">New HTML5 form elements</li>
+            <li class="completed">Disabled form elements stylings</li>
+            <li class="completed">New HTML5 page elements, including &lt;article&gt;</li>
+            <li class="completed">Complete HTML5 elements <em>(blockquotes, cite, table etc.)</em></li>
+            <li class="completed">Adaptive images, inline images, images within a grid etc.</li>
+            <li class="completed">Print Style Sheet</li>
+            <li class="completed">HTML5 and CSS3 logos</li>
+            <li class="completed">Dropdown navigation</li>
+            <li class="completed">Confirm Font choices</li>
+        </ul>
+
+        <h3 class="completed">Standards compliance/best practices</h3>
+        <ul>
+            <li class="completed"><a href="http://mathiasbynens.be/notes/html5-levels">The three levels of HTML5 usage</a></li>
+            <li class="completed"><a href="http://line25.com/articles/youre-doing-it-wrong-common-html-tag-misuse">Check all tags</a>, including address and hr</li>
+            <li class="completed">HTML5 and CSS3 validation</li>
+        </ul>
+
+        <h3 class="completed">Testing/Review</h3>
+        <ul>
+            <li class="completed">Test mobile navigation</li>
+            <li class="completed">Strip out unused styles <small>(especially from Bootstrap)</small></li>
+            <li class="completed">Full Code Review</li>
+            <li class="completed">Remove our button styles from Primary CSS</li>
+            <li class="completed">Browser Testing (Chrome, IE 10 and 11, Firefox, Safari)</li><!--NOTE: match Google's supported browsers https://support.google.com/a/answer/33864?hl=en-->
+            <li class="completed">Device Testing (Desktop PC, Tablet, Smartphone)</li>
+        </ul>
+
+        <h3>Release</h3>
+        <ul>
+            <li class="completed">Web.config settings</li>
+            <li class="completed">Public release on <a href="https://github.com/mattjuffs/framework">GitHub</a></li>
+            <li class="completed">Use on <a href="http://slickhouse.com/">Slickhouse V10</a></li>>
+        </ul>
+    </section>
+</div>
