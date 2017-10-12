@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickCMS.Core.Extensions
+namespace SlickCMS.Core//.Extensions
 {
-    public static class DateTime
+    public static class DateTimeExtensions
     {
         public static System.DateTime ToDateTime(this object theObject)
         {

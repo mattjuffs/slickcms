@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickCMS.Core.Extensions
+namespace SlickCMS.Core//.Extensions
 {
-    public static class Int
+    public static class IntExtensions
     {
         /// <summary>
         /// Converts an integer into a boolean

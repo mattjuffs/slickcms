@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SlickCMS.Core
+
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -161,12 +163,12 @@
     <footer>
         <nav>
             <a href="#top" class="scroll">Go to top</a>
-            &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License<!--NOTE: year to be dynamic-->
+            &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License
         </nav>
     </footer>
 
     <aside id="printInformation">
-        &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License | Printed: 2014-01-29 13:50<!--NOTE: datetime to be dynamic-->
+        &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License | Printed: @DateTime.Now.ToHumanDate()
     </aside>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>

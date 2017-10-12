@@ -287,6 +287,12 @@
   <ItemGroup>
     <Content Include="Views\Home\Framework.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SlickCMS.Core\SlickCMS.Core.csproj">
+      <Project>{4b04ed7b-87bd-42d3-a9eb-f231991cfa1c}</Project>
+      <Name>SlickCMS.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

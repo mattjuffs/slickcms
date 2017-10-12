@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickCMS.Core.Extensions
+namespace SlickCMS.Core//.Extensions
 {
-    public static class String
+    public static class StringExtensions
     {
         /// <summary>
         /// Converts a string into a string array by splitting on the delimiter
