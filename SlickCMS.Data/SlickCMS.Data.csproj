@@ -87,6 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SlickCMS.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SlickCMSEntities.cs" />
     <Compile Include="Tag.cs">
       <DependentUpon>SlickCMS.tt</DependentUpon>
     </Compile>
