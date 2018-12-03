@@ -10,6 +10,8 @@ namespace SlickCMS.Web.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.MetaTitle = "SlickCMS";
+
             return View();
         }
 
@@ -29,6 +31,8 @@ namespace SlickCMS.Web.Controllers
 
         public ActionResult Framework()
         {
+            ViewBag.MetaTitle = "Slickhouse Framework";
+
             return View();
         }
     }

@@ -34,6 +34,7 @@ namespace SlickCMS.Web
                 "~/Content/js/script.js"
             ));
 
+            // NOTE: kept ckeditor separate for now, as it caused issues when combined/minified - and it might not be required on the frontend (just the admin?)
             bundles.Add(new ScriptBundle("~/bundles/ckeditor").Include("~/Content/ckeditor/ckeditor.js"));
 
             // mvc defaults:

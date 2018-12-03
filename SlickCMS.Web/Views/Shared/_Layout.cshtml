@@ -10,16 +10,15 @@
 <head>
     <meta charset="utf-8">
 
-    <!--
+    @*
         NOTE: send this as a header (or include this meta tag, or see web.config) to IE devices only
         http://www.validatethis.co.uk/news/fix-bad-value-x-ua-compatible-once-and-for-all/
-    -->
+    *@
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-    <title>Slickhouse Framework</title>
+    <title>@ViewBag.MetaTitle</title>
     <meta name="description" content="Slickhouse Framework">
     <meta name="author" content="Matthew Juffs">
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <link rel="icon" type="image/png" href="/Content/icons/favicon.ico" />
@@ -29,173 +28,53 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/icons/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/icons/apple-touch-icon-144x144-precomposed.png">
 
-    <!--
+    @*
         Open Sans (Normal 400) for paragraphs
         Open Sans (Normal 400 Italic) for italic text within paragraphs
         Open Sans (Bold 700) for bold text within paragraphs and headings
         Open Sans (Bold 700 Italic) for italic boold text within paragraphs and headings
 
         http://www.google.com/fonts/#UsePlace:use/Collection:Open+Sans:400italic,700italic,400,700
-    -->
+    *@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
 
-    <!--TODO: combine and minify css-->
-    @*<link rel="stylesheet" href="/Content/css/0_normalize-v2.1.0.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/1_html5bp.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/2.1_bootstrap-grid-system.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/2.2_bootstrap-buttons.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/3_primary.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/4_helper.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/5_mediaqueries.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/6_print.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/7_browsers.css?v=1" media="all">
-    <link rel="stylesheet" href="/Content/css/8_jquery.lightbox-0.5.css?v=1" media="all">*@
     @Styles.Render("~/bundles/css")
 
-    @*<script src="/Content/js/libraries/modernizr-2.6.2.min.js"></script>*@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div id="container">
         <div id="top"></div>
 
-        <header>
-            <nav>
-                <span id="projectName"><a href="/"><span class="orange">slick</span><span class="blue">house</span></a></span>
+        @Html.Partial("_Header")
 
-                <!--standard menu without dropdowns-->
-                <!--<ul id="menu">
-                    <li><a href="#bookmarkFeatures" class="scroll">Features</a></li>
-                    <li><a href="#bookmarkMessages" class="scroll">Messages</a></li>
-                    <li><a href="#bookmarkForms" class="scroll">Forms</a></li>
-                    <li><a href="#bookmarkGridSystem" class="scroll">GridSystem</a></li>
-                    <li><a href="#bookmarkColours" class="scroll">Colours</a></li>
-                    <li><a href="#bookmarkTODO" class="scroll">TODO</a></li>
-                </ul>-->
-                <!--menu with dropdowns-->
-                <ul id="menu">
-                    <li class="root" id="li1">
-                        <!--li# increments with each root list item-->
-                        <a href="#bookmarkFeatures" class="scroll">Features</a>
-                        <ul class="dropdown" id="dd1">
-                            <!--dd# increments with each dropdown list-->
-                            <li><a href="#">Menu Item 01</a></li>
-                            <li><a href="#">Menu Item 02</a></li>
-                        </ul>
-                    </li>
-                    <li class="root" id="li2">
-                        <a href="#bookmarkMessages" class="scroll">Messages</a>
-                        <ul class="dropdown" id="dd2">
-                            <li><a href="#">Menu Item 01</a></li>
-                            <li><a href="#">Menu Item 02</a></li>
-                            <li><a href="#">Menu Item 03</a></li>
-                            <li><a href="#">Menu Item 04</a></li>
-                            <li><a href="#">Menu Item 05</a></li>
-                            <li><a href="#">Menu Item 06</a></li>
-                            <li><a href="#">Menu Item 07</a></li>
-                            <li><a href="#">Menu Item 08</a></li>
-                            <li><a href="#">Menu Item 09</a></li>
-                            <li><a href="#">Menu Item 10</a></li>
-                        </ul>
-                    </li>
-                    <li class="root" id="li3">
-                        <a href="#bookmarkForms" class="scroll">Forms</a>
-                        <ul class="dropdown" id="dd3">
-                            <li><a href="#">Menu Item 01</a></li>
-                            <li><a href="#">Menu Item 02</a></li>
-                            <li><a href="#">Menu Item 03</a></li>
-                            <li><a href="#">Menu Item 04</a></li>
-                            <li><a href="#">Menu Item 05</a></li>
-                            <li><a href="#">Menu Item 06</a></li>
-                            <li><a href="#">Menu Item 07</a></li>
-                            <li><a href="#">Menu Item 08</a></li>
-                            <li><a href="#">Menu Item 09</a></li>
-                            <li><a href="#">Menu Item 10</a></li>
-                        </ul>
-                    </li>
-                    <!--non-dropdown root list items below:-->
-                    <li class="root"><a href="#bookmarkGridSystem" class="scroll">GridSystem</a></li>
-                    <li class="root"><a href="#bookmarkColours" class="scroll">Colours</a></li>
-                    <li class="root"><a href="#bookmarkTODO" class="scroll">TODO</a></li>
-                </ul>
-
-                <div id="search">
-                    <form method="get" action="/">
-                        <input type="search" placeholder="Search framework" />
-                        <input type="submit" value="go" title="Click to search the framework" />
-                    </form>
-                </div>
-
-                <a href="#" class="mobileMenu">Menu</a>
-                <ul class="mobileMenu">
-                    <li><a href="#top" class="scroll">Home</a></li>
-                    <li><a href="#bookmarkIntroduction" class="scroll">Introduction</a></li>
-                    <li><a href="#bookmarkFeatures" class="scroll">Features</a></li>
-                    <li><a href="#bookmarkTypography" class="scroll">Typography</a></li>
-                    <li><a href="#bookmarkMessages" class="scroll">Messages</a></li>
-                    <li><a href="#bookmarkTables" class="scroll">Tables</a></li>
-                    <li><a href="#bookmarkLists" class="scroll">Lists</a></li>
-                    <li><a href="#bookmarkBlockquotes" class="scroll">Blockquotes</a></li>
-                    <li><a href="#bookmarkForms" class="scroll">Forms</a></li>
-                    <li><a href="#bookmarkCode" class="scroll">Code</a></li>
-                    <li><a href="#bookmarkBreadcrumbs" class="scroll">Breadcrumbs</a></li>
-                    <li><a href="#bookmarkPagination" class="scroll">Pagination</a></li>
-                    <li><a href="#bookmarkGridSystem" class="scroll">GridSystem</a></li>
-                    <li><a href="#bookmarkImages" class="scroll">Images</a></li>
-                    <li><a href="#bookmarkColours" class="scroll">Colours</a></li>
-                    <li class="last"><a href="#bookmarkTODO">TODO</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!--
+        @*
             NOTE: add the following class to an element to enable ckeditor inline editing:
             contenteditable="true"
-        -->
-        <!--The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application.-->
+        *@
+
+        @*The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application.*@
         <main role="main">
+
+            @Html.Partial("_OutdatedBrowser")
 
             @RenderBody()
 
         </main>
     </div>
 
-    <footer>
-        <nav>
-            <a href="#top" class="scroll">Go to top</a>
-            &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License
-        </nav>
-    </footer>
-
-    <aside id="printInformation">
-        &copy; @DateTime.Now.Year Slickhouse / Matthew Juffs | Licensed under The MIT License | Printed: @DateTime.Now.ToHumanDate()
-    </aside>
+    @Html.Partial("_Footer")
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.0.min.js"><\/script>')</script>
 
-    <!--TODO: combine and minify javascript - MSBuild script provided-->
-    @*<script src="/Content/js/plugins.js"></script>
-    <script src="/Content/js/libraries/responsiveslides.min.js"></script>
-    <script src="/Content/js/libraries/jquery.lightbox-0.5.min.js"></script>
-    <script src="/Content/js/script.js"></script>*@
     @Scripts.Render("~/bundles/js")
 
-    <!--NOTE: kept ckeditor separate for now, as it caused issues when combined/minified - and it might not be required on the frontend (just the admin?)-->
-    @*<script src="/Content/ckeditor/ckeditor.js"></script>*@
     @Scripts.Render("~/bundles/ckeditor")
 
     @RenderSection("scripts", required: false)
 
-    <!--NOTE: change UA-XXXXX-X to match your Google Analytics account-->
-    <script>
-        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
-        (function (d, t) {
-            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g, s)
-        }(document, 'script'));
-    </script>
+    @Html.Partial("Tracking/_GoogleAnalytics")
 
 </body>
 </html>
