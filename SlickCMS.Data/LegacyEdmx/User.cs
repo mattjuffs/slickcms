@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS
+namespace SlickCMS.LegacyEdmx
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class User
     {
-        public int PostID { get; set; }
         public int UserID { get; set; }
-        public string Title { get; set; }
+        public System.Guid UUID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public string URL { get; set; }
-        public string Summary { get; set; }
-        public string Content { get; set; }
-        public string Search { get; set; }
+        public string IP { get; set; }
+        public string Biography { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateModified { get; set; }
-        public int Published { get; set; }
-        public int Pageable { get; set; }
+        public int Active { get; set; }
+        public int LoginFails { get; set; }
     }
 }

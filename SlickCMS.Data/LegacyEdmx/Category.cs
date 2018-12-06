@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS
+namespace SlickCMS.LegacyEdmx
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Relationship
+    public partial class Category
     {
-        public int RelationshipID { get; set; }
         public int CategoryID { get; set; }
-        public int LinkID { get; set; }
-        public int PostID { get; set; }
-        public int UserID { get; set; }
-        public int TagID { get; set; }
-        public int Order { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
     }
 }

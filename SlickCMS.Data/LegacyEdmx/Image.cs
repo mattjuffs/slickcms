@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS
+namespace SlickCMS.LegacyEdmx
 {
     using System;
     using System.Collections.Generic;

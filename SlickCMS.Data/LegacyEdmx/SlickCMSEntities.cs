@@ -9,9 +9,12 @@ namespace SlickCMS.Data
 {
     public partial class SlickCMSEntities
     {
-        private static int commandTimeout = 60;
-
         public static SlickCMSEntities Create()
+        {
+            return Create(60);
+        }
+
+        public static SlickCMSEntities Create(int commandTimeout)
         {
             var db = new SlickCMSEntities();
 
@@ -21,14 +24,6 @@ namespace SlickCMS.Data
 
             objectContext.CommandTimeout = commandTimeout;
 
-            return db;
-        }
-
-        public static SlickCMSEntities Create(int commandTimeoutOverride)
-        {
-            var db = new SlickCMSEntities();
-            var objectContext = (db as IObjectContextAdapter).ObjectContext;
-            objectContext.CommandTimeout = commandTimeout;
             return db;
         }
     }

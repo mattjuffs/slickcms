@@ -7,24 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS
+namespace SlickCMS.LegacyEdmx
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Comment
+    public partial class Relationship
     {
-        public int CommentID { get; set; }
+        public int RelationshipID { get; set; }
+        public int CategoryID { get; set; }
+        public int LinkID { get; set; }
         public int PostID { get; set; }
         public int UserID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string URL { get; set; }
-        public string IP { get; set; }
-        public string HTTP_USER_AGENT { get; set; }
-        public string Content { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public System.DateTime DateModified { get; set; }
-        public int Published { get; set; }
+        public int TagID { get; set; }
+        public int Order { get; set; }
     }
 }

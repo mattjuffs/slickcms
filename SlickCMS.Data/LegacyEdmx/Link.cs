@@ -7,14 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SlickCMS
+namespace SlickCMS.LegacyEdmx
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Tag
+    public partial class Link
     {
-        public int TagID { get; set; }
+        public int LinkID { get; set; }
         public string Name { get; set; }
+        public string URL { get; set; }
+        public string Description { get; set; }
+        public System.DateTime DateCreated { get; set; }
+        public System.DateTime DateModified { get; set; }
+        public int Published { get; set; }
     }
 }
