@@ -1,1 +1,5 @@
 Scaffold-DbContext "Server=slickhouse.database.windows.net,1433;Database=slickhouse-v11;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Scaffold-DbContext "Server=slickhouse.database.windows.net,1433;Database=slickhouse-v11;Initial Catalog=slickhouse-v11;User ID=mjuffs;Password=SqlServer9687;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -ContextDir Context -Context SlickCMSContext
+
+Scaffold-DbContext "Server=tcp:slickhouse.database.windows.net,1433;Initial Catalog=slickhouse-v11;Persist Security Info=False;User ID=mjuffs;Password=SqlServer9687;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -Context SlickCMSContext

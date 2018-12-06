@@ -1,39 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using SlickCMS.Web.Models;
 
 namespace SlickCMS.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            ViewBag.MetaTitle = "SlickCMS";
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult About()
+        public IActionResult Contact()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewData["Message"] = "Your contact page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public IActionResult Privacy()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
-        public ActionResult Framework()
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            ViewBag.MetaTitle = "Slickhouse Framework";
-
-            return View();
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
