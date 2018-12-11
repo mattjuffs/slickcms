@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SlickCMS.Core\SlickCMS.Core.csproj" />
     <ProjectReference Include="..\SlickCMS.Data\SlickCMS.Data.csproj" />
   </ItemGroup>
 

@@ -17,15 +17,17 @@ namespace SlickCMS.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)//, IHostingEnvironment env)
         {
             Configuration = configuration;
+            //hostingEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
+        //public IHostingEnvironment hostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, IHostingEnvironment env)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -37,9 +39,8 @@ namespace SlickCMS.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            // TODO: In a real application you would typically put the connection string in a configuration file or environment variable. For the sake of simplicity, this tutorial has you define it in code. For more information, see Connection Strings (https://docs.microsoft.com/en-gb/ef/core/miscellaneous/connection-strings).
-            var connection = @"Server=tcp:slickhouse.database.windows.net,1433;Initial Catalog=slickhouse-v11;Persist Security Info=False;User ID=mjuffs;Password=SqlServer9687;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connection));
+            var connectionString = new SlickCMS.Core.ConnectionString();
+            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(env.ContentRootPath)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

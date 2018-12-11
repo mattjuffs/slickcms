@@ -12,4 +12,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SlickCMS.Core\SlickCMS.Core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -28,8 +28,8 @@ namespace SlickCMS.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:slickhouse.database.windows.net,1433;Initial Catalog=slickhouse-v11;Persist Security Info=False;User ID=mjuffs;Password=SqlServer9687;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                var connectionString = new SlickCMS.Core.ConnectionString();
+                optionsBuilder.UseSqlServer(connectionString.Get());
             }
         }
 
