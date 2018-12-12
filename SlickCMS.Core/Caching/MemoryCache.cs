@@ -23,7 +23,7 @@ namespace SlickCMS.Core.Caching
         /// <summary>
         /// Returns the Cached object as the corresponding class
         /// Usage:
-        ///     var cachedObject = Cortana.Core.Caching.MemoryCache.Get<List<string>>(cacheKey);
+        ///     var cachedObject = Caching.MemoryCache.Get<List<string>>(cacheKey);
         /// </summary>
         internal static T Get<T>(string cacheKey) where T : class
         {
@@ -38,7 +38,7 @@ namespace SlickCMS.Core.Caching
         /// <summary>
         /// Returns the Cached object
         /// Usage:
-        ///     var cachedObject = (List<string>)Cortana.Core.Caching.MemoryCache.Get(cacheKey);
+        ///     var cachedObject = (List<string>)Caching.MemoryCache.Get(cacheKey);
         /// </summary>
         internal static object Get(string cacheKey)
         {

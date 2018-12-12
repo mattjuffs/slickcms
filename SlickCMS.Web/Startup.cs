@@ -17,17 +17,19 @@ namespace SlickCMS.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)//, IHostingEnvironment env)
+        private IHostingEnvironment hostingEnvironment;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
-            //hostingEnvironment = env;
+            hostingEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
         //public IHostingEnvironment hostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services, IHostingEnvironment env)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -40,7 +42,7 @@ namespace SlickCMS.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connectionString = new SlickCMS.Core.ConnectionString();
-            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(env.ContentRootPath)));
+            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(hostingEnvironment.ContentRootPath)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

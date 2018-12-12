@@ -27,18 +27,24 @@ namespace SlickCMS.Core
         public string FileName = @"slickcms.txt";
 
         private string boilerplateConnectionString = @"Server=<server>;Initial Catalog=slickcms;Persist Security Info=False;User ID=slickcms;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        private string cacheKey = "ConnectionString";
 
         public string Get(string environmentPath = "")
         {
-            // TODO: check cache
+            var cachedConnectionString = SlickCMS.Core.Caching.MemoryCache.Get(cacheKey);
+            if (cachedConnectionString != null)
+                return cachedConnectionString.ToString();
 
             if (environmentPath != "")
-                this.Path = environmentPath + @"ConnectionStrings\";
+                this.Path = environmentPath + @"\ConnectionStrings\";
 
             if (!FileExists())
                 Create();
 
-            return System.IO.File.ReadAllText(this.Path + this.FileName);
+            string connectionString = System.IO.File.ReadAllText(this.Path + this.FileName);
+            Caching.MemoryCache.Add(cacheKey, connectionString);
+
+            return connectionString;
         }
 
         private bool FileExists()
