@@ -17,16 +17,14 @@ namespace SlickCMS.Web
 {
     public class Startup
     {
-        private IHostingEnvironment hostingEnvironment;
+        public IConfiguration Configuration { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
 
         public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            Configuration = configuration;
-            hostingEnvironment = env;
+            this.Configuration = configuration;
+            this.HostingEnvironment = env;
         }
-
-        public IConfiguration Configuration { get; }
-        //public IHostingEnvironment hostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -38,11 +36,10 @@ namespace SlickCMS.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connectionString = new SlickCMS.Core.ConnectionString();
-            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(hostingEnvironment.ContentRootPath)));
+            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(this.HostingEnvironment.ContentRootPath)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
