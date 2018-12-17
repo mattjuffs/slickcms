@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SlickCMS.Data;
+using SlickCMS.Data.Entities;
+using SlickCMS.Data.Services;
 
 namespace SlickCMS.Web.Controllers
 {
@@ -19,39 +21,46 @@ namespace SlickCMS.Web.Controllers
         }
 
         // GET: Posts
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             return View(await _context.Post.ToListAsync());
+        }*/
+
+        public IActionResult Index()
+        {
+            var postService = new SlickCMS.Data.Services.PostService(_context);
+            return View(postService.GetPublished());
         }
 
+        // TODO: all of the below need amending to use the PostService, rather than the Post entity itself
+
         // GET: Posts/Details/5
-        public async Task<IActionResult> Details(int? id)
+        /*public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var post = await _context.Post
-                .FirstOrDefaultAsync(m => m.PostId == id);
+            var post = await _context.Post.FirstOrDefaultAsync(m => m.PostId == id);
             if (post == null)
             {
                 return NotFound();
             }
 
             return View(post);
-        }
+        }*/
 
         // GET: Posts/Create
-        public IActionResult Create()
+        /*public IActionResult Create()
         {
             return View();
-        }
+        }*/
 
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PostId,UserId,Title,Url,Summary,Content,Search,DateCreated,DateModified,Published,Pageable")] Post post)
         {
@@ -62,10 +71,10 @@ namespace SlickCMS.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(post);
-        }
+        }*/
 
         // GET: Posts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        /*public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -78,12 +87,12 @@ namespace SlickCMS.Web.Controllers
                 return NotFound();
             }
             return View(post);
-        }
+        }*/
 
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("PostId,UserId,Title,Url,Summary,Content,Search,DateCreated,DateModified,Published,Pageable")] Post post)
         {
@@ -113,10 +122,10 @@ namespace SlickCMS.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(post);
-        }
+        }*/
 
         // GET: Posts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        /*public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -131,10 +140,10 @@ namespace SlickCMS.Web.Controllers
             }
 
             return View(post);
-        }
+        }*/
 
         // POST: Posts/Delete/5
-        [HttpPost, ActionName("Delete")]
+        /*[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -142,11 +151,11 @@ namespace SlickCMS.Web.Controllers
             _context.Post.Remove(post);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
-        private bool PostExists(int id)
+        /*private bool PostExists(int id)
         {
             return _context.Post.Any(e => e.PostId == id);
-        }
+        }*/
     }
 }
