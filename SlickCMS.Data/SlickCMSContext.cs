@@ -7,14 +7,8 @@ namespace SlickCMS.Data
 {
     public partial class SlickCMSContext : DbContext
     {
-        public SlickCMSContext()
-        {
-        }
-
-        public SlickCMSContext(DbContextOptions<SlickCMSContext> options)
-            : base(options)
-        {
-        }
+        public SlickCMSContext() { }
+        public SlickCMSContext(DbContextOptions<SlickCMSContext> options) : base(options) { }
 
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }

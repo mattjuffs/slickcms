@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using SlickCMS.Data.Interfaces;
+
 namespace SlickCMS.Data.Entities
 {
-    public partial class Post //: BaseEntity<Post>
+    public partial class Post : IBaseEntity
     {
-        //public Post() { }
-        //public Post(SlickCMSContext context) : base(context) { }
-
         public int PostId { get; set; }
         public int UserId { get; set; }
         public string Title { get; set; }

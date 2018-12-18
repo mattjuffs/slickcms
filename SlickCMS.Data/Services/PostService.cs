@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+using SlickCMS.Data.Interfaces;
+
 namespace SlickCMS.Data.Services
 {
-    public class PostService : BaseService<Post>
+    public class PostService : BaseService<Post>, IPostService
     {
         public PostService() { }
         public PostService(SlickCMSContext context) : base(context) { }

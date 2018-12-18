@@ -12,6 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 using SlickCMS.Data;
 using Microsoft.EntityFrameworkCore;
+using SlickCMS.Data.Services;
+using SlickCMS.Data.Entities;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Web
 {
@@ -36,10 +39,13 @@ namespace SlickCMS.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var connectionString = new SlickCMS.Core.ConnectionString();
             services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(this.HostingEnvironment.ContentRootPath)));
+
+            // add Entity Services
+            services.AddScoped<IPostService, PostService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

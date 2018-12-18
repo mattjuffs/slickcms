@@ -13,8 +13,8 @@ namespace SlickCMS.Data.Services
     /// <summary>
     /// Contains generic Data methods for CRUD operations
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public class BaseService<TEntity> where TEntity : class
+    /// <typeparam name="IBaseEntity"></typeparam>
+    public class BaseService<IBaseEntity> where IBaseEntity : class
     {
         public BaseService() { }
 
@@ -32,7 +32,7 @@ namespace SlickCMS.Data.Services
             get { return true; }
         }*/
 
-        public virtual void Add(TEntity entity)
+        public virtual void Add(IBaseEntity entity)
         {
             /*using (var db = CreateContext())
             {
@@ -49,11 +49,11 @@ namespace SlickCMS.Data.Services
             }*/
 
             // TODO: add entity to context
-            _context.Add<TEntity>(entity);
+            _context.Add<IBaseEntity>(entity);
             _context.SaveChanges();
         }
 
-        public virtual void Update(TEntity entity)
+        public virtual void Update(IBaseEntity entity)
         {
             /*using (var db = CreateContext())
             {
@@ -74,7 +74,7 @@ namespace SlickCMS.Data.Services
             // TODO: update entity within context
         }
 
-        public virtual void Delete(TEntity entity)
+        public virtual void Delete(IBaseEntity entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
 
@@ -96,7 +96,7 @@ namespace SlickCMS.Data.Services
             // TODO: delete entity within context (flag it as deleted)
         }
 
-        public virtual TEntity Get(object key)
+        public virtual IBaseEntity Get(object key)
         {
             /*using (var db = CreateContext())
             {
@@ -105,11 +105,11 @@ namespace SlickCMS.Data.Services
             }*/
 
             // TODO: get entity from context
-            var table = _context.Set<TEntity>();
+            var table = _context.Set<IBaseEntity>();
             return table.Find(key);
         }
 
-        public virtual TEntity Get(Expression<Func<TEntity, bool>> query)
+        public virtual IBaseEntity Get(Expression<Func<IBaseEntity, bool>> query)
         {
             /*using (var db = CreateContext())
             {
@@ -118,11 +118,11 @@ namespace SlickCMS.Data.Services
             }*/
 
             // TODO: get entity from context
-            var table = _context.Set<TEntity>();
+            var table = _context.Set<IBaseEntity>();
             return table.Where(query).FirstOrDefault();
         }
 
-        public virtual List<TEntity> GetMultiple(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
+        public virtual List<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null)
         {
             /*using (var db = CreateContext())
             {
@@ -136,7 +136,7 @@ namespace SlickCMS.Data.Services
             }*/
 
             // TODO: get entities from context
-            var table = _context.Set<TEntity>();
+            var table = _context.Set<IBaseEntity>();
             var query = table.Where(filter);
 
             if (orderBy != null)

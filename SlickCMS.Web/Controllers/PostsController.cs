@@ -8,16 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using SlickCMS.Data;
 using SlickCMS.Data.Entities;
 using SlickCMS.Data.Services;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Web.Controllers
 {
     public class PostsController : Controller
     {
         private readonly SlickCMSContext _context;
-
-        public PostsController(SlickCMSContext context)
+        private readonly IPostService _postService;
+        
+        public PostsController(SlickCMSContext context, IPostService postService)
         {
             _context = context;
+            _postService = postService;
         }
 
         // GET: Posts
@@ -28,8 +31,9 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Index()
         {
-            var postService = new SlickCMS.Data.Services.PostService(_context);
-            return View(postService.GetPublished());
+            //var postService = new SlickCMS.Data.Services.PostService(_context);
+            //return View(postService.GetPublished());
+            return View(_postService.GetPublished());
         }
 
         // TODO: all of the below need amending to use the PostService, rather than the Post entity itself
