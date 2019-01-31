@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+//using WebMarkupMin.AspNetCore2;
+
 using SlickCMS.Data;
 using Microsoft.EntityFrameworkCore;
 using SlickCMS.Data.Services;
@@ -28,6 +30,8 @@ namespace SlickCMS.Web
             this.Configuration = configuration;
             this.HostingEnvironment = env;
         }
+
+        // TODO: https://docs.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-2.2
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -49,24 +53,37 @@ namespace SlickCMS.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.2#order
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
+            else if (env.IsProduction())
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
+                //app.UseWebMarkupMin();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseResponseCompression();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            //app.UseAuthentication();
+            //app.UseSession();
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(name: "Blog_Articles", template: "articles/{key}", defaults: new { controller = "Blog", action = "Articles" });
+                // TODO: routes for all pages/sections
+                // /about
+                // /contact
+                // /copyright
+                // /privacy
+                // /category/{category}
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

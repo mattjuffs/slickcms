@@ -1,0 +1,59 @@
+﻿// https://docs.microsoft.com/en-us/aspnet/core/client-side/bundling-and-minification?view=aspnetcore-2.2&tabs=visual-studio
+[
+  {
+    "outputFileName": "wwwroot/bundles/slickcms.min.css",
+    "inputFiles": [
+      "wwwroot/css/0_normalize-v2.1.0.css",
+      "wwwroot/css/1_html5bp.css",
+      "wwwroot/css/2.1_bootstrap-grid-system.css",
+      "wwwroot/css/2.2_bootstrap-buttons.css",
+      "wwwroot/css/3_primary.css",
+      "wwwroot/css/4_helper.css",
+      "wwwroot/css/5_mediaqueries.css",
+      "wwwroot/css/6_print.css",
+      "wwwroot/css/7_browsers.css",
+      "wwwroot/css/8_jquery.lightbox-0.5.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/slickcms.min.js",
+    "inputFiles": [
+      "wwwroot/js/plugins.js",
+      "wwwroot/js/libraries/responsiveslides.min.js",
+      "wwwroot/js/libraries/jquery.lightbox-0.5.min.js",
+      "wwwroot/js/script.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/modernizr.min.js",
+    "inputFiles": [
+      "wwwroot/js/libraries/modernizr-*"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/ckeditor.min.js",
+    "inputFiles": [
+      "wwwroot/ckeditor/ckeditor.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

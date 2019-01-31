@@ -3,19 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Data.Legacy", "SlickCMS.Data.Legacy\SlickCMS.Data.Legacy.csproj", "{A718E9D9-A666-4E2F-BC00-067AB2C567CE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlickCMS.Data", "SlickCMS.Data\SlickCMS.Data.csproj", "{0823D599-B6D2-45C5-846E-44D19ACF00EB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{CB9B5627-28F9-491A-BD81-4D1684523527}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Web.Legacy", "SlickCMS.Web.Legacy\SlickCMS.Web.Legacy.csproj", "{BF2DCF0D-1734-4D4F-863F-382DA2E0B641}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Core.Legacy", "SlickCMS.Core.Legacy\SlickCMS.Core.Legacy.csproj", "{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlickCMS.Web", "SlickCMS.Web\SlickCMS.Web.csproj", "{4DA3A48B-15EE-446C-BF4C-52395EA55E18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickCMS.Core", "SlickCMS.Core\SlickCMS.Core.csproj", "{575287FA-2CB8-4943-A82F-03D032341F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlickCMS.Core", "SlickCMS.Core\SlickCMS.Core.csproj", "{575287FA-2CB8-4943-A82F-03D032341F9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A718E9D9-A666-4E2F-BC00-067AB2C567CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A718E9D9-A666-4E2F-BC00-067AB2C567CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A718E9D9-A666-4E2F-BC00-067AB2C567CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A718E9D9-A666-4E2F-BC00-067AB2C567CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0823D599-B6D2-45C5-846E-44D19ACF00EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0823D599-B6D2-45C5-846E-44D19ACF00EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0823D599-B6D2-45C5-846E-44D19ACF00EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0823D599-B6D2-45C5-846E-44D19ACF00EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF2DCF0D-1734-4D4F-863F-382DA2E0B641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF2DCF0D-1734-4D4F-863F-382DA2E0B641}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF2DCF0D-1734-4D4F-863F-382DA2E0B641}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF2DCF0D-1734-4D4F-863F-382DA2E0B641}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4DA3A48B-15EE-446C-BF4C-52395EA55E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4DA3A48B-15EE-446C-BF4C-52395EA55E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA3A48B-15EE-446C-BF4C-52395EA55E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,11 +30,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{A718E9D9-A666-4E2F-BC00-067AB2C567CE} = {CB9B5627-28F9-491A-BD81-4D1684523527}
-		{BF2DCF0D-1734-4D4F-863F-382DA2E0B641} = {CB9B5627-28F9-491A-BD81-4D1684523527}
-		{4B04ED7B-87BD-42D3-A9EB-F231991CFA1C} = {CB9B5627-28F9-491A-BD81-4D1684523527}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F7FD363-A4F9-4419-8306-93B7D49801DC}

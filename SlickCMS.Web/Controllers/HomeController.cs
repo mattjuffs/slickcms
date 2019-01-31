@@ -12,6 +12,7 @@ namespace SlickCMS.Web.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.MetaTitle = "SlickCMS";
             return View();
         }
 

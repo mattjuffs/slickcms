@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\Entities\**" />
+    <Compile Remove="Entities\Legacy\**" />
+    <EmbeddedResource Remove="Entities\Entities\**" />
+    <EmbeddedResource Remove="Entities\Legacy\**" />
+    <None Remove="Entities\Entities\**" />
+    <None Remove="Entities\Legacy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
       <PrivateAssets>all</PrivateAssets>
