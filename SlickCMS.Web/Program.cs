@@ -17,6 +17,8 @@ namespace SlickCMS.Web
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        // NOTE: CreateDefaultBuilder() loads configuration from appsettings.json & appsettings.[EnvironmentName].json
+        // https://docs.microsoft.com/en-gb/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.2
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
