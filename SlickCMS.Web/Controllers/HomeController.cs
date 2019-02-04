@@ -53,22 +53,10 @@ namespace SlickCMS.Web.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [Route("framework")]
+        public IActionResult Framework()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewData["MetaTitle"] = "Framework";
             return View();
         }
 

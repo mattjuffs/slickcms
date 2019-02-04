@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Data.Entities
 {
-    public partial class Image
+    public partial class Image : IBaseEntity
     {
         public int ImageId { get; set; }
         public string Name { get; set; }

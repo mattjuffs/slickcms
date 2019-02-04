@@ -8,6 +8,10 @@ using System.Linq.Expressions;
 
 namespace SlickCMS.Data.Interfaces
 {
+    /// <summary>
+    /// Interface specifying CRUD operations
+    /// </summary>
+    /// <typeparam name="IBaseEntity"></typeparam>
     public interface IEntityService<IBaseEntity> where IBaseEntity : class
     {
         void Add(IBaseEntity entity);
