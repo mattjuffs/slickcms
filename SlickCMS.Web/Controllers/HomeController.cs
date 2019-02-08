@@ -6,22 +6,38 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SlickCMS.Web.Models;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SlickCMS.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IConfiguration _config;
+        public IHostingEnvironment HostingEnvironment { get; }
 
-        public HomeController(IConfiguration config)
+        public HomeController(IConfiguration config, IHostingEnvironment env)
         {
-            _config = config;
+            this._config = config;
+            this.HostingEnvironment = env;
         }
 
         public IActionResult Index()
         {
             var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
             ViewData["MetaTitle"] = siteName;
+
+            ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
+
             return View();
         }
 
