@@ -22,26 +22,26 @@ namespace SlickCMS.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IConfiguration _config;
-        public IHostingEnvironment HostingEnvironment { get; }
+        //private readonly IConfiguration _config;
+        //public IHostingEnvironment HostingEnvironment { get; }
 
-        public HomeController(IConfiguration config, IHostingEnvironment env)
+        public HomeController()//(IConfiguration config, IHostingEnvironment env)
         {
-            this._config = config;
-            this.HostingEnvironment = env;
+            //this._config = config;
+            //this.HostingEnvironment = env;
         }
 
         public IActionResult Index()
         {
-            var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
-            ViewData["MetaTitle"] = siteName;
+            //var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
+            //ViewData["MetaTitle"] = siteName;
 
-            ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
+            //ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
 
             return View();
         }
 
-        [Route("settings")]
+        /*[Route("settings")]
         public IActionResult Settings()
         {
             // accessing Configuration from appsettings.json - https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2
@@ -67,7 +67,7 @@ namespace SlickCMS.Web.Controllers
             ViewData["Children"] = children.Count();
 
             return View();
-        }
+        }*/
 
         [Route("framework")]
         public IActionResult Framework()
