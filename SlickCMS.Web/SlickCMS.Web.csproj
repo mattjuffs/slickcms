@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ConnectionStrings\**" />
+    <Content Remove="ConnectionStrings\**" />
+    <EmbeddedResource Remove="ConnectionStrings\**" />
+    <None Remove="ConnectionStrings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Posts\Create.cshtml" />
     <Content Remove="Views\Posts\Delete.cshtml" />
     <Content Remove="Views\Posts\Details.cshtml" />

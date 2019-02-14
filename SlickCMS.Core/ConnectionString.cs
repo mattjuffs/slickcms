@@ -41,6 +41,8 @@ namespace SlickCMS.Core
             if (!FileExists())
                 Create();
 
+            //return this.Path + this.FileName;
+
             string connectionString = System.IO.File.ReadAllText(this.Path + this.FileName);
             Caching.MemoryCache.Add(cacheKey, connectionString);
 

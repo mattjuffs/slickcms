@@ -59,8 +59,8 @@ namespace SlickCMS.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            //var connectionString = new SlickCMS.Core.ConnectionString();
-            //services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(this.HostingEnvironment.ContentRootPath)));// mjtest
+            var connectionString = new SlickCMS.Core.ConnectionString();
+            services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(this.HostingEnvironment.ContentRootPath)));
 
             // add Entity Services
             services.AddScoped<IPostService, PostService>();

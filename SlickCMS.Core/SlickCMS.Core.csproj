@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Integrations\" />
     <Folder Include="Legacy\" />
   </ItemGroup>
 
