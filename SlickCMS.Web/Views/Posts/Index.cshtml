@@ -56,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Url)
+                <a href="/post?url=@item.Url">@Html.DisplayFor(modelItem => item.Url)</a>                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Summary)

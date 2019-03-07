@@ -22,5 +22,12 @@ namespace SlickCMS.Data.Services
 
             return posts;
         }
+
+        public Post GetPost(string url)
+        {
+            var post = this.Get(p => p.Url == url);
+
+            return post;
+        }
     }
 }

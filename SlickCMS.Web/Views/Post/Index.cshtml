@@ -1,0 +1,56 @@
+﻿@model SlickCMS.Data.Entities.Post
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+<ul>
+    <li>
+        @Html.DisplayNameFor(model => model.UserId):
+        @Html.DisplayFor(model => model.UserId)
+    </li>
+
+    <li>
+        @Html.DisplayNameFor(model => model.Title):
+        @Html.DisplayFor(model => model.Title)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.Url):
+        @Html.DisplayFor(model => model.Url)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.Summary):
+        @Html.DisplayFor(model => model.Summary)
+    </li>
+    <li>
+        @*Html.DisplayNameFor(model => model.Content)*@
+        @*Html.DisplayFor(model => model.Content)*@
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.Search):
+        @Html.DisplayFor(model => model.Search)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.DateCreated):
+        @Html.DisplayFor(model => model.DateCreated)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.DateModified):
+        @Html.DisplayFor(model => model.DateModified)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.Published):
+        @Html.DisplayFor(model => model.Published)
+    </li>
+    <li>
+        @Html.DisplayNameFor(model => model.Pageable):
+        @Html.DisplayFor(model => model.Pageable)
+    </li>
+</ul>
+
+<hr />
+
+@Html.Raw(Model.Content)
