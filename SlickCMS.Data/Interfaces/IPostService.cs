@@ -10,6 +10,8 @@ namespace SlickCMS.Data.Interfaces
     public interface IPostService : IEntityService<Post>
     {
         List<Post> GetPublished();
+        List<Post> GetPublished(int page, int take);
         Post GetPost(string url);
+        int TotalPosts();
     }
 }

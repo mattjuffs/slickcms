@@ -23,11 +23,29 @@ namespace SlickCMS.Data.Services
             return posts;
         }
 
+        public List<Post> GetPublished(int page, int take)
+        {
+            int skip = 0;
+
+            if (page != 1)
+                skip = (page * take) - take;
+
+            var posts = this.GetMultiple(p => p.Published == 1, q => q.OrderByDescending(r => r.DateCreated), skip, take);
+
+            return posts;
+        }
+
         public Post GetPost(string url)
         {
             var post = this.Get(p => p.Url == url);
 
             return post;
+        }
+
+        public int TotalPosts()
+        {
+            int totalPosts = this.GetCount(p => p.Published == 1);
+            return totalPosts;
         }
     }
 }

@@ -9,16 +9,19 @@ using SlickCMS.Data;
 using SlickCMS.Data.Entities;
 using SlickCMS.Data.Services;
 using SlickCMS.Data.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace SlickCMS.Web.Controllers
 {
     public class PostsController : Controller
     {
+        private readonly IConfiguration _config;
         private readonly SlickCMSContext _context;
         private readonly IPostService _postService;
         
-        public PostsController(SlickCMSContext context, IPostService postService)
+        public PostsController(IConfiguration config, SlickCMSContext context, IPostService postService)
         {
+            _config = config;
             _context = context;
             _postService = postService;
         }
@@ -29,11 +32,18 @@ namespace SlickCMS.Web.Controllers
             return View(await _context.Post.ToListAsync());
         }*/
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            //var postService = new SlickCMS.Data.Services.PostService(_context);
-            //return View(postService.GetPublished());
-            return View(_postService.GetPublished());
+            int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
+            int totalPosts = _postService.TotalPosts();
+
+            int remainder = (totalPosts % take);
+            int totalPages = (totalPosts - remainder) / take;
+
+            ViewData["TotalPages"] = totalPages;
+            ViewData["Page"] = page;
+
+            return View(_postService.GetPublished(page, take));
         }
 
         // TODO: all of the below need amending to use the PostService, rather than the Post entity itself

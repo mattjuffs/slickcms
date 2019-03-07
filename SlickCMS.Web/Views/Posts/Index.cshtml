@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<SlickCMS.Data.Entities.Post>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Posts";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int totalPages = (int)ViewData["TotalPages"];
+    int page = (int)ViewData["Page"];
 }
 
-<h2>Index</h2>
+<h2>Posts</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@*<p><a asp-action="Create">Create New</a></p>*@
+
 <table class="table">
     <thead>
         <tr>
@@ -47,44 +49,85 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                <a href="/post?url=@item.Url">@Html.DisplayFor(modelItem => item.Url)</a>                
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Summary)
-            </td>
-            <!--<td>
-                @*Html.DisplayFor(modelItem => item.Content)*@
-            </td>-->
-            <td>
-                @Html.DisplayFor(modelItem => item.Search)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateModified)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Published)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pageable)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <a href="/post?url=@item.Url">@Html.DisplayFor(modelItem => item.Url)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summary)
+                </td>
+                <!--<td>
+                    @*Html.DisplayFor(modelItem => item.Content)*@
+                </td>-->
+                <td>
+                    @Html.DisplayFor(modelItem => item.Search)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Published)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pageable)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<section>
+    <ol class="pagination clearfix">
+        @{
+            if (page == 1)
+            {
+                <li><a href="/posts?page=@(page - 1)">&laquo; Previous</a></li>
+            }
+            else
+            {
+                <li class="disabled"><a>&laquo; Previous</a></li>
+            }
+        }
+
+        @{
+            for (int i = 0; i < totalPages; i++)
+            {
+                <li class="@(page == i ? "current" : "")"><a href="/posts?page=@i">@i</a></li>
+            }
+        }
+
+        @{
+            if (page == totalPages)
+            {
+                <li class="disabled"><a>Next &raquo;</a></li>
+            }
+            else
+            {
+                <li><a href="/posts?page=@(page + 1)">Next &raquo;</a></li>
+            }
+        }
+
+        <li><a href="/posts?viewall=true">View All</a></li>
+
+        @* TODO
+        <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
+        <li class="disabled"><a>Clear View All</a></li>
+        *@
+    </ol>
+</section>
