@@ -38,8 +38,8 @@ namespace SlickCMS.Web.Controllers
 
             ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
 
-            //var connectionString = new SlickCMS.Core.ConnectionString();
-            //ViewData["ConnectionString"] = connectionString.Get(this.HostingEnvironment.ContentRootPath);
+            var connectionString = new SlickCMS.Core.ConnectionString();
+            ViewData["ConnectionString"] = connectionString.Get(this.HostingEnvironment.ContentRootPath);
 
             return View();
         }
