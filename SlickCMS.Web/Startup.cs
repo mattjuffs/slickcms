@@ -103,13 +103,16 @@ namespace SlickCMS.Web
 
             app.UseMvc(routes =>
             {
-                //routes.MapRoute(name: "Blog_Articles", template: "articles/{key}", defaults: new { controller = "Blog", action = "Articles" });
-                // TODO: routes for all pages/sections
-                // /about
-                // /contact
-                // /copyright
-                // /privacy
-                // /category/{category}
+                // static routes
+                routes.MapRoute(name: "Static_About", template: "about", defaults: new { controller = "Static", action = "About" });
+                routes.MapRoute(name: "Static_Projects", template: "projects", defaults: new { controller = "Static", action = "Projects" });
+                routes.MapRoute(name: "Static_Contact", template: "contact", defaults: new { controller = "Static", action = "Contact" });
+                routes.MapRoute(name: "Static_License", template: "license", defaults: new { controller = "Static", action = "License" });
+                routes.MapRoute(name: "Static_Privacy", template: "privacy", defaults: new { controller = "Static", action = "Privacy" });
+                routes.MapRoute(name: "Static_Cookies", template: "cookies", defaults: new { controller = "Static", action = "Cookies" });
+
+                // TODO: route(s) for /posts and pagination
+                // TODO: route(s) for individual Post
 
                 routes.MapRoute(
                     name: "default",

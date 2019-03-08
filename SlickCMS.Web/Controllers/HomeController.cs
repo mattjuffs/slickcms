@@ -72,13 +72,6 @@ namespace SlickCMS.Web.Controllers
             return View();
         }
 
-        [Route("framework")]
-        public IActionResult Framework()
-        {
-            ViewData["MetaTitle"] = "Framework";
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
