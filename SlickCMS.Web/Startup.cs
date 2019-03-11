@@ -59,6 +59,8 @@ namespace SlickCMS.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddSession();
+
             var connectionString = new SlickCMS.Core.ConnectionString();
             services.AddDbContext<SlickCMSContext>(options => options.UseSqlServer(connectionString.Get(this.HostingEnvironment.ContentRootPath)));
 
@@ -99,7 +101,7 @@ namespace SlickCMS.Web
             app.UseStaticFiles();
             //app.UseCookiePolicy();
             //app.UseAuthentication();
-            //app.UseSession();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
@@ -107,6 +109,7 @@ namespace SlickCMS.Web
                 routes.MapRoute(name: "Static_About", template: "about", defaults: new { controller = "Static", action = "About" });
                 routes.MapRoute(name: "Static_Projects", template: "projects", defaults: new { controller = "Static", action = "Projects" });
                 routes.MapRoute(name: "Static_Contact", template: "contact", defaults: new { controller = "Static", action = "Contact" });
+                routes.MapRoute(name: "Static_ProcessContact", template: "process-contact", defaults: new { controller = "Static", action = "ProcessContact" });
                 routes.MapRoute(name: "Static_License", template: "license", defaults: new { controller = "Static", action = "License" });
                 routes.MapRoute(name: "Static_Privacy", template: "privacy", defaults: new { controller = "Static", action = "Privacy" });
                 routes.MapRoute(name: "Static_Cookies", template: "cookies", defaults: new { controller = "Static", action = "Cookies" });

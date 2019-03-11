@@ -17,7 +17,21 @@
             </div>
 
             <div class="span6">
-                <form method="post" action="/contact">
+                @if ((ViewData["ContactFormResult"] + "") != "")
+                {
+                    bool successful = (ViewData["ContactFormResult"] + "") == "success";
+
+                    if (successful)
+                    {
+                        <p class="success">Your message has been sent successfully!</p>
+                    }
+                    else
+                    {
+                        <p class="error">Your message failed to send, please try again!</p>
+                    }
+                }
+
+                <form method="post" action="/process-contact">
                     <fieldset>
                         <legend>Contact form</legend>
 

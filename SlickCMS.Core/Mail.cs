@@ -29,7 +29,7 @@ namespace SlickCMS.Core
                 using (var client = new SmtpClient())
                 {
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    client.Host = "smtp.example.com";
+                    client.Host = "smtp.mailgun.org";
                     client.Credentials = new System.Net.NetworkCredential("username@mailserver.example.com", "password-goes-here");
 
                     client.Send(mailMessage);
@@ -46,7 +46,7 @@ namespace SlickCMS.Core
 
         // Option 2 - using Mailgun's API (preferred)
         // https://documentation.mailgun.com/wrappers.html#c
-        public bool SendUsingMailgunAPI()
+        public bool SendUsingMailgunAPI(Entities.Email email)
         {
             try
             {
