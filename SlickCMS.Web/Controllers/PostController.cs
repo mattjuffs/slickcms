@@ -9,6 +9,8 @@ using SlickCMS.Data;
 using SlickCMS.Data.Entities;
 using SlickCMS.Data.Services;
 using SlickCMS.Data.Interfaces;
+using Microsoft.AspNetCore.Http;
+using System.Web;
 
 namespace SlickCMS.Web.Controllers
 {
@@ -43,6 +45,12 @@ namespace SlickCMS.Web.Controllers
         private void LoadComments(int postID)
         {
             // TODO
+        }
+
+        [HttpPost]
+        public IActionResult SaveComment(FormCollection form)
+        {
+            return Redirect("/");// TODO: redirect back to post page with #comments or #comment-form
         }
     }
 }

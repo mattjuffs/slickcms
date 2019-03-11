@@ -26,14 +26,14 @@ namespace SlickCMS.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProcessContact(FormCollection form)
+        public IActionResult SaveContact(FormCollection form)
         {
             var contactModel = new Models.ContactModel
             {
                 // FormCollection not available in MVC 6: https://stackoverflow.com/questions/35800809/asp-net-mvc-6-formcollection-not-being-populated-in-ajax-post
-                Name = HttpUtility.HtmlEncode(form["Name"]),
-                Email = form["Email"],// accepting raw email address
-                Message = HttpUtility.HtmlEncode(form["Message"]),
+                Name = HttpUtility.HtmlEncode(form["contact-name"]),
+                Email = form["contact-email"],// accepting raw email address
+                Message = HttpUtility.HtmlEncode(form["contact-message"]),
             };
 
             // TODO: spam protection (recaptcha?)

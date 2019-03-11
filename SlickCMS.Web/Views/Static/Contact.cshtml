@@ -31,23 +31,23 @@
                     }
                 }
 
-                <form method="post" action="/process-contact">
+                <form method="post" action="/save-contact">
                     <fieldset>
                         <legend>Contact form</legend>
 
                         <p>
-                            <label for="txtStandardInput">Your Name</label><br />
-                            <input type="text" name="txtStandardInput" id="txtStandardInput" placeholder="Leia Organa" required /><!--NOTE: use to specify required fields-->
+                            <label for="contact-name">Your Name</label><br />
+                            <input type="text" name="contact-name" id="contact-name" placeholder="Leia Organa" required /><!--NOTE: use to specify required fields-->
                         </p>
 
                         <p>
-                            <label for="txtEmailInput">Your Email</label><br />
-                            <input type="email" name="txtEmailInput" id="txtEmailInput" placeholder="your.name@domain.com" required />
+                            <label for="contact-email">Your Email</label><br />
+                            <input type="email" name="contact-email" id="contact-email" placeholder="your.name@domain.com" required />
                         </p>
 
                         <p>
-                            <label for="TextArea">Your Message</label><br />
-                            <textarea name="TextArea" id="TextArea" placeholder="Help me Obi-Wan Kenobi, you're my only hope." required></textarea>
+                            <label for="contact-message">Your Message</label><br />
+                            <textarea name="contact-message" id="contact-message" placeholder="Help me Obi-Wan Kenobi, you're my only hope." required></textarea>
                         </p>
 
                         <p>
