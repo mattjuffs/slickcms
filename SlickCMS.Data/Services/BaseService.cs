@@ -139,11 +139,11 @@ namespace SlickCMS.Data.Services
             var table = _context.Set<IBaseEntity>();
             var query = table.Where(filter);
 
-            query = query.Skip(skip).Take(take);
-
             if (orderBy != null)
                 return orderBy(query).ToList();
-            
+
+            query = query.Skip(skip).Take(take);
+
             return query.ToList();
         }
 
