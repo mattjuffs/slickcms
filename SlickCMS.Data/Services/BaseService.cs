@@ -140,11 +140,9 @@ namespace SlickCMS.Data.Services
             var query = table.Where(filter);
 
             if (orderBy != null)
-                return orderBy(query).ToList();
+                return orderBy(query).Skip(skip).Take(take).ToList();
 
-            query = query.Skip(skip).Take(take);
-
-            return query.ToList();
+            return query.Skip(skip).Take(take).ToList();
         }
 
         /*internal virtual SlickCMSContext CreateContext()

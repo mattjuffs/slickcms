@@ -35,7 +35,14 @@ namespace SlickCMS.Web.Controllers
 
             var post = _postService.GetPost(url);
 
+            LoadComments(post.PostId);
+
             return View(post);
+        }
+
+        private void LoadComments(int postID)
+        {
+            // TODO
         }
     }
 }

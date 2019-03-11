@@ -5,129 +5,135 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int totalPages = (int)ViewData["TotalPages"];
-    int page = (int)ViewData["Page"];
+    int currentPage = (int)ViewData["Page"];
 }
 
-<h2>Posts</h2>
+<div class="block">
+    <section>
+        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/">Home</a></li>
+            <li class="current"><a href="/posts?page=@currentPage">Posts</a></li>
+        </ol>
+    </section>
 
-@*<p><a asp-action="Create">Create New</a></p>*@
+    <section class="clearfix">
+        <h2>Posts</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Summary)
-            </th>
-            <!--<th>
-                @*Html.DisplayNameFor(model => model.Content)*@
-            </th>-->
-            <th>
-                @Html.DisplayNameFor(model => model.Search)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateModified)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Published)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pageable)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    <a href="/post?url=@item.Url">@Html.DisplayFor(modelItem => item.Url)</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Summary)
-                </td>
-                <!--<td>
-                    @*Html.DisplayFor(modelItem => item.Content)*@
-                </td>-->
-                <td>
-                    @Html.DisplayFor(modelItem => item.Search)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCreated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateModified)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Published)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pageable)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        @*<p><a asp-action="Create">Create New</a></p>*@
 
-<section>
-    <ol class="pagination clearfix">
-        @{
-            if (page == 1)
-            {
-                <li><a href="/posts?page=@(page - 1)">&laquo; Previous</a></li>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Url)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Summary)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Search)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateCreated)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DateModified)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Published)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pageable)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <a href="/post?url=@item.Url">@Html.DisplayFor(modelItem => item.Url)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Summary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Search)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateCreated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateModified)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Published)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pageable)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <ol class="pagination clearfix">
+            @{
+                if (currentPage == 1)
+                {
+                    <li><a href="/posts?page=@(currentPage - 1)">&laquo; Previous</a></li>
+                }
+                else
+                {
+                    <li class="disabled"><a>&laquo; Previous</a></li>
+                }
             }
-            else
-            {
-                <li class="disabled"><a>&laquo; Previous</a></li>
-            }
-        }
 
-        @{
-            for (int i = 0; i < totalPages; i++)
-            {
-                <li class="@(page == i ? "current" : "")"><a href="/posts?page=@i">@i</a></li>
+            @{
+                for (int i = 1; i < totalPages; i++)
+                {
+                    <li class="@(currentPage == i ? "current" : "")"><a href="/posts?page=@i">@i</a></li>
+                }
             }
-        }
 
-        @{
-            if (page == totalPages)
-            {
-                <li class="disabled"><a>Next &raquo;</a></li>
+            @{
+                if (currentPage == totalPages)
+                {
+                    <li class="disabled"><a>Next &raquo;</a></li>
+                }
+                else
+                {
+                    <li><a href="/posts?page=@(currentPage + 1)">Next &raquo;</a></li>
+                }
             }
-            else
-            {
-                <li><a href="/posts?page=@(page + 1)">Next &raquo;</a></li>
-            }
-        }
 
-        <li><a href="/posts?viewall=true">View All</a></li>
+            <li><a href="/posts?viewall=true">View All</a></li>
 
-        @* TODO
-        <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
-        <li class="disabled"><a>Clear View All</a></li>
-        *@
-    </ol>
-</section>
+            @* TODO
+                <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
+                <li class="disabled"><a>Clear View All</a></li>
+            *@
+        </ol>
+    </section>
+</div>
