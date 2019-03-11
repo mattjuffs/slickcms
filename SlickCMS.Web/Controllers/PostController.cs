@@ -50,6 +50,10 @@ namespace SlickCMS.Web.Controllers
         [HttpPost]
         public IActionResult SaveComment(FormCollection form)
         {
+            // comment-name
+            // comment-email
+            // comment-message
+
             return Redirect("/");// TODO: redirect back to post page with #comments or #comment-form
         }
     }

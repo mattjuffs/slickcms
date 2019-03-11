@@ -72,4 +72,31 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <form method="post" action="/save-comment" id="comments-form">
+            <fieldset>
+                <legend>Add a Comment</legend>
+
+                <p>
+                    <label for="comment-name">Your Name</label><br />
+                    <input type="text" name="comment-name" id="comment-name" placeholder="Leia Organa" required /><!--NOTE: use to specify required fields-->
+                </p>
+
+                <p>
+                    <label for="comment-email">Your Email</label><br />
+                    <input type="email" name="comment-email" id="comment-email" placeholder="your.name@domain.com" required />
+                </p>
+
+                <p>
+                    <label for="comment-message">Your Comment</label><br />
+                    <textarea name="comment-message" id="comment-message" placeholder="Help me Obi-Wan Kenobi, you're my only hope." required></textarea>
+                </p>
+
+                <p>
+                    <input class="btn btn-primary btn-large" type="submit" value="Submit" />
+                </p>
+            </fieldset>
+        </form>
+    </section>
 </div>
