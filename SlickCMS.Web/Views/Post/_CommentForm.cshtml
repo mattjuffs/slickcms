@@ -1,0 +1,31 @@
+﻿
+<section>
+    <form method="post" action="/save-comment" id="comments-form">
+        <fieldset>
+            <legend><strong>Add a Comment</strong></legend>
+
+            <div class="row-fluid">
+                <div class="span8">
+                    <p>
+                        <label for="comment-message">Your Comment</label><br />
+                        <textarea rows="10" style="height: 7em; width: 100%;" cols="70" name="comment-message" id="comment-message" placeholder="Help me Obi-Wan Kenobi, you're my only hope." required></textarea>
+                    </p>
+                </div>
+
+                <div class="span4">
+                    <p>
+                        <label for="comment-name">Your Name</label><br />
+                        <input type="text" name="comment-name" id="comment-name" placeholder="Leia Organa" required /><!--NOTE: use to specify required fields-->
+                    </p>
+                    <p>
+                        <label for="comment-email">Your Email</label><br />
+                        <input type="email" name="comment-email" id="comment-email" placeholder="your.name@domain.com" required />
+                    </p>
+                    <p>
+                        <input class="btn btn-primary" type="submit" value="Submit" />
+                    </p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
