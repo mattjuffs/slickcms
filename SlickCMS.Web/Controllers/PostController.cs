@@ -54,7 +54,7 @@ namespace SlickCMS.Web.Controllers
             // comment-email
             // comment-message
 
-            return Redirect("/");// TODO: redirect back to post page with #comments or #comment-form
+            return Redirect("/");// TODO: redirect back to post page with #comments (showing comment published) or #comment-form (showing success message)
         }
     }
 }
