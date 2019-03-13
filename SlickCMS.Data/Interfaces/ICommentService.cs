@@ -7,6 +7,6 @@ namespace SlickCMS.Data.Interfaces
 {
     public interface ICommentService : IEntityService<Comment>
     {
-        // TODO
+        List<Comment> GetPublished(int postID);
     }
 }

@@ -1,59 +1,59 @@
-﻿@model SlickCMS.Data.Entities.Post
+﻿@model SlickCMS.Web.Models.PostModel
 
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = Model.Post.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="title"><span>@Model.Title</span></h1>
+<h1 class="title"><span>@Model.Post.Title</span></h1>
 
 <div class="block">
     <section>
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
             <li><a href="/posts">Posts</a></li>
-            <li class="current"><a href="/@Model.Url">@Model.Title</a></li>
+            <li class="current"><a href="/@Model.Post.Url">@Model.Post.Title</a></li>
         </ol>
     </section>
 
     <section>
         <ul>
             <li>
-                @Html.DisplayNameFor(model => model.UserId):
-                @Html.DisplayFor(model => model.UserId)
+                @Html.DisplayNameFor(model => model.Post.UserId):
+                @Html.DisplayFor(model => model.Post.UserId)
             </li>
 
             <li>
-                @Html.DisplayNameFor(model => model.Title):
-                @Html.DisplayFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Post.Title):
+                @Html.DisplayFor(model => model.Post.Title)
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.Url):
-                @Html.DisplayFor(model => model.Url)
+                @Html.DisplayNameFor(model => model.Post.Url):
+                @Html.DisplayFor(model => model.Post.Url)
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.Summary):
-                @Html.DisplayFor(model => model.Summary)
+                @Html.DisplayNameFor(model => model.Post.Summary):
+                @Html.DisplayFor(model => model.Post.Summary)
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.Search):
-                @Html.DisplayFor(model => model.Search)
+                @Html.DisplayNameFor(model => model.Post.Search):
+                @Html.DisplayFor(model => model.Post.Search)
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.DateCreated):
-                <time>@Html.DisplayFor(model => model.DateCreated)</time>
+                @Html.DisplayNameFor(model => model.Post.DateCreated):
+                <time>@Html.DisplayFor(model => model.Post.DateCreated)</time>
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.DateModified):
-                <time>@Html.DisplayFor(model => model.DateModified)</time>
+                @Html.DisplayNameFor(model => model.Post.DateModified):
+                <time>@Html.DisplayFor(model => model.Post.DateModified)</time>
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.Published):
-                @Html.DisplayFor(model => model.Published)
+                @Html.DisplayNameFor(model => model.Post.Published):
+                @Html.DisplayFor(model => model.Post.Published)
             </li>
             <li>
-                @Html.DisplayNameFor(model => model.Pageable):
-                @Html.DisplayFor(model => model.Pageable)
+                @Html.DisplayNameFor(model => model.Post.Pageable):
+                @Html.DisplayFor(model => model.Post.Pageable)
             </li>
         </ul>
     </section>
@@ -61,13 +61,11 @@
     <hr />
 
     <article>
-        @Html.Raw(Model.Content)
+        @Html.Raw(Model.Post.Content)
     </article>
 
-    @*Html.Partial("_Comments")*@
+    <partial name="_Comments" model="Model.Comments" />
 
-    <partial name="_Comments" />
-
-    <partial name="_CommentForm" />
+    <partial name="_CommentForm" model="Model.Post" />
     
 </div>

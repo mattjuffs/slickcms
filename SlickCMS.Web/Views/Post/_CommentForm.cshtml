@@ -1,6 +1,9 @@
-﻿
+﻿@model SlickCMS.Data.Entities.Post
+
 <section>
     <form method="post" action="/save-comment" id="comments-form">
+        <input type="hidden" name="comment-postid" value="@Model.PostId" />
+
         <fieldset>
             <legend><strong>Add a Comment</strong></legend>
 

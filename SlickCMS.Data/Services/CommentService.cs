@@ -12,6 +12,9 @@ namespace SlickCMS.Data.Services
         public CommentService() { }
         public CommentService(SlickCMSContext context) : base(context) { }
 
-        // TODO
+        public List<Comment> GetPublished(int postID)
+        {
+            return this.GetMultiple(c => c.Published == 1, d => d.OrderByDescending(e => e.DateCreated));
+        }
     }
 }

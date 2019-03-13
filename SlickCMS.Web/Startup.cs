@@ -50,12 +50,12 @@ namespace SlickCMS.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
+            /*services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 //options.CheckConsentNeeded = context => true;
                 //options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            });*/
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -67,19 +67,6 @@ namespace SlickCMS.Web
             // add Entity Services
             services.AddScoped<IPostService, PostService>();
         }
-
-        /*public void ConfigureServices(IServiceCollection services)
-        {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
-
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        }*/
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         // see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.2#order
@@ -105,7 +92,6 @@ namespace SlickCMS.Web
 
             app.UseMvc(routes =>
             {
-                // static routes
                 routes.MapRoute(name: "Static_About", template: "about", defaults: new { controller = "Static", action = "About" });
                 routes.MapRoute(name: "Static_Projects", template: "projects", defaults: new { controller = "Static", action = "Projects" });
                 routes.MapRoute(name: "Static_Contact", template: "contact", defaults: new { controller = "Static", action = "Contact" });
@@ -124,29 +110,5 @@ namespace SlickCMS.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
-
-        /*public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseCookiePolicy();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }*/
     }
 }
