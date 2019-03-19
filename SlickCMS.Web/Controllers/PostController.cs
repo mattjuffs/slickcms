@@ -53,7 +53,7 @@ namespace SlickCMS.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveComment(FormCollection form)
+        public IActionResult SaveComment(IFormCollection form)
         {
             bool autoPublish = _config.GetValue<bool>("SlickCMS:AutoPublishComments", false);
 
