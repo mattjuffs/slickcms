@@ -14,7 +14,7 @@ namespace SlickCMS.Data.Services
 
         public List<Comment> GetPublished(int postID)
         {
-            return this.GetMultiple(c => c.Published == 1, d => d.OrderByDescending(e => e.DateCreated));
+            return this.GetMultiple(c => c.Published == 1 && c.PostId == postID, d => d.OrderBy(e => e.DateCreated));
         }
     }
 }

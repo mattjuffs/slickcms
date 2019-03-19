@@ -1,15 +1,58 @@
 ﻿@model List<SlickCMS.Data.Entities.Comment>
 
-@{
-    foreach (var comment in Model)
-    {
-        // TODO
-    }
-}
-
 <section>
     <h2 id="comments">Comments</h2>
-    <div class="row-fluid">
+
+    @{
+        foreach (var comment in Model)
+        {
+            <div class="row-fluid">
+                <div class="span8">
+                    @{
+                        if (comment.Content.StartsWith("<p>"))
+                        {
+                            @Html.Raw(comment.Content)
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(comment.Content)</p>
+                        }
+                    }
+                </div>
+                <div class="span4">
+                    <p>
+                        @{
+                            if ((comment.Url + "") != "")
+                            {
+                                <strong><a href="@comment.Url">@comment.Name</a></strong><br />
+                            }
+                            else
+                            {
+                                <strong>@comment.Name</strong><br />
+                            }
+                        }
+
+                        <em><time>@comment.DateCreated.ToHumanDate()</time></em>
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+    }
+
+    @{
+        if (Model.Count == 0)
+        {
+            <div class="row-fluid">
+                <div class="span8">
+                    <p><em>There are no Comments at this time.</em></p>
+                </div>
+            </div>
+            <hr />
+        }
+    }
+
+@*<div class="row-fluid">
         <div class="span8">
             <p>He is here... Obi-Wan Kenobi! What makes you think so? A tremor in the Force. The last time I felt it was in the presence of my old master. Surely he must be dead by now. Don't underestimate the power of the Force. The Jedi are extinct, their fire has gone out of the universe. You, my friend, are all that's left of their religion. Yes. Governor Tarkin, we have an emergency alert in detention block A A-twenty-three. The princess! Put all sections on alert!</p>
         </div>
@@ -44,5 +87,5 @@
             </p>
         </div>
     </div>
-    <hr />
+    <hr />*@
 </section>
