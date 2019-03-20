@@ -1,0 +1,67 @@
+﻿@model SlickCMS.Web.Models.PaginationModel
+
+@{ 
+    string url = "/posts?";
+
+    // TODO: append query for search
+
+    if ((Model.Query + "") != "")
+    {
+        url = "/search?query=" + Model.Query + "&";
+    }
+
+}
+
+<ul>
+    <li>TotalPages: @Model.TotalPages</li>
+    <li>CurrentPage: @Model.CurrentPage</li>
+    <li>TotalPosts: @Model.TotalPosts</li>
+</ul>
+
+<ol class="pagination clearfix">
+    @{
+        if (Model.CurrentPage > 1)
+        {
+            <li><a href="@(url)page=@(Model.CurrentPage - 1)">&laquo; Previous</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a>&laquo; Previous</a></li>
+        }
+    }
+
+    @{
+        for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="@(Model.CurrentPage == i ? "current" : "")"><a href="@(url)page=@i">@i</a></li>
+        }
+    }
+
+    @{
+        if (Model.CurrentPage == Model.TotalPages || Model.TotalPages == 0)
+        {
+            <li class="disabled"><a>Next &raquo;</a></li>
+        }
+        else
+        {
+            <li><a href="@(url)page=@(Model.CurrentPage + 1)">Next &raquo;</a></li>
+        }
+    }
+
+    @{
+        if (Model.TotalPages > 1)
+        {
+            <li><a href="@(url)viewall=true">View All</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a>View All</a></li>
+        }
+    }
+
+
+    @* TODO
+        <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
+        <li class="disabled"><a>Clear View All</a></li>
+    *@
+</ol>

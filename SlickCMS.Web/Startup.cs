@@ -102,9 +102,10 @@ namespace SlickCMS.Web
                 routes.MapRoute(name: "Static_Cookies", template: "cookies", defaults: new { controller = "Static", action = "Cookies" });
 
                 routes.MapRoute(name: "Post_SaveComment", template: "save-comment", defaults: new { controller = "Post", action = "SaveComment" });
+                routes.MapRoute(name: "Post_Search", template: "search", defaults: new { controller = "Posts", action = "Search" });
 
                 // TODO: route(s) for /posts and pagination
-                // TODO: route(s) for individual Post
+                // TODO: route(s) for individual Posts
 
                 routes.MapRoute(
                     name: "default",

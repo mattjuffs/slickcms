@@ -10,6 +10,7 @@ using SlickCMS.Data.Entities;
 using SlickCMS.Data.Services;
 using SlickCMS.Data.Interfaces;
 using Microsoft.Extensions.Configuration;
+using System.Web;
 
 namespace SlickCMS.Web.Controllers
 {
@@ -32,18 +33,56 @@ namespace SlickCMS.Web.Controllers
             return View(await _context.Post.ToListAsync());
         }*/
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, bool viewall = false)
         {
             int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
+            if (viewall) { take = 1000; }
             int totalPosts = _postService.TotalPosts();
-
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
 
-            ViewData["TotalPages"] = totalPages;
-            ViewData["Page"] = page;
+            var posts = _postService.GetPublished(page, take);
 
-            return View(_postService.GetPublished(page, take));
+            var postsModel = new Models.PostsModel
+            {
+                Posts = posts,
+                Pagination = new Models.PaginationModel
+                {
+                    TotalPages = totalPages,
+                    CurrentPage = page,
+                    TotalPosts = totalPosts,
+                    Query = "",
+                },
+            };
+
+            return View(postsModel);
+        }
+
+        public IActionResult Search(string query = "", int page = 1, bool viewall = false)
+        {
+            query = HttpUtility.HtmlEncode(query);            
+
+            int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
+            if (viewall) { take = 1000; }
+            int totalSearchResults = _postService.TotalSearchResults(query);
+            int remainder = (totalSearchResults % take);
+            int totalPages = (totalSearchResults - remainder) / take;
+
+            var searchResults = _postService.Search(query, page, take);
+
+            var postsModel = new Models.PostsModel
+            {
+                Posts = searchResults,
+                Pagination = new Models.PaginationModel
+                {
+                    TotalPages = totalPages,
+                    CurrentPage = page,
+                    TotalPosts = totalSearchResults,
+                    Query = query,
+                },                
+            };
+
+            return View("Search", postsModel);
         }
 
         // TODO: all of the below need amending to use the PostService, rather than the Post entity itself

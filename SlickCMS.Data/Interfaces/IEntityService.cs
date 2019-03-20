@@ -18,6 +18,6 @@ namespace SlickCMS.Data.Interfaces
         void Update(IBaseEntity entity);
         void Delete(IBaseEntity entity);
         IBaseEntity Get(Expression<Func<IBaseEntity, bool>> query);
-        List<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null, int skip = 0, int take = 10);
+        IQueryable<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null, int skip = 0, int take = 10);
     }
 }

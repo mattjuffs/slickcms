@@ -123,7 +123,7 @@ namespace SlickCMS.Data.Services
             return table.Where(query).Count();
         }
 
-        public virtual List<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null, int skip = 0, int take = 10)
+        public virtual IQueryable<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null, int skip = 0, int take = 10)
         {
             /*using (var db = CreateContext())
             {
@@ -140,9 +140,9 @@ namespace SlickCMS.Data.Services
             var query = table.Where(filter);
 
             if (orderBy != null)
-                return orderBy(query).Skip(skip).Take(take).ToList();
+                return orderBy(query).Skip(skip).Take(take);
 
-            return query.Skip(skip).Take(take).ToList();
+            return query.Skip(skip).Take(take);
         }
 
         /*internal virtual SlickCMSContext CreateContext()

@@ -1,7 +1,7 @@
 ﻿@model SlickCMS.Web.Models.PostsModel
 
 @{
-    ViewData["Title"] = "Posts";
+    ViewData["Title"] = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,13 +10,13 @@
         <p>&nbsp;</p>@*Note: this p is required to clear the header*@
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
-            <li class="current"><a href="/posts?page=@Model.Pagination.CurrentPage">Posts</a></li>
+            <li class="current"><a href="/search?query=@Model.Pagination.Query&page=@Model.Pagination.CurrentPage">Search</a></li>
         </ol>
     </section>
 
     <section class="clearfix">
-        <h2>Posts</h2>
-        @*<p><a asp-action="Create">Create New</a></p>*@
+        <h2>Search Results</h2>
+        <p>@Model.Pagination.TotalPosts results found for your query <code>@Model.Pagination.Query</code></p>
         <partial name="_Posts" model="Model.Posts" />
     </section>
 
