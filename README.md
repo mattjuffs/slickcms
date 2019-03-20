@@ -4,6 +4,11 @@ A Blog/CMS inspired by WordPress, built using ASP.NET MVC and SQL Server
 
 _Work in progress..._
 
+## Demo site
+
+The demo site can be found here
+http://slickcms.azurewebsites.net/
+
 ## branches
 
 The following **branching model** is used:
