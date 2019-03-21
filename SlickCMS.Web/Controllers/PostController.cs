@@ -32,7 +32,6 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Index(string url)
         {
-            // TODO: setup route for urls, e.g. /post/url-goes-here or /yyyy-mm-dd/url-goes-here or /url-goes-here
             if (url == string.Empty)
                 url = HttpContext.Request.Path.ToString();
 
@@ -78,6 +77,8 @@ namespace SlickCMS.Web.Controllers
             _commentService.Add(comment);
 
             // TODO: show success/fail message on redirected page
+
+            // TODO: if there's no referer, use the PostID to determine the URL for the post
 
             return Redirect((referer != "") ? (referer + "#comment-form") : "/");
         }

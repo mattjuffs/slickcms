@@ -45,6 +45,7 @@ namespace SlickCMS.Web.Controllers
 
             var postsModel = new Models.PostsModel
             {
+                Name = "Posts",
                 Posts = posts,
                 Pagination = new Models.PaginationModel
                 {
@@ -72,6 +73,7 @@ namespace SlickCMS.Web.Controllers
 
             var postsModel = new Models.PostsModel
             {
+                Name = "Search",
                 Posts = searchResults,
                 Pagination = new Models.PaginationModel
                 {
@@ -83,6 +85,30 @@ namespace SlickCMS.Web.Controllers
             };
 
             return View("Search", postsModel);
+        }
+
+        public IActionResult Category(string name, int page = 1, bool viewall = false)
+        {
+            // TODO
+
+            var postsModel = new Models.PostsModel
+            {
+                Name = name,
+            };
+
+            return View("Category", postsModel);
+        }
+
+        public IActionResult Tag(string name, int page = 1, bool viewall = false)
+        {
+            // TODO
+
+            var postsModel = new Models.PostsModel
+            {
+                Name = name,
+            };
+
+            return null;
         }
 
         // TODO: all of the below need amending to use the PostService, rather than the Post entity itself

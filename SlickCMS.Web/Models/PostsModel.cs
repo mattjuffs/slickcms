@@ -10,6 +10,7 @@ namespace SlickCMS.Web.Models
     /// </summary>
     public class PostsModel
     {
+        public string Name { get; set; }
         public List<SlickCMS.Data.Entities.Post> Posts { get; set; }
         public PaginationModel Pagination { get; set; }
     }
