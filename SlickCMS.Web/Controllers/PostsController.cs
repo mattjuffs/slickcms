@@ -36,7 +36,7 @@ namespace SlickCMS.Web.Controllers
         public IActionResult Index(int page = 1, bool viewall = false)
         {
             int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
-            if (viewall) { take = 1000; }
+            if (viewall) { take = _config.GetValue<int>("SlickCMS:ViewAllCount", 1000); }
             int totalPosts = _postService.TotalPosts();
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
@@ -64,7 +64,7 @@ namespace SlickCMS.Web.Controllers
             query = HttpUtility.HtmlEncode(query);            
 
             int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
-            if (viewall) { take = 1000; }
+            if (viewall) { take = _config.GetValue<int>("SlickCMS:ViewAllCount", 1000); }
             int totalSearchResults = _postService.TotalSearchResults(query);
             int remainder = (totalSearchResults % take);
             int totalPages = (totalSearchResults - remainder) / take;
@@ -89,11 +89,25 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Category(string name, int page = 1, bool viewall = false)
         {
-            // TODO
+            int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
+            if (viewall) { take = _config.GetValue<int>("SlickCMS:ViewAllCount", 1000); }
+            int totalPosts = _postService.TotalCategoryPosts(name);
+            int remainder = (totalPosts % take);
+            int totalPages = (totalPosts - remainder) / take;
+
+            var posts = _postService.Category(name, page, take);
 
             var postsModel = new Models.PostsModel
             {
                 Name = name,
+                Posts = posts,
+                Pagination = new Models.PaginationModel
+                {
+                    TotalPages = totalPages,
+                    CurrentPage = page,
+                    TotalPosts = totalPosts,
+                    Query = "",
+                },
             };
 
             return View("Category", postsModel);
@@ -101,14 +115,28 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Tag(string name, int page = 1, bool viewall = false)
         {
-            // TODO
+            int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
+            if (viewall) { take = _config.GetValue<int>("SlickCMS:ViewAllCount", 1000); }
+            int totalPosts = _postService.TotalTagPosts(name);
+            int remainder = (totalPosts % take);
+            int totalPages = (totalPosts - remainder) / take;
+
+            var posts = _postService.Tag(name, page, take);
 
             var postsModel = new Models.PostsModel
             {
                 Name = name,
+                Posts = posts,
+                Pagination = new Models.PaginationModel
+                {
+                    TotalPages = totalPages,
+                    CurrentPage = page,
+                    TotalPosts = totalPosts,
+                    Query = "",
+                },
             };
 
-            return null;
+            return View("Tag", postsModel);
         }
 
         // TODO: all of the below need amending to use the PostService, rather than the Post entity itself

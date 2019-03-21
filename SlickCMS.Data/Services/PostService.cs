@@ -60,7 +60,9 @@ namespace SlickCMS.Data.Services
             // using IQueryable https://stackoverflow.com/a/2876655/63100
 
             var posts = this.GetMultiple(
-                p => p.Title.Contains(query) || p.Content.Contains(query),
+                p => p.Title.Contains(query)
+                    || p.Content.Contains(query)
+                    || p.Search.Contains(query),
                 q => q.OrderByDescending(r => r.DateCreated),
                 0,
                 1000
@@ -77,6 +79,65 @@ namespace SlickCMS.Data.Services
                 skip = (page * take) - take;
 
             return skip;
+        }
+
+        public List<Post> Category(string name, int page, int take)
+        {
+            int skip = CalculateSkip(page, take);
+            var posts = CategoryQuery(name);
+            return posts.Skip(skip).Take(take).ToList();
+        }
+
+        public int TotalCategoryPosts(string name)
+        {
+            var posts = CategoryQuery(name);
+            return posts.Count();
+        }
+
+        private IQueryable<Post> CategoryQuery(string name)
+        {
+            var query = (
+                from p in this._context.Post
+                join r in this._context.Relationship on p.PostId equals r.PostId
+                join c in this._context.Category on r.CategoryId equals c.CategoryId
+                where
+                    p.Published == 1
+                    && c.Type == "Posts"
+                    && c.Name == name
+                orderby p.DateCreated descending
+                select p
+            );
+
+            return query;
+        }
+
+        public List<Post> Tag(string name, int page, int take)
+        {
+            int skip = CalculateSkip(page, take);
+            var posts = TagQuery(name);
+            return posts.Skip(skip).Take(take).ToList();
+        }
+
+        public int TotalTagPosts(string name)
+        {
+            var posts = TagQuery(name);
+            return posts.Count();
+        }
+
+        private IQueryable<Post> TagQuery(string name)
+        {
+            var query = (
+                from p in this._context.Post
+                join r in this._context.Relationship on p.PostId equals r.PostId
+                join t in this._context.Tag on r.TagId equals t.TagId
+                where
+                    p.Published == 1
+                    && t.Name == name
+                orderby p.DateCreated descending
+                select p
+            );
+
+            return query;
         }
     }
 }

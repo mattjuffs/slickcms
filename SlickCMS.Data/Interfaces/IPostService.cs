@@ -15,5 +15,9 @@ namespace SlickCMS.Data.Interfaces
         int TotalPosts();
         int TotalSearchResults(string query);
         List<Post> Search(string query, int page, int take);
+        List<Post> Category(string name, int page, int take);
+        int TotalCategoryPosts(string name);
+        List<Post> Tag(string name, int page, int take);
+        int TotalTagPosts(string name);        
     }
 }

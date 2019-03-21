@@ -12,6 +12,6 @@ namespace SlickCMS.Data.Services
         public CategoryService() { }
         public CategoryService(SlickCMSContext context) : base(context) { }
 
-        // TODO
+        // TODO: list of Categories with counts (show on sidebar or a static page)
     }
 }

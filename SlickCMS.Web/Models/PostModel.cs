@@ -12,5 +12,8 @@ namespace SlickCMS.Web.Models
     {
         public SlickCMS.Data.Entities.Post Post { get; set; }
         public List<SlickCMS.Data.Entities.Comment> Comments { get; set; }
+
+        // TODO: list of Categories this Post is filed under
+        // TODO: list of Tags this Post is tagged with
     }
 }

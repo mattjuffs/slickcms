@@ -12,6 +12,6 @@ namespace SlickCMS.Data.Services
         public TagService() { }
         public TagService(SlickCMSContext context) : base(context) { }
 
-        // TODO
+        // TODO: list of Tags with counts (show on sidebar or a static page)
     }
 }

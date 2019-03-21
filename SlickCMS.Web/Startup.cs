@@ -105,8 +105,8 @@ namespace SlickCMS.Web
                 routes.MapRoute(name: "Post_SaveComment", template: "post/save-comment", defaults: new { controller = "Post", action = "SaveComment" });
 
                 routes.MapRoute(name: "Posts_Search", template: "search", defaults: new { controller = "Posts", action = "Search" });
-                routes.MapRoute(name: "Posts_Category", template: "category/{url}", defaults: new { controller = "Posts", action = "Category" });
-                routes.MapRoute(name: "Posts_Tag", template: "tag/{url}", defaults: new { controller = "Posts", action = "Tag" });
+                routes.MapRoute(name: "Posts_Category", template: "category/{name}", defaults: new { controller = "Posts", action = "Category" });
+                routes.MapRoute(name: "Posts_Tag", template: "tag/{name}", defaults: new { controller = "Posts", action = "Tag" });
 
                 routes.MapRoute(
                     name: "default",
