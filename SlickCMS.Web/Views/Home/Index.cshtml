@@ -1,4 +1,10 @@
-﻿<h1 class="title"><span>SlickCMS</span></h1>
+﻿@{
+    ViewData["MetaTitle"] = "Home";
+    ViewData["MetaDescription"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="title"><span>SlickCMS</span></h1>
 
 <!--pages are made up of blocks, which are usually centred divs 960px wide on a large resolution screen-->
 <div class="block">
@@ -37,7 +43,7 @@
 
                 <h3>Tags</h3>
                 <p>
-                    @{ 
+                    @{
                         var tags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
 
                         foreach (var tag in tags)

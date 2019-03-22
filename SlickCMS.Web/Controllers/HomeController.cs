@@ -27,9 +27,6 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Index()
         {
-            var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
-            ViewData["Title"] = siteName;
-
             //ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
 
             //var connectionString = new SlickCMS.Core.ConnectionString();
@@ -60,7 +57,7 @@ namespace SlickCMS.Web.Controllers
             var children = loggingConfigSection.GetChildren();// NOTE: returns a collection of child children
 
             // NOTE: using ViewData over ViewBag https://stackoverflow.com/a/34644441/63100
-            ViewData["Title"] = $"{siteName}|{logLevel}";
+            ViewData["MetaTitle"] = $"{siteName}|{logLevel}";
             ViewData["SiteName"] = siteName;
             ViewData["LogLevel"] = logLevel;
             ViewData["SectionExists"] = sectionExists;

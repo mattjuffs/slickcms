@@ -1,7 +1,8 @@
 ﻿@model SlickCMS.Web.Models.PostModel
 
 @{
-    ViewData["Title"] = Model.Post.Title;
+    ViewData["MetaTitle"] = Model.Post.Title;
+    ViewData["MetaDescription"] = Model.Post.Summary;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 

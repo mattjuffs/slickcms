@@ -73,7 +73,6 @@ namespace SlickCMS.Web.Controllers
         [Route("framework")]
         public IActionResult Framework()
         {
-            ViewData["Title"] = "Framework";
             return View("Projects/Framework");
         }
     }
