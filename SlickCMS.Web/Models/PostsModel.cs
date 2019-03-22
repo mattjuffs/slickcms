@@ -13,5 +13,14 @@ namespace SlickCMS.Web.Models
         public string Name { get; set; }
         public List<SlickCMS.Data.Entities.Post> Posts { get; set; }
         public PaginationModel Pagination { get; set; }
+        public PageType Type { get; set; }
+
+        public enum PageType
+        {
+            Post,
+            Search,
+            Category,
+            Tag
+        }
     }
 }

@@ -44,8 +44,9 @@ namespace SlickCMS.Web.Controllers
                     TotalPages = totalPages,
                     CurrentPage = page,
                     TotalPosts = totalPosts,
-                    Query = "",
+                    Query = ""
                 },
+                Type = Models.PostsModel.PageType.Post
             };
 
             return View(postsModel);
@@ -72,8 +73,9 @@ namespace SlickCMS.Web.Controllers
                     TotalPages = totalPages,
                     CurrentPage = page,
                     TotalPosts = totalSearchResults,
-                    Query = query,
-                },                
+                    Query = query
+                },
+                Type = Models.PostsModel.PageType.Search
             };
 
             return View("Search", postsModel);
@@ -98,8 +100,9 @@ namespace SlickCMS.Web.Controllers
                     TotalPages = totalPages,
                     CurrentPage = page,
                     TotalPosts = totalPosts,
-                    Query = "",
+                    Query = ""
                 },
+                Type = Models.PostsModel.PageType.Category
             };
 
             return View("Category", postsModel);
@@ -124,8 +127,9 @@ namespace SlickCMS.Web.Controllers
                     TotalPages = totalPages,
                     CurrentPage = page,
                     TotalPosts = totalPosts,
-                    Query = "",
+                    Query = ""
                 },
+                Type = Models.PostsModel.PageType.Tag
             };
 
             return View("Tag", postsModel);

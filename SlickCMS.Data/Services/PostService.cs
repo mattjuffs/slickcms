@@ -46,7 +46,7 @@ namespace SlickCMS.Data.Services
         {
             int skip = CalculateSkip(page, take);
             var posts = SearchQuery(query);
-            return posts.Distinct().Skip(skip).Take(take).ToList();
+            return posts.Distinct().OrderByDescending(o => o.DateCreated).Skip(skip).Take(take).ToList();
         }
 
         public int TotalSearchResults(string query)
