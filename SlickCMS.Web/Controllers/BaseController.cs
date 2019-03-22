@@ -11,8 +11,14 @@ namespace SlickCMS.Web.Controllers
         public BaseController(SlickCMSContext context)
         {
             this._context = context;
+
+            LoadCategories();
+            LoadTags();
         }
 
+        /// <summary>
+        /// Loads the Categories into Cache, for use on the navigation
+        /// </summary>
         public void LoadCategories()
         {
             string cacheKey = "Categories|Posts";
@@ -30,6 +36,28 @@ namespace SlickCMS.Web.Controllers
         {
             var categoryService = new SlickCMS.Data.Services.CategoryService(this._context);
             return categoryService.GetSummary("Posts");
+        }
+
+        /// <summary>
+        /// Loads the Tags into Cache, for use on the navigation
+        /// </summary>
+        public void LoadTags()
+        {
+            string cacheKey = "Tags";
+
+            var cachedTags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>(cacheKey);
+
+            if (cachedTags == null)
+            {
+                var tags = GetTags();
+                SlickCMS.Core.Caching.MemoryCache.Add(cacheKey, tags);
+            }
+        }
+
+        private List<SlickCMS.Data.Entities.TagSummary> GetTags()
+        {
+            var tagService = new SlickCMS.Data.Services.TagService(this._context);
+            return tagService.GetSummary(2);
         }
     }
 }

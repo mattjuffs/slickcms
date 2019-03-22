@@ -64,15 +64,25 @@
         @Html.Raw(Model.Post.Content)
     </article>
 
-    <hr />
-
     <section>
-        <p>Filed under:</p>
+        <h2>Categories <span>that this Post has been filed under</span></h2>
         <ul>
             @{
                 foreach (var category in Model.Categories)
                 {
                     <li><a href="/category/@category.Name.ToLower()">@category.Name</a> - <em>@category.Description</em></li>
+                }
+            }
+        </ul>
+    </section>
+
+    <section>
+        <h2>Tags <span>that this Post has been tagged with</span></h2>
+        <ul>
+            @{ 
+                foreach (var tag in Model.Tags)
+                {
+                    <li><a href="/tag/@tag.Name.ToLower()">@tag.Name</a></li>
                 }
             }
         </ul>

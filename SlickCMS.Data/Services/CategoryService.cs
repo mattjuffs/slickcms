@@ -47,7 +47,7 @@ namespace SlickCMS.Data.Services
                 select c
             );
 
-            return query.ToList();
+            return query.Distinct().ToList();
         }
     }
 }

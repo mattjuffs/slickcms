@@ -9,8 +9,8 @@
         <ul id="menu">
             <li class="root"><a href="/posts">Posts</a></li>
 
-            <li class="root" id="li2">
-                <a href="/categories">Categories</a>
+            <li class="root" id="liCategories">
+                <a>Categories</a>
                 <ul class="dropdown" id="ddCategories">
                     @{
                         foreach (var category in categories.OrderBy(c => c.Name))
@@ -47,7 +47,6 @@
             <li><a href="#top" class="scroll">Home</a></li>
             <li><a href="/posts">Posts</a></li>
             <li><a href="/projects">Projects</a></li>
-            <li><a href="/framework">Framework</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>

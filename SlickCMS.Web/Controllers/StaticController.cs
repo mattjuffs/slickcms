@@ -12,8 +12,6 @@ namespace SlickCMS.Web.Controllers
         public StaticController(SlickCMSContext context) : base(context)
         {
             this._context = context;
-
-            base.LoadCategories();
         }
 
         public IActionResult About()

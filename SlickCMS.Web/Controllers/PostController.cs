@@ -15,16 +15,16 @@ namespace SlickCMS.Web.Controllers
         private readonly IPostService _postService;
         private readonly ICommentService _commentService;
         private readonly ICategoryService _categoryService;
+        private readonly ITagService _tagService;
 
-        public PostController(IConfiguration config, SlickCMSContext context, IPostService postService, ICommentService commentService, ICategoryService categoryService) : base(context)
+        public PostController(IConfiguration config, SlickCMSContext context, IPostService postService, ICommentService commentService, ICategoryService categoryService, ITagService tagService) : base(context)
         {
             _config = config;
             _context = context;
             _postService = postService;
             _commentService = commentService;
             _categoryService = categoryService;
-
-            base.LoadCategories();
+            _tagService = tagService;
         }
 
         public IActionResult Index(string url)
@@ -39,12 +39,14 @@ namespace SlickCMS.Web.Controllers
             var post = _postService.GetPost(url);
             var comments = _commentService.GetPublished(post.PostId);
             var categories = _categoryService.GetCategories(post.PostId);
+            var tags = _tagService.GetTags(post.PostId);
 
             var postModel = new Models.PostModel
             {
                 Post = post,
                 Comments = comments,
                 Categories = categories,
+                Tags = tags,
             };
 
             return View(postModel);

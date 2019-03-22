@@ -17,8 +17,6 @@ namespace SlickCMS.Web.Controllers
             _config = config;
             _context = context;
             _postService = postService;
-
-            base.LoadCategories();
         }
 
         // GET: Posts

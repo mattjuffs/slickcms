@@ -9,9 +9,9 @@
     <section>
         <h2 id="bookmarkIntroduction">Introduction</h2>
 
-        <p>Hosting Environment: @ViewData["HostingEnvironment"]</p>
+        @*<p>Hosting Environment: @ViewData["HostingEnvironment"]</p>*@
         @*<p>Connection String: @ViewData["ConnectionString"]</p>*@
-        <hr />
+
         <p>The battle station is heavily shielded and carries a firepower greater than half the star fleet. It's defenses are designed around a direct large-scale assault. A small one-man fighter should be able to penetrate the outer defense. Pardon me for asking, sir, but what good are snub fighters going to be against that? Well, the Empire doesn't consider a small one-man fighter to be any threat, or they'd have a tighter defense. An analysis of the plans provided by Princess Leia has demonstrated a weakness in the battle station.</p>
 
         <div class="row-fluid">
@@ -22,14 +22,30 @@
 
             <div class="span6">
                 <h3>Latest Posts</h3>
-                <p>The last 5 blog posts:</p>
                 <ol class="no-list-style">
-                    <li><a href="#">Blog Post Title</a> - <em>2019-03-20</em></li>
-                    <li><a href="#">Blog Post Title</a> - <em>2019-02-14</em></li>
-                    <li><a href="#">Blog Post Title</a> - <em>2019-01-01</em></li>
-                    <li><a href="#">Blog Post Title</a> - <em>2018-12-24</em></li>
-                    <li><a href="#">Blog Post Title</a> - <em>2018-12-13</em></li>
+                    @{
+                        var posts = (List<SlickCMS.Data.Entities.Post>)ViewData["LatestPosts"];
+
+                        foreach (var post in posts)
+                        {
+                            <li><a href="/post/@post.Url" title="published @post.DateCreated.ToHumanDate()">@post.Title</a></li>
+                        }
+                    }
                 </ol>
+
+                <hr />
+
+                <h3>Tags</h3>
+                <p>
+                    @{ 
+                        var tags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
+
+                        foreach (var tag in tags)
+                        {
+                            <a href="/tag/@tag.Name.ToLower()" title="@tag.Count posts tagged with @tag.Name">@tag.Name</a>
+                        }
+                    }
+                </p>
 
                 <hr />
 

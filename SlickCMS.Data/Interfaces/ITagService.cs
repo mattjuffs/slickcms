@@ -7,6 +7,6 @@ namespace SlickCMS.Data.Interfaces
 {
     public interface ITagService : IEntityService<Tag>
     {
-        // TODO
+        List<Tag> GetTags(int postID);
     }
 }

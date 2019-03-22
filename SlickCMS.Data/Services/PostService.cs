@@ -46,7 +46,7 @@ namespace SlickCMS.Data.Services
         {
             int skip = CalculateSkip(page, take);
             var posts = SearchQuery(query);
-            return posts.Skip(skip).Take(take).ToList();
+            return posts.Distinct().Skip(skip).Take(take).ToList();
         }
 
         public int TotalSearchResults(string query)
@@ -85,7 +85,7 @@ namespace SlickCMS.Data.Services
         {
             int skip = CalculateSkip(page, take);
             var posts = CategoryQuery(name);
-            return posts.Skip(skip).Take(take).ToList();
+            return posts.Distinct().Skip(skip).Take(take).ToList();
         }
 
         public int TotalCategoryPosts(string name)
@@ -115,7 +115,7 @@ namespace SlickCMS.Data.Services
         {
             int skip = CalculateSkip(page, take);
             var posts = TagQuery(name);
-            return posts.Skip(skip).Take(take).ToList();
+            return posts.Distinct().Skip(skip).Take(take).ToList();
         }
 
         public int TotalTagPosts(string name)

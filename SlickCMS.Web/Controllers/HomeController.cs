@@ -6,6 +6,7 @@ using SlickCMS.Data;
 using SlickCMS.Web.Models;
 using System.Diagnostics;
 using System.Linq;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Web.Controllers
 {
@@ -14,14 +15,14 @@ namespace SlickCMS.Web.Controllers
         private readonly IConfiguration _config;
         public IHostingEnvironment HostingEnvironment { get; }
         private readonly SlickCMSContext _context;
+        private readonly IPostService _postService;
 
-        public HomeController(IConfiguration config, IHostingEnvironment env, SlickCMSContext context) : base(context)
+        public HomeController(IConfiguration config, IHostingEnvironment env, SlickCMSContext context, IPostService postService) : base(context)
         {
             this._config = config;
             this.HostingEnvironment = env;
             this._context = context;
-
-            base.LoadCategories();
+            this._postService = postService;
         }
 
         public IActionResult Index()
@@ -29,10 +30,13 @@ namespace SlickCMS.Web.Controllers
             var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
             ViewData["Title"] = siteName;
 
-            ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
+            //ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
 
-            var connectionString = new SlickCMS.Core.ConnectionString();
-            ViewData["ConnectionString"] = connectionString.Get(this.HostingEnvironment.ContentRootPath);
+            //var connectionString = new SlickCMS.Core.ConnectionString();
+            //ViewData["ConnectionString"] = connectionString.Get(this.HostingEnvironment.ContentRootPath);
+
+            var posts = _postService.GetPublished(1, 5);
+            ViewData["LatestPosts"] = posts;
 
             return View();
         }
