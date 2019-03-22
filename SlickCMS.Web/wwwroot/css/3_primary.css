@@ -459,9 +459,11 @@ table
     margin: 10px;
 }
 
-    table tr td
+    table tr td,
+    table tr th
     {
         padding: 5px;
+        font-weight: normal;
     }
 
     table thead
