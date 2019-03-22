@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+using SlickCMS.Data;
 using System.Web;
 
 namespace SlickCMS.Web.Controllers
 {
-    public class StaticController : Controller
+    public class StaticController : BaseController
     {
+        private readonly SlickCMSContext _context;
+
+        public StaticController(SlickCMSContext context) : base(context)
+        {
+            this._context = context;
+
+            base.LoadCategories();
+        }
+
         public IActionResult About()
         {
             return View();
@@ -69,7 +75,7 @@ namespace SlickCMS.Web.Controllers
         [Route("framework")]
         public IActionResult Framework()
         {
-            ViewData["MetaTitle"] = "Framework";
+            ViewData["Title"] = "Framework";
             return View("Projects/Framework");
         }
     }

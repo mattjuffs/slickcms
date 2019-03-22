@@ -11,7 +11,16 @@
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
             <li><a href="/categories">Categories</a></li>
-            <li class="current"><a href="/category/@Model.Name&page=@Model.Pagination.CurrentPage">@Model.Name</a></li>
+            @{
+                if (Model.Pagination.CurrentPage > 1)
+                {
+                    <li class="current"><a href="/category/@Model.Name&page=@Model.Pagination.CurrentPage">@Model.Name</a></li>
+                }
+                else
+                {
+                    <li class="current"><a href="/category/@Model.Name">@Model.Name</a></li>
+                }
+            }
         </ol>
     </section>
 

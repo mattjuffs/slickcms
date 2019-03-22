@@ -95,14 +95,24 @@ header
             z-index: 30;            
             display: none;
         }
+
+            header ul li ul#ddCategories
+            {
+                width: 250px;
+            }
         
             header ul li ul.dropdown li
             {
                 margin: 0;
                 padding: 0px 10px 5px 10px;
+                float: none;
             }
             
-            header ul ul.dropdown a {font-size: 14px;}
+            header ul ul.dropdown a
+            {
+                font-size: 14px;
+                float: none;
+            }
 
     header li a
 	{

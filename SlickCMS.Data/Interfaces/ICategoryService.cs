@@ -7,6 +7,7 @@ namespace SlickCMS.Data.Interfaces
 {
     public interface ICategoryService : IEntityService<Category>
     {
-        // TODO
+        List<CategorySummary> GetSummary(string type);
+        List<Category> GetCategories(int postID);
     }
 }

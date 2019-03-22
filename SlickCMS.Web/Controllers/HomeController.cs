@@ -1,40 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using SlickCMS.Data;
+using SlickCMS.Web.Models;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using SlickCMS.Web.Models;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace SlickCMS.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IConfiguration _config;
         public IHostingEnvironment HostingEnvironment { get; }
+        private readonly SlickCMSContext _context;
 
-        public HomeController(IConfiguration config, IHostingEnvironment env)
+        public HomeController(IConfiguration config, IHostingEnvironment env, SlickCMSContext context) : base(context)
         {
             this._config = config;
             this.HostingEnvironment = env;
+            this._context = context;
+
+            base.LoadCategories();
         }
 
         public IActionResult Index()
         {
             var siteName = _config.GetValue<string>("SlickCMS:SiteName", "Unknown");
-            ViewData["MetaTitle"] = siteName;
+            ViewData["Title"] = siteName;
 
             ViewData["HostingEnvironment"] = this.HostingEnvironment.ContentRootPath;
 
@@ -63,7 +56,7 @@ namespace SlickCMS.Web.Controllers
             var children = loggingConfigSection.GetChildren();// NOTE: returns a collection of child children
 
             // NOTE: using ViewData over ViewBag https://stackoverflow.com/a/34644441/63100
-            ViewData["MetaTitle"] = $"{siteName}|{logLevel}";
+            ViewData["Title"] = $"{siteName}|{logLevel}";
             ViewData["SiteName"] = siteName;
             ViewData["LogLevel"] = logLevel;
             ViewData["SectionExists"] = sectionExists;

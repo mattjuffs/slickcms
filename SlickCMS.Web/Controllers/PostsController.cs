@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using SlickCMS.Data;
-using SlickCMS.Data.Entities;
-using SlickCMS.Data.Services;
-using SlickCMS.Data.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using SlickCMS.Data;
+using SlickCMS.Data.Interfaces;
 using System.Web;
 
 namespace SlickCMS.Web.Controllers
 {
-    public class PostsController : Controller
+    public class PostsController : BaseController
     {
         private readonly IConfiguration _config;
         private readonly SlickCMSContext _context;
         private readonly IPostService _postService;
         
-        public PostsController(IConfiguration config, SlickCMSContext context, IPostService postService)
+        public PostsController(IConfiguration config, SlickCMSContext context, IPostService postService) : base(context)
         {
             _config = config;
             _context = context;
             _postService = postService;
+
+            base.LoadCategories();
         }
 
         // GET: Posts

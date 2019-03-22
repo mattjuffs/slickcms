@@ -12,7 +12,7 @@
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
             <li><a href="/posts">Posts</a></li>
-            <li class="current"><a href="/@Model.Post.Url">@Model.Post.Title</a></li>
+            <li class="current"><a href="/post/@Model.Post.Url">@Model.Post.Title</a></li>
         </ol>
     </section>
 
@@ -64,8 +64,22 @@
         @Html.Raw(Model.Post.Content)
     </article>
 
+    <hr />
+
+    <section>
+        <p>Filed under:</p>
+        <ul>
+            @{
+                foreach (var category in Model.Categories)
+                {
+                    <li><a href="/category/@category.Name.ToLower()">@category.Name</a> - <em>@category.Description</em></li>
+                }
+            }
+        </ul>
+    </section>
+
     <partial name="_Comments" model="Model.Comments" />
 
     <partial name="_CommentForm" model="Model.Post" />
-    
+
 </div>

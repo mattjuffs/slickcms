@@ -10,7 +10,16 @@
         <p>&nbsp;</p>@*Note: this p is required to clear the header*@
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
-            <li class="current"><a href="/posts?page=@Model.Pagination.CurrentPage">Posts</a></li>
+            @{
+                if (Model.Pagination.CurrentPage > 1)
+                {
+                    <li class="current"><a href="/posts?page=@Model.Pagination.CurrentPage">Posts</a></li>
+                }
+                else
+                {
+                    <li class="current"><a href="/posts">Posts</a></li>
+                }
+            }
         </ol>
     </section>
 

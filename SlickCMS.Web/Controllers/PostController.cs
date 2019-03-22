@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using SlickCMS.Data;
-using SlickCMS.Data.Entities;
-using SlickCMS.Data.Services;
-using SlickCMS.Data.Interfaces;
-using Microsoft.AspNetCore.Http;
-using System.Web;
 using Microsoft.Extensions.Configuration;
+using SlickCMS.Data;
+using SlickCMS.Data.Interfaces;
+using System;
+using System.Web;
 
 namespace SlickCMS.Web.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
         private readonly IConfiguration _config;
         private readonly SlickCMSContext _context;
         private readonly IPostService _postService;
         private readonly ICommentService _commentService;
+        private readonly ICategoryService _categoryService;
 
-        public PostController(IConfiguration config, SlickCMSContext context, IPostService postService, ICommentService commentService)
+        public PostController(IConfiguration config, SlickCMSContext context, IPostService postService, ICommentService commentService, ICategoryService categoryService) : base(context)
         {
             _config = config;
             _context = context;
             _postService = postService;
             _commentService = commentService;
+            _categoryService = categoryService;
+
+            base.LoadCategories();
         }
 
         public IActionResult Index(string url)
@@ -41,11 +38,13 @@ namespace SlickCMS.Web.Controllers
 
             var post = _postService.GetPost(url);
             var comments = _commentService.GetPublished(post.PostId);
+            var categories = _categoryService.GetCategories(post.PostId);
 
             var postModel = new Models.PostModel
             {
                 Post = post,
                 Comments = comments,
+                Categories = categories,
             };
 
             return View(postModel);
