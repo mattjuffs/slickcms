@@ -7,10 +7,10 @@
         <span id="projectName"><a href="/"><span class="orange">slick</span><span class="blue">cms</span></a></span>
 
         <ul id="menu">
-            <li class="root"><a href="/posts">Posts</a></li>
+            @*<li class="root"><a href="/posts">Posts</a></li>*@
 
             <li class="root" id="liCategories">
-                <a>Categories</a>
+                <a href="/posts" title="view all Posts">Posts</a>
                 <ul class="dropdown" id="ddCategories">
                     @{
                         foreach (var category in categories.OrderBy(c => c.Name))
