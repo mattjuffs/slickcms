@@ -1,7 +1,46 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["MetaTitle"] = "Admin | Login";
+    ViewData["MetaDescription"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin | Login</h2>
+@*<h1 class="title"><span>Admin | Login</span></h1>*@
 
+<div class="block">
+    <section>
+        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
+
+        <div class="row-fluid">
+            <div class="span4"></div>
+
+            <div class="span4">
+                @if ((ViewData["AdminLogin"] + "") == "error")
+                {
+                    <p class="error">Login failed, please try again!</p>
+                }
+
+                <form method="post" action="/admin/login">
+                    <fieldset>
+                        <legend>Login</legend>
+
+                        <p>
+                            <label for="email">Email</label><br />
+                            <input type="email" name="email" id="login-email" placeholder="your.name@domain.com" required />
+                        </p>
+
+                        <p>
+                            <label for="password">Password</label><br />
+                            <input type="password" name="password" id="login-password" placeholder="***" required />
+                        </p>
+
+                        <p>
+                            <input class="btn btn-primary" type="submit" value="Login" />
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="span4"></div>
+        </div>
+    </section>
+</div>

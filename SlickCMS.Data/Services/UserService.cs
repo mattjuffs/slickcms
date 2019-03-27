@@ -12,27 +12,44 @@ namespace SlickCMS.Data.Services
         public UserService() { }
         public UserService(SlickCMSContext context) : base(context) { }
 
-        public bool Login()
+        public bool Login(string email, string password)
         {
-            // TODO
-            return false;// indicate whether login was successful
+            // first check we have a user for this email address
+            var user = this.Get(p => p.Email.ToLower() == email.ToLower());
+            if (user == null)
+                return false;
+
+            // next verify the password matches (using 1 way hash)
+            string hashedPassword = SlickCMS.Core.Hash.GenerateHash(password, SlickCMS.Core.Enums.HashType.MD5);
+            if (hashedPassword != user.Password)
+                return false;
+
+            // user exists and password matches, they're logged in
+            return true;
         }
 
-        public bool IsAuthenticated()
+        public bool IsAuthenticated(string adminLoggedIn)
         {
-            // TODO
+            // TODO: make this more secure, as currently it's just checking we have a string
+            if ((adminLoggedIn + "") != "")
+            {
+                // https://stackoverflow.com/a/4458925/63100 - 32+ characters, depending on how it is formatted
+                if (adminLoggedIn.Length >= 32)
+                    return true;
+            }
+
             return false;
         }
 
         public bool IsAuthorised()
         {
-            // TODO
+            // TODO: expand users & permissions by adding authorisation - users have to be authorised to see and use specific pages/functions
             return false;
         }
 
         public bool Logout()
         {
-            // TODO
+            // TODO: destroy traces of this user - session, cookie etc?
             return false;// indicate whether logout was successful
         }
     }

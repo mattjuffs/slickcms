@@ -7,8 +7,8 @@ namespace SlickCMS.Data.Interfaces
 {
     public interface IUserService : IEntityService<User>
     {
-        bool Login();
-        bool IsAuthenticated();
+        bool Login(string email, string password);
+        bool IsAuthenticated(string adminLoggedIn);
         bool IsAuthorised();
         bool Logout();
     }
