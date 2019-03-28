@@ -32,6 +32,7 @@ namespace SlickCMS.Web.Controllers
             int totalPosts = _postService.TotalPosts();
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
+            if (remainder > 0) totalPages++;
 
             var posts = _postService.GetPublished(page, take);
 
@@ -61,6 +62,7 @@ namespace SlickCMS.Web.Controllers
             int totalSearchResults = _postService.TotalSearchResults(query);
             int remainder = (totalSearchResults % take);
             int totalPages = (totalSearchResults - remainder) / take;
+            if (remainder > 0) totalPages++;
 
             var searchResults = _postService.Search(query, page, take);
 
@@ -88,6 +90,7 @@ namespace SlickCMS.Web.Controllers
             int totalPosts = _postService.TotalCategoryPosts(name);
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
+            if (remainder > 0) totalPages++;
 
             var posts = _postService.Category(name, page, take);
 
@@ -115,6 +118,7 @@ namespace SlickCMS.Web.Controllers
             int totalPosts = _postService.TotalTagPosts(name);
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
+            if (remainder > 0) totalPages++;
 
             var posts = _postService.Tag(name, page, take);
 

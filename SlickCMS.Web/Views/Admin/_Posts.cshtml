@@ -53,7 +53,7 @@
                 @Html.DisplayFor(modelItem => item.Published)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a>
+                <a href="/admin/post/@item.PostId">Edit</a>
             </td>
         </tr>
         }

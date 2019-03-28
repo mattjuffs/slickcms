@@ -81,6 +81,7 @@ namespace SlickCMS.Web.Controllers
             int totalPosts = _postService.TotalPostsForAdmin();
             int remainder = (totalPosts % take);
             int totalPages = (totalPosts - remainder) / take;
+            if (remainder > 0) totalPages++;
 
             var posts = _postService.GetForAdmin(page, take);
 
@@ -102,12 +103,12 @@ namespace SlickCMS.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Post()
+        public IActionResult Post(int id)
         {
             if (!IsLoggedIn())
                 return Redirect("/admin");
 
-            // TODO: show Post, editable (or add new post)
+            
 
             return View();
         }

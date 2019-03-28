@@ -38,14 +38,14 @@ namespace SlickCMS.Data.Services
 
         public int TotalPostsForAdmin()
         {
-            int totalPosts = this.GetCount(p => p.PostId > 0);
+            int totalPosts = this.GetCount(p => p.PostId > -10);
             return totalPosts;
         }
 
         public List<Post> GetForAdmin(int page, int take)
         {
             int skip = CalculateSkip(page, take);
-            var posts = this.GetMultiple(p => p.PostId > 0, q => q.OrderByDescending(r => r.DateCreated), skip, take);
+            var posts = this.GetMultiple(p => p.PostId > -10, q => q.OrderByDescending(r => r.PostId), skip, take);
             return posts.ToList();
         }
 
