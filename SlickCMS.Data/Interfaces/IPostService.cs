@@ -12,6 +12,7 @@ namespace SlickCMS.Data.Interfaces
         List<Post> GetPublished();
         List<Post> GetPublished(int page, int take);
         Post GetPost(string url);
+        Post GetPost(int id);
         int TotalPosts();
 
         int TotalSearchResults(string query);

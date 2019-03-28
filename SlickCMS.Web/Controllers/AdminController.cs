@@ -17,6 +17,8 @@ namespace SlickCMS.Web.Controllers
         private readonly SlickCMSContext _context;
         private readonly IUserService _userService;
         private readonly IPostService _postService;
+        private readonly ICategoryService _categoryService;
+        private readonly ITagService _tagService;
 
         /// <summary>
         /// Key for storing whether the User is logged in
@@ -28,13 +30,15 @@ namespace SlickCMS.Web.Controllers
         /// </summary>
         private readonly string _loginSessionKey = "AdminLogin";
 
-        public AdminController(IConfiguration config, SlickCMSContext context, IUserService userService, IPostService postService) : base(context)
+        public AdminController(IConfiguration config, SlickCMSContext context, IUserService userService, IPostService postService, ICategoryService categoryService, ITagService tagService) : base(context)
         {
             _config = config;
             _context = context;
 
             _userService = userService;
             _postService = postService;
+            _categoryService = categoryService;
+            _tagService = tagService;
         }
 
         private bool IsLoggedIn()
@@ -108,12 +112,23 @@ namespace SlickCMS.Web.Controllers
             if (!IsLoggedIn())
                 return Redirect("/admin");
 
-            
+            var post = _postService.GetPost(id);
+            var categories = _categoryService.GetCategories(post.PostId);
+            var tags = _tagService.GetTags(post.PostId);
 
-            return View();
+            var postModel = new Models.PostModel
+            {
+                Post = post,
+                Comments = null,// not loading comments on the Admin page
+                Categories = categories,
+                Tags = tags,
+            };
+
+            return View(postModel);
         }
 
         [HttpPost]
+        [Route("/admin/save-post")]
         public IActionResult SavePost()
         {
             if (!IsLoggedIn())

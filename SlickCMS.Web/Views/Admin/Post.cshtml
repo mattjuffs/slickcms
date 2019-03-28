@@ -1,7 +1,123 @@
-﻿
+﻿@model SlickCMS.Web.Models.PostModel
+
 @{
-    ViewData["Title"] = "Post";
+    ViewData["MetaTitle"] = "Admin | Post";
+
+    var categories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
+    var tags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
 }
 
-<h2>Post</h2>
+<h1 class="title"><span>Admin | Post</span></h1>
 
+<div class="block">
+    <section>
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/admin/posts">Posts</a></li>
+            <li class="current"><a href="/admin/post/@Model.Post.PostId">@Model.Post.Title</a></li>
+        </ol>
+    </section>
+
+    <section>
+        <form method="post" action="/admin/save-post">
+            <fieldset>
+                <legend>Edit Post</legend>
+
+                <p>PostID: @Model.Post.PostId</p>
+                <p>UserID: @Model.Post.UserId</p>
+
+                <p>
+                    <label for="txtTitle">Title</label><br />
+                    <input type="text" name="txtTitle" id="txtTitle" style="width: 95%;" value="@Model.Post.Title" required />
+                </p>
+
+                <p>
+                    <label for="txtUrl">URL</label><br />
+                    /post/<input type="text" name="txtUrl" id="txtUrl" style="width: 50%;" value="@Model.Post.Url" />
+                </p>
+
+                <p>
+                    <label for="txtSummary">Summary</label><br />
+                    <textarea name="txtSummary" id="txtSummary" cols="100" style="height: 5em; width: 95%;">@Model.Post.Summary</textarea>
+                </p>
+
+                <p>
+                    <label for="txtContent">Content</label><br />
+                    <textarea name="txtContent" id="txtContent" cols="100" style="height: 10em; width: 95%;" required>@Model.Post.Content</textarea>
+                </p>
+
+                <p>
+                    <label for="txtSearch">Search</label><br />
+                    <input type="text" name="txtSearch" id="txtSearch" style="width: 95%;" value="@Model.Post.Search" />
+                </p>
+
+                <p>
+                    <label for="txtDateCreated">Date Created</label><br />
+                    <input type="datetime-local" name="txtDateCreated" id="txtDateCreated" value="@Model.Post.DateCreated.ToString("s")" disabled />
+                </p>
+
+                <p>
+                    <label for="txtDateModified">Date Modified</label><br />
+                    <input type="datetime-local" name="txtDateModified" id="txtDateModified" value="@Model.Post.DateModified.ToString("s")" />
+                </p>
+
+                <p>
+                    <label for="chkPublished">Published?</label>
+                    <input type="checkbox" name="chkPublished" id="chkPublished" @(Model.Post.Published == 1 ? "checked" : "") />
+                </p>
+
+                <p>
+                    <label for="chkPageable">Pageable?</label>
+                    <input type="checkbox" name="chkPageable" id="chkPageable" @(Model.Post.Pageable == 1 ? "checked" : "") />
+                </p>
+
+                <p>
+                    <label for="selCategories">Categories</label><br />
+                    <select multiple name="selCategories" id="selCategories">
+                        @{
+                            foreach (var category in categories.OrderBy(c => c.Name))
+                            {
+                                bool selected = Model.Categories.Exists(p => p.Name == category.Name);
+
+                                if (selected)
+                                {
+                                    <option value="@category.CategoryID" selected>@category.Name.ToLower()</option>
+                                }
+                                else
+                                {
+                                    <option value="@category.CategoryID">@category.Name.ToLower()</option>
+                                }
+                            }
+                        }
+                    </select>
+                </p>
+
+                @{
+                    string tagsList = "";
+                    foreach (var tag in Model.Tags)
+                    {
+                        tagsList += $"#{tag.Name.ToLower()} ";
+                    }
+                }
+                <p>
+                    <label for="txtTags">Tags</label><br />
+                    <input type="text" name="txtTags" id="txtTags" style="width: 95%;" value="@tagsList" /><br />
+                    <small>
+                        <strong>Popular tags: </strong>
+                        @{
+                            foreach (var tag in tags)
+                            {
+                                <text>#@tag.Name </text>
+                            }
+                        }
+                    </small>
+                </p>
+
+                <p class="">
+                    <a class="btn btn-large btn-warning" href="/admin/posts">Cancel</a>
+                    <button class="btn btn-large btn-primary" type="submit" name="btnSubmit">Save Post</button>
+                </p>
+            </fieldset>
+        </form>
+    </section>
+</div>

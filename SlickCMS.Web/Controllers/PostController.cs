@@ -29,6 +29,8 @@ namespace SlickCMS.Web.Controllers
 
         public IActionResult Index(string url)
         {
+            // posts will be prefixed /post/[url]
+            // pages will just be /[url]
             if (url == string.Empty)
                 url = HttpContext.Request.Path.ToString();
 

@@ -48,7 +48,7 @@
 
                         foreach (var tag in tags)
                         {
-                            <a href="/tag/@tag.Name.ToLower()" title="@tag.Count posts tagged with @tag.Name">@tag.Name</a>
+                            <a href="/tag/@tag.Name.ToLower()" title="@tag.Count posts tagged with #@tag.Name">#@tag.Name</a>
                         }
                     }
                 </p>

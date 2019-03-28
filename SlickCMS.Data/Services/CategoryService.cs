@@ -23,11 +23,13 @@ namespace SlickCMS.Data.Services
                     && p.Published == 1
                 group c by new
                 {
+                    c.CategoryId,
                     c.Name,
                     c.Description
                 } into g
                 select new CategorySummary
                 {
+                    CategoryID = g.Key.CategoryId,
                     Name = g.Key.Name,
                     Description = g.Key.Description,
                     Count = g.Count()

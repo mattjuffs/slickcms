@@ -55,6 +55,12 @@ namespace SlickCMS.Data.Services
             return post;
         }
 
+        public Post GetPost(int id)
+        {
+            var post = this.Get(p => p.PostId == id);
+            return post;
+        }
+
         public List<Post> Search(string query, int page, int take)
         {
             int skip = CalculateSkip(page, take);
