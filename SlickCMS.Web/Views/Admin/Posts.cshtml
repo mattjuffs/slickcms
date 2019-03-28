@@ -1,7 +1,37 @@
-﻿
+﻿@model SlickCMS.Web.Models.PostsModel
+
 @{
-    ViewData["Title"] = "Posts";
+    ViewData["MetaTitle"] = "Admin | Posts";
+    ViewData["MetaDescription"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Posts</h2>
+<h1 class="title"><span>Admin | Posts</span></h1>
 
+<div class="block">
+    <section>
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/admin">Admin</a></li>
+            @{
+                if (Model.Pagination.CurrentPage > 1)
+                {
+                    <li class="current"><a href="/admin/posts?page=@Model.Pagination.CurrentPage">Posts</a></li>
+                }
+                else
+                {
+                    <li class="current"><a href="/admin/posts">Posts</a></li>
+                }
+            }
+        </ol>
+    </section>
+
+    <section class="clearfix">
+        <h2>Posts</h2>
+        @*<p><a asp-action="Create">Create New</a></p>*@
+        <partial name="_Posts" model="Model.Posts" />
+    </section>
+
+    <section>
+        <partial name="_Pagination" model="Model" />
+    </section>
+</div>

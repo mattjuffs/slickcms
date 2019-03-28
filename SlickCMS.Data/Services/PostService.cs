@@ -15,7 +15,7 @@ namespace SlickCMS.Data.Services
         public List<Post> GetPublished()
         {
             // providing a where clause and orderby
-            var posts = this.GetMultiple(p => p.Published == 1, q => q.OrderByDescending(r => r.DateCreated));
+            var posts = this.GetMultiple(p => p.Published == 1 && p.Pageable == 1, q => q.OrderByDescending(r => r.DateCreated));
 
             // just providing a where clause
             //var posts = post.GetMultiple(p => p.Published == 1);
@@ -26,14 +26,27 @@ namespace SlickCMS.Data.Services
         public List<Post> GetPublished(int page, int take)
         {
             int skip = CalculateSkip(page, take);
-            var posts = this.GetMultiple(p => p.Published == 1, q => q.OrderByDescending(r => r.DateCreated), skip, take);
+            var posts = this.GetMultiple(p => p.Published == 1 && p.Pageable == 1, q => q.OrderByDescending(r => r.DateCreated), skip, take);
             return posts.ToList();
         }
 
         public int TotalPosts()
         {
-            int totalPosts = this.GetCount(p => p.Published == 1);
+            int totalPosts = this.GetCount(p => p.Published == 1 && p.Pageable == 1);
             return totalPosts;
+        }
+
+        public int TotalPostsForAdmin()
+        {
+            int totalPosts = this.GetCount(p => p.PostId > 0);
+            return totalPosts;
+        }
+
+        public List<Post> GetForAdmin(int page, int take)
+        {
+            int skip = CalculateSkip(page, take);
+            var posts = this.GetMultiple(p => p.PostId > 0, q => q.OrderByDescending(r => r.DateCreated), skip, take);
+            return posts.ToList();
         }
 
         public Post GetPost(string url)

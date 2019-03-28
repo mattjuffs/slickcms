@@ -7,12 +7,16 @@ using SlickCMS.Data;
 using SlickCMS.Data.Interfaces;
 using System.Web;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace SlickCMS.Web.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
+        private readonly IConfiguration _config;
+        private readonly SlickCMSContext _context;
         private readonly IUserService _userService;
+        private readonly IPostService _postService;
 
         /// <summary>
         /// Key for storing whether the User is logged in
@@ -24,9 +28,13 @@ namespace SlickCMS.Web.Controllers
         /// </summary>
         private readonly string _loginSessionKey = "AdminLogin";
 
-        public AdminController(IUserService userService)
+        public AdminController(IConfiguration config, SlickCMSContext context, IUserService userService, IPostService postService) : base(context)
         {
+            _config = config;
+            _context = context;
+
             _userService = userService;
+            _postService = postService;
         }
 
         private bool IsLoggedIn()
@@ -63,14 +71,34 @@ namespace SlickCMS.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Posts()
+        public IActionResult Posts(int page = 1, bool viewall = false)
         {
             if (!IsLoggedIn())
                 return Redirect("/admin");
 
-            // TODO: list posts
+            int take = _config.GetValue<int>("SlickCMS:AdminPostsPerPage", 20);
+            if (viewall) { take = _config.GetValue<int>("SlickCMS:ViewAllCount", 1000); }
+            int totalPosts = _postService.TotalPostsForAdmin();
+            int remainder = (totalPosts % take);
+            int totalPages = (totalPosts - remainder) / take;
 
-            return View();
+            var posts = _postService.GetForAdmin(page, take);
+
+            var postsModel = new Models.PostsModel
+            {
+                Name = "Posts",
+                Posts = posts,
+                Pagination = new Models.PaginationModel
+                {
+                    TotalPages = totalPages,
+                    CurrentPage = page,
+                    TotalPosts = totalPosts,
+                    Query = ""
+                },
+                Type = Models.PostsModel.PageType.Post
+            };
+
+            return View(postsModel);
         }
 
         [HttpGet]
