@@ -23,6 +23,9 @@
             <fieldset>
                 <legend>Edit Post</legend>
 
+                <input type="hidden" name="hdnPostId" value="@Model.Post.PostId" />
+                <input type="hidden" name="hdnUserId" value="@Model.Post.UserId" />
+
                 <p>PostID: @Model.Post.PostId</p>
                 <p>UserID: @Model.Post.UserId</p>
 

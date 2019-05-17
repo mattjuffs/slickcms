@@ -8,6 +8,7 @@ using SlickCMS.Data.Interfaces;
 using System.Web;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using SlickCMS.Core;
 
 namespace SlickCMS.Web.Controllers
 {
@@ -129,12 +130,50 @@ namespace SlickCMS.Web.Controllers
 
         [HttpPost]
         [Route("/admin/save-post")]
-        public IActionResult SavePost()
+        public IActionResult SavePost(IFormCollection form)
         {
             if (!IsLoggedIn())
                 return Redirect("/admin");
 
-            // TODO: save post data (add/update)
+            // retrieve user input from the form
+            int? postID = Convert.ToInt32(form["hdnPostId"]);
+            int? userID = Convert.ToInt32(form["hdnUserId"]);
+            string title = form["txtTitle"];
+            string url = form["txtUrl"];
+            string summary = form["txtSummary"];
+            string content = form["txtContent"];
+            string search = form["txtSearch"];
+            DateTime dateCreated = String.IsNullOrEmpty(form["txtDateCreated"]) ? DateTime.Now : form["txtDateCreated"].ToDateTime();
+            DateTime dateModified = DateTime.Now;
+            bool published = (form["chkPublished"] == "1");// TODO: confirm values passed
+            bool pageable = (form["chkPageable"] == "1");// TODO: confirm values passed
+
+            // create Post object
+            var post = new SlickCMS.Data.Entities.Post
+            {
+                PostId = postID ?? 0,
+                UserId = userID ?? 0,// TODO: get from logged in user
+                Title = title,
+                // TODO: populate remaining fields
+            };
+
+            // save post
+            if (postID == null || postID <= 0)
+            {
+                // TODO: add
+            }
+            else
+            {
+                // TODO: update
+            }
+            // TODO: set postID from add/update DB calls
+
+            // TODO: save Categories
+            //    tags will be comma separated list within form
+
+            // TODO: save Tags
+            //    replace " " with "-", so "#star wars" becomes "#star-wars"
+            //    all tags begin with #, but strip # out when saving to DB
 
             return Redirect("/admin/posts");
         }
