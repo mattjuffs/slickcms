@@ -161,6 +161,9 @@ namespace SlickCMS.Web.Controllers
             if (postID == null || postID <= 0)
             {
                 // TODO: add
+
+                _context.Post.Add(new Data.Entities.Post());
+                _context.SaveChanges();
             }
             else
             {
