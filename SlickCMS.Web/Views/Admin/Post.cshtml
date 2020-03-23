@@ -53,13 +53,14 @@
 
                 <p>
                     <label for="txtDateCreated">Date Created</label><br />
+                    <input type="hidden" name="hdnDateCreated" value="@Model.Post.DateCreated.ToString("s")" />
                     <input type="datetime-local" name="txtDateCreated" id="txtDateCreated" value="@Model.Post.DateCreated.ToString("s")" disabled />
                 </p>
 
-                <p>
-                    <label for="txtDateModified">Date Modified</label><br />
-                    <input type="datetime-local" name="txtDateModified" id="txtDateModified" value="@Model.Post.DateModified.ToString("s")" />
-                </p>
+                <!--<p>
+        <label for="txtDateModified">Date Modified</label><br />
+        <input type="datetime-local" name="txtDateModified" id="txtDateModified" value="@Model.Post.DateModified.ToString("s")" />
+    </p>-->
 
                 <p>
                     <label for="chkPublished">Published?</label>
