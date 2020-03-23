@@ -146,13 +146,13 @@ namespace SlickCMS.Web.Controllers
 
             // retrieve user input from the form
             int? postID = Convert.ToInt32(form["hdnPostId"]);
-            int? userID = Convert.ToInt32(form["hdnUserId"]);
+            int userID = Convert.ToInt32(form["hdnUserId"]);
             string title = form["txtTitle"];
             string url = form["txtUrl"];
             string summary = form["txtSummary"];
             string content = form["txtContent"];
             string search = form["txtSearch"];
-            DateTime dateCreated = String.IsNullOrEmpty(form["txtDateCreated"]) ? DateTime.Now : form["txtDateCreated"].ToDateTime();
+            DateTime dateCreated = form["hdnDateCreated"].ToString().ToDateTime();
             DateTime dateModified = DateTime.Now;
             bool published = (form["chkPublished"] == "on");
             bool pageable = (form["chkPageable"] == "on");
@@ -163,9 +163,10 @@ namespace SlickCMS.Web.Controllers
             var post = new SlickCMS.Data.Entities.Post
             {
                 PostId = postID ?? 0,
-                UserId = userID ?? loggedInUserID,
+                UserId = userID != 0 ? userID : loggedInUserID,
                 Title = title,
                 Content = content,
+                DateCreated = dateCreated,
                 DateModified = dateModified,
                 Pageable = pageable ? 1 : 0,
                 Published = published ? 1 : 0,
@@ -187,17 +188,124 @@ namespace SlickCMS.Web.Controllers
                 //_context.Post.Update(post);
                 _context.Set<Data.Entities.Post>().Update(post);
             }
+            _context.SaveChanges();
 
-            // TODO: save Categories
-            //    tags will be comma separated list within form
+            SaveCategories(postID, form);
+            SaveTags(postID, form);
 
-            // TODO: save Tags
+            return Redirect("/admin/posts");
+        }
+
+        private void SaveCategories(int? postID, IFormCollection form)
+        {
+            var currentCategories = _categoryService.GetCategories(postID ?? 0);// Categories currently assigned to the Post
+
+            if (form["selCategories"] != "")
+            {
+                string[] newCategories = form["selCategories"].ToString().Split(',');// new associations
+
+                // add new associations
+                foreach (var newCategory in newCategories)
+                {
+                    // check if we already have this association
+                    var currentCategory = currentCategories.Where(p => p.CategoryId == newCategory.ToInt()).FirstOrDefault();
+                    if (currentCategory != null)
+                    {
+                        currentCategories.Remove(currentCategory);
+                        continue;
+                    }
+
+                    var relationship = new SlickCMS.Data.Entities.Relationship
+                    {
+                        PostId = postID ?? 0,
+                        CategoryId = newCategory.ToInt(),
+                    };
+                    _context.Set<Data.Entities.Relationship>().Add(relationship);
+                }
+
+                // remove old associations
+                foreach (var currentCategory in currentCategories)
+                {
+                    var currentRelationship = _context.Set<Data.Entities.Relationship>().Where(r => r.CategoryId == currentCategory.CategoryId && r.PostId == postID);
+                    _context.Set<Data.Entities.Relationship>().RemoveRange(currentRelationship);
+                }
+            }
+            else
+            {
+                foreach (var currentCategory in currentCategories)
+                {
+                    var currentRelationship = _context.Set<Data.Entities.Relationship>().Where(r => r.CategoryId == currentCategory.CategoryId && r.PostId == postID);
+                    _context.Set<Data.Entities.Relationship>().RemoveRange(currentRelationship);
+                }
+            }
+
+            _context.SaveChanges();
+        }
+
+        private void SaveTags(int? postID, IFormCollection form)
+        {
             //    replace " " with "-", so "#star wars" becomes "#star-wars"
             //    all tags begin with #, but strip # out when saving to DB
 
-            _context.SaveChanges();
+            var currentTags = _tagService.GetTags(postID ?? 0);// Tags currently assigned to the post
+            if (form["txtTags"] != "")
+            {
+                string[] newTags = form["txtTags"].ToString().Split('#');
 
-            return Redirect("/admin/posts");
+                foreach (var newTag in newTags)
+                {
+                    if (newTag.Length == 0)
+                        continue;
+
+                    string formattedTag = newTag.Trim().ToLower().Replace(" ", "-");
+
+                    // check if we already have this association
+                    var currentTag = currentTags.Where(p => p.Name == formattedTag).FirstOrDefault();
+                    if (currentTag != null)
+                    {
+                        currentTags.Remove(currentTag);
+                        continue;
+                    }
+
+                    // check if the tag already exists
+                    var tag = _tagService.Get(p => p.Name == formattedTag);
+                    if (tag == null)
+                    {
+                        // add a new tag
+                        tag = new Data.Entities.Tag
+                        {
+                            Name = formattedTag,
+                        };
+                        _context.Set<Data.Entities.Tag>().Add(tag);
+                        _context.SaveChanges();
+                    }
+
+                    // save the association
+                    var relationship = new SlickCMS.Data.Entities.Relationship
+                    {
+                        PostId = postID ?? 0,
+                        TagId = tag.TagId,
+                    };
+                    _context.Set<Data.Entities.Relationship>().Add(relationship);
+                }
+
+                // remove old associations
+                foreach (var currentTag in currentTags)
+                {
+                    var currentRelationship = _context.Set<Data.Entities.Relationship>().Where(r => r.CategoryId == currentTag.TagId && r.PostId == postID);
+                    _context.Set<Data.Entities.Relationship>().RemoveRange(currentRelationship);
+                }
+            }
+            else
+            {
+                foreach (var currentTag in currentTags)
+                {
+                    var currentRelationship = _context.Set<Data.Entities.Relationship>().Where(r => r.TagId == currentTag.TagId && r.PostId == postID);
+                    _context.Set<Data.Entities.Relationship>().RemoveRange(currentRelationship);
+                }
+            }
+
+            _context.SaveChanges();
         }
 
         [HttpGet]
