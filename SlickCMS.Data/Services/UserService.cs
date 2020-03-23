@@ -12,20 +12,20 @@ namespace SlickCMS.Data.Services
         public UserService() { }
         public UserService(SlickCMSContext context) : base(context) { }
 
-        public bool Login(string email, string password)
+        public User Login(string email, string password)
         {
             // first check we have a user for this email address
             var user = this.Get(p => p.Email.ToLower() == email.ToLower());
             if (user == null)
-                return false;
+                return null;
 
             // next verify the password matches (using 1 way hash)
             string hashedPassword = SlickCMS.Core.Hash.GenerateHash(password, SlickCMS.Core.Enums.HashType.MD5);
             if (hashedPassword != user.Password)
-                return false;
+                return null;
 
             // user exists and password matches, they're logged in
-            return true;
+            return user;
         }
 
         public bool IsAuthenticated(string adminLoggedIn)
