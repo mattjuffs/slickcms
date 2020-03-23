@@ -1,11 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UseNETCoreGenerator>true</UseNETCoreGenerator>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Legacy\Entities\**" />
+    <EmbeddedResource Remove="Legacy\Entities\**" />
+    <None Remove="Legacy\Entities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Captcha.cs" />
+    <Compile Remove="Email.cs" />
+    <Compile Remove="Legacy\Captcha.cs" />
+    <Compile Remove="Legacy\Email.cs" />
+    <Compile Remove="Legacy\Error.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Legacy\" />
   </ItemGroup>
 
 </Project>

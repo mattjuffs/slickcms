@@ -1,0 +1,74 @@
+﻿@model SlickCMS.Web.Models.PostsModel
+
+@{ 
+    string url = "";
+
+    switch (Model.Type)
+    {
+        case PostsModel.PageType.Post:
+            url = "/admin/posts?";
+            break;
+        case PostsModel.PageType.Category:
+            url = "/admin/categories?name=" + Model.Name.ToLower() + "&";
+            break;
+        case PostsModel.PageType.Tag:
+            url = "/admin/tags?name=" + Model.Name.ToLower() + "&";
+            break;
+        default:
+            break;
+    }
+}
+
+<ul>
+    <li>TotalPages: @Model.Pagination.TotalPages</li>
+    <li>CurrentPage: @Model.Pagination.CurrentPage</li>
+    <li>TotalPosts: @Model.Pagination.TotalPosts</li>
+</ul>
+
+<ol class="pagination clearfix">
+    @{
+        if (Model.Pagination.CurrentPage > 1)
+        {
+            <li><a href="@(url)page=@(Model.Pagination.CurrentPage - 1)">&laquo; Previous</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a>&laquo; Previous</a></li>
+        }
+    }
+
+    @{
+        for (int i = 1; i <= Model.Pagination.TotalPages; i++)
+        {
+            <li class="@(Model.Pagination.CurrentPage == i ? "current" : "")"><a href="@(url)page=@i">@i</a></li>
+        }
+    }
+
+    @{
+        if (Model.Pagination.CurrentPage == Model.Pagination.TotalPages || Model.Pagination.TotalPages == 0)
+        {
+            <li class="disabled"><a>Next &raquo;</a></li>
+        }
+        else
+        {
+            <li><a href="@(url)page=@(Model.Pagination.CurrentPage + 1)">Next &raquo;</a></li>
+        }
+    }
+
+    @{
+        if (Model.Pagination.TotalPages > 1)
+        {
+            <li><a href="@(url)viewall=true">View All</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a>View All</a></li>
+        }
+    }
+
+
+    @* TODO
+        <!--<li class="disabled"><a href="/ClearViewAll">Clear View All</a></li>-->
+        <li class="disabled"><a>Clear View All</a></li>
+    *@
+</ol>

@@ -1,0 +1,40 @@
+﻿@model SlickCMS.Web.Models.PostsModel
+
+@{
+    ViewData["MetaTitle"] = Model.Name + " Category";
+    ViewData["MetaDescription"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
+    var category = categories.Where(c => c.Name.ToLower() == Model.Name.ToLower()).FirstOrDefault();
+}
+
+<div class="block">
+    <section>
+        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/">Home</a></li>
+            @*<li><a href="/categories">Categories</a></li>*@
+            @{
+                if (Model.Pagination.CurrentPage > 1)
+                {
+                    <li class="current"><a href="/category/@Model.Name&page=@Model.Pagination.CurrentPage">@Model.Name</a></li>
+                }
+                else
+                {
+                    <li class="current"><a href="/category/@Model.Name">@Model.Name</a></li>
+                }
+            }
+        </ol>
+    </section>
+
+    <section class="clearfix">
+        <h2>@Model.Name <span>@(category != null ? category.Description : "")</span></h2>
+        <p>@Model.Pagination.TotalPosts posts within the <strong>@Model.Name</strong> Category</p>
+        <partial name="_Posts" model="Model.Posts" />
+    </section>
+
+    <section>
+        <partial name="_Pagination" model="Model" />
+    </section>
+</div>

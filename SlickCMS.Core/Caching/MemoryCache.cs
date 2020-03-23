@@ -6,9 +6,9 @@ using System.Runtime.Caching;
 
 namespace SlickCMS.Core.Caching
 {
-    internal class MemoryCache
+    public class MemoryCache
     {
-        internal static void Add(string cacheKey, object data)
+        public static void Add(string cacheKey, object data)
         {
             // get the default memory cache
             var cache = System.Runtime.Caching.MemoryCache.Default;
@@ -25,7 +25,7 @@ namespace SlickCMS.Core.Caching
         /// Usage:
         ///     var cachedObject = Caching.MemoryCache.Get<List<string>>(cacheKey);
         /// </summary>
-        internal static T Get<T>(string cacheKey) where T : class
+        public static T Get<T>(string cacheKey) where T : class
         {
             var cache = System.Runtime.Caching.MemoryCache.Default;
 
@@ -40,7 +40,7 @@ namespace SlickCMS.Core.Caching
         /// Usage:
         ///     var cachedObject = (List<string>)Caching.MemoryCache.Get(cacheKey);
         /// </summary>
-        internal static object Get(string cacheKey)
+        public static object Get(string cacheKey)
         {
             var cache = System.Runtime.Caching.MemoryCache.Default;
 
@@ -50,7 +50,7 @@ namespace SlickCMS.Core.Caching
             return null;
         }
 
-        internal static void Remove(string cacheKey)
+        public static void Remove(string cacheKey)
         {
             var cache = System.Runtime.Caching.MemoryCache.Default;
             cache.Remove(cacheKey);

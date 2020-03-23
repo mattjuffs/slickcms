@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Data.Entities
 {
-    public partial class Link
+    public partial class Link : IBaseEntity
     {
         public int LinkId { get; set; }
         public string Name { get; set; }

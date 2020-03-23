@@ -1,0 +1,37 @@
+﻿@model SlickCMS.Web.Models.PostsModel
+
+@{
+    ViewData["MetaTitle"] = Model.Name + " Tag";
+    ViewData["MetaDescription"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="block">
+    <section>
+        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/">Home</a></li>
+            @*<li><a href="/tags">Tags</a></li>*@
+            @{
+                if (Model.Pagination.CurrentPage > 1)
+                {
+                    <li class="current"><a href="/tag/@Model.Name&page=@Model.Pagination.CurrentPage">#@Model.Name</a></li>
+                }
+                else
+                {
+                    <li class="current"><a href="/tag/@Model.Name">#@Model.Name</a></li>
+                }
+            }
+        </ol>
+    </section>
+
+    <section class="clearfix">
+        <h2>@Model.Name <span>Tag</span></h2>
+        <p>@Model.Pagination.TotalPosts posts tagged <strong>@Model.Name</strong></p>
+        <partial name="_Posts" model="Model.Posts" />
+    </section>
+
+    <section>
+        <partial name="_Pagination" model="Model" />
+    </section>
+</div>

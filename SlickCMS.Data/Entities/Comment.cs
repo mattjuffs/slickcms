@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Data.Entities
 {
-    public partial class Comment
+    public partial class Comment : IBaseEntity
     {
         public int CommentId { get; set; }
         public int PostId { get; set; }

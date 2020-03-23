@@ -1,0 +1,96 @@
+﻿@model SlickCMS.Web.Models.PostModel
+
+@{
+    ViewData["MetaTitle"] = Model.Post.Title;
+    ViewData["MetaDescription"] = Model.Post.Summary;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="title"><span>@Model.Post.Title</span></h1>
+
+<div class="block">
+    <section>
+        <ol class="breadcrumbs clearfix">
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li class="current"><a href="/post/@Model.Post.Url">@Model.Post.Title</a></li>
+        </ol>
+    </section>
+
+    <section>
+        <ul>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.UserId):
+                @Html.DisplayFor(model => model.Post.UserId)
+            </li>
+
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Title):
+                @Html.DisplayFor(model => model.Post.Title)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Url):
+                @Html.DisplayFor(model => model.Post.Url)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Summary):
+                @Html.DisplayFor(model => model.Post.Summary)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Search):
+                @Html.DisplayFor(model => model.Post.Search)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.DateCreated):
+                <time>@Html.DisplayFor(model => model.Post.DateCreated)</time>
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.DateModified):
+                <time>@Html.DisplayFor(model => model.Post.DateModified)</time>
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Published):
+                @Html.DisplayFor(model => model.Post.Published)
+            </li>
+            <li>
+                @Html.DisplayNameFor(model => model.Post.Pageable):
+                @Html.DisplayFor(model => model.Post.Pageable)
+            </li>
+        </ul>
+    </section>
+
+    <hr />
+
+    <article>
+        @Html.Raw(Model.Post.Content)
+    </article>
+
+    <section>
+        <h2>Categories <span>that this Post has been filed under</span></h2>
+        <ul>
+            @{
+                foreach (var category in Model.Categories)
+                {
+                    <li><a href="/category/@category.Name.ToLower()">@category.Name</a> - <em>@category.Description</em></li>
+                }
+            }
+        </ul>
+    </section>
+
+    <section>
+        <h2>Tags <span>that this Post has been tagged with</span></h2>
+        <ul>
+            @{ 
+                foreach (var tag in Model.Tags)
+                {
+                    <li><a href="/tag/@tag.Name.ToLower()">#@tag.Name</a></li>
+                }
+            }
+        </ul>
+    </section>
+
+    <partial name="_Comments" model="Model.Comments" />
+
+    <partial name="_CommentForm" model="Model.Post" />
+
+</div>

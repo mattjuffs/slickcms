@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-using System;
-using System.Collections.Generic;
 //using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
@@ -48,7 +46,6 @@ namespace SlickCMS.Data.Services
                 db.SaveChanges();
             }*/
 
-            // TODO: add entity to context
             _context.Add<IBaseEntity>(entity);
             _context.SaveChanges();
         }
@@ -104,7 +101,6 @@ namespace SlickCMS.Data.Services
                 return table.Find(key);
             }*/
 
-            // TODO: get entity from context
             var table = _context.Set<IBaseEntity>();
             return table.Find(key);
         }
@@ -117,12 +113,17 @@ namespace SlickCMS.Data.Services
                 return table.Where(query).FirstOrDefault();
             }*/
 
-            // TODO: get entity from context
             var table = _context.Set<IBaseEntity>();
             return table.Where(query).FirstOrDefault();
         }
 
-        public virtual List<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null)
+        public virtual int GetCount(Expression<Func<IBaseEntity, bool>> query)
+        {
+            var table = _context.Set<IBaseEntity>();
+            return table.Where(query).Count();
+        }
+
+        public virtual IQueryable<IBaseEntity> GetMultiple(Expression<Func<IBaseEntity, bool>> filter, Func<IQueryable<IBaseEntity>, IOrderedQueryable<IBaseEntity>> orderBy = null, int skip = 0, int take = 10)
         {
             /*using (var db = CreateContext())
             {
@@ -135,14 +136,13 @@ namespace SlickCMS.Data.Services
                     return query.ToList();
             }*/
 
-            // TODO: get entities from context
             var table = _context.Set<IBaseEntity>();
             var query = table.Where(filter);
 
             if (orderBy != null)
-                return orderBy(query).ToList();
-            
-            return query.ToList();
+                return orderBy(query).Skip(skip).Take(take);
+
+            return query.Skip(skip).Take(take);
         }
 
         /*internal virtual SlickCMSContext CreateContext()

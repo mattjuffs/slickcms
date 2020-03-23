@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SlickCMS.Data.Interfaces;
 
 namespace SlickCMS.Data.Entities
 {
-    public partial class User
+    public partial class User : IBaseEntity
     {
         public int UserId { get; set; }
         public Guid Uuid { get; set; }

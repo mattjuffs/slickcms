@@ -1,0 +1,54 @@
+﻿@{
+    var categories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
+}
+
+<header>
+    <nav>
+        <span id="projectName"><a href="/"><span class="orange">slick</span><span class="blue">cms</span></a></span>
+
+        <ul id="menu">
+            @*<li class="root"><a href="/posts">Posts</a></li>*@
+
+            <li class="root" id="liCategories">
+                <a href="/posts" title="view all Posts">Posts</a>
+                <ul class="dropdown" id="ddCategories">
+                    @{
+                        foreach (var category in categories.OrderBy(c => c.Name))
+                        {
+                            <li title="@category.Description"><a href="/category/@category.Name.ToLower()">@category.Name (@category.Count)</a></li>
+                        }
+                    }
+                </ul>
+            </li>
+
+            <li class="root" id="liProjects">
+                <!--<a href="/projects" class="scroll">Projects</a>-->
+                <a href="/projects">Projects</a>
+                <ul class="dropdown" id="ddProjects">
+                    <li><a href="/framework">Framework</a></li>
+                    <li><a href="#">Menu Item</a></li>
+                    <li><a href="#">Menu Item</a></li>
+                </ul>
+            </li>
+
+            <li class="root"><a href="/about">About</a></li>
+            <li class="root"><a href="/contact">Contact</a></li>
+        </ul>
+
+        <div id="search">
+            <form method="get" action="/search">
+                <input type="search" name="query" placeholder="Search" />
+                <input type="submit" value="go" title="Click to search the framework" />
+            </form>
+        </div>
+
+        <a href="#" class="mobileMenu">Menu</a>
+        <ul class="mobileMenu">
+            <li><a href="#top" class="scroll">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
