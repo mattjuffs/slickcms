@@ -14,5 +14,8 @@ namespace SlickCMS.Web.Models
         public List<SlickCMS.Data.Entities.Comment> Comments { get; set; }
         public List<SlickCMS.Data.Entities.Category> Categories { get; set; }
         public List<SlickCMS.Data.Entities.Tag> Tags { get; set; }
+
+        public List<SlickCMS.Data.Entities.CategorySummary> AllCategories { get; set; }
+        public List<SlickCMS.Data.Entities.TagSummary> AllTags { get; set; }
     }
 }

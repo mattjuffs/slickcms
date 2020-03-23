@@ -2,9 +2,6 @@
 
 @{
     ViewData["MetaTitle"] = "Admin | Post";
-
-    var categories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
-    var tags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
 }
 
 <h1 class="title"><span>Admin | Post</span></h1>
@@ -78,7 +75,7 @@
                     <label for="selCategories">Categories</label><br />
                     <select multiple name="selCategories" id="selCategories">
                         @{
-                            foreach (var category in categories.OrderBy(c => c.Name))
+                            foreach (var category in Model.AllCategories.OrderBy(c => c.Name))
                             {
                                 bool selected = Model.Categories.Exists(p => p.Name == category.Name);
 
@@ -108,7 +105,7 @@
                     <small>
                         <strong>Popular tags: </strong>
                         @{
-                            foreach (var tag in tags)
+                            foreach (var tag in Model.AllTags)
                             {
                                 <text>#@tag.Name </text>
                             }
