@@ -60,5 +60,17 @@ namespace SlickCMS.Core//.Extensions
             else
                 return false;
         }
+
+        public static System.Int32 ToInt(this string obj)
+        {
+            try
+            {
+                return Convert.ToInt32(obj);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }
