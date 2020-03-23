@@ -58,7 +58,23 @@ namespace SlickCMS.Data.Services
         public Post GetPost(int id)
         {
             var post = this.Get(p => p.PostId == id);
-            return post;
+
+            if (post != null)
+                return post;
+
+            return new Post
+            {
+                PostId = 0,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now,
+                Title = "",
+                Summary = "",
+                Content = "",
+                Published = 0,
+                Search = "",
+                Url = "",
+                UserId = 0,                
+            };
         }
 
         public List<Post> Search(string query, int page, int take)
