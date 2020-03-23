@@ -31,6 +31,8 @@ namespace SlickCMS.Web.Controllers
         /// </summary>
         private readonly string _loginSessionKey = "AdminLogin";
 
+        private readonly string _loggedInUserId = "AdminUserID";
+
         public AdminController(IConfiguration config, SlickCMSContext context, IUserService userService, IPostService postService, ICategoryService categoryService, ITagService tagService) : base(context)
         {
             _config = config;
@@ -61,11 +63,13 @@ namespace SlickCMS.Web.Controllers
         {
             string email = form["email"];
             string password = form["password"];
+            var user = _userService.Login(email, password);
 
-            if (_userService.Login(email, password))
+            if (user != null)
             {
                 HttpContext.Session.SetString(_loginSessionKey, "success");// TODO: use this to display a successful login message on /admin/posts
                 HttpContext.Session.SetString(_loggedInSessionKey, System.Guid.NewGuid().ToString());
+                HttpContext.Session.SetInt32(_loggedInUserId, user.UserId);
                 return Redirect("/admin/posts");
             }
             else
@@ -114,8 +118,11 @@ namespace SlickCMS.Web.Controllers
                 return Redirect("/admin");
 
             var post = _postService.GetPost(id);
-            var categories = _categoryService.GetCategories(post.PostId);
-            var tags = _tagService.GetTags(post.PostId);
+            var categories = _categoryService.GetCategories(id);
+            var tags = _tagService.GetTags(id);
+
+            var allCategories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
+            var allTags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
 
             var postModel = new Models.PostModel
             {
@@ -123,6 +130,8 @@ namespace SlickCMS.Web.Controllers
                 Comments = null,// not loading comments on the Admin page
                 Categories = categories,
                 Tags = tags,
+                AllCategories = allCategories ?? new List<Data.Entities.CategorySummary>(),
+                AllTags = allTags ?? new List<Data.Entities.TagSummary>(),
             };
 
             return View(postModel);
@@ -145,31 +154,39 @@ namespace SlickCMS.Web.Controllers
             string search = form["txtSearch"];
             DateTime dateCreated = String.IsNullOrEmpty(form["txtDateCreated"]) ? DateTime.Now : form["txtDateCreated"].ToDateTime();
             DateTime dateModified = DateTime.Now;
-            bool published = (form["chkPublished"] == "1");// TODO: confirm values passed
-            bool pageable = (form["chkPageable"] == "1");// TODO: confirm values passed
+            bool published = (form["chkPublished"] == "on");
+            bool pageable = (form["chkPageable"] == "on");
+
+            int loggedInUserID = HttpContext.Session.GetInt32(_loggedInUserId) ?? 0;
 
             // create Post object
             var post = new SlickCMS.Data.Entities.Post
             {
                 PostId = postID ?? 0,
-                UserId = userID ?? 0,// TODO: get from logged in user
+                UserId = userID ?? loggedInUserID,
                 Title = title,
-                // TODO: populate remaining fields
+                Content = content,
+                DateModified = dateModified,
+                Pageable = pageable ? 1 : 0,
+                Published = published ? 1 : 0,
+                Search = search,
+                Summary = summary,
+                Url = url,
             };
 
             // save post
-            if (postID == null || postID <= 0)
+            if (postID == null || postID == 0)
             {
-                // TODO: add
+                //_context.Post.Add(post);
+                _context.Set<Data.Entities.Post>().Add(post);
 
-                _context.Post.Add(new Data.Entities.Post());
-                _context.SaveChanges();
+                postID = post.PostId;
             }
             else
             {
-                // TODO: update
+                //_context.Post.Update(post);
+                _context.Set<Data.Entities.Post>().Update(post);
             }
-            // TODO: set postID from add/update DB calls
 
             // TODO: save Categories
             //    tags will be comma separated list within form
@@ -177,6 +194,8 @@ namespace SlickCMS.Web.Controllers
             // TODO: save Tags
             //    replace " " with "-", so "#star wars" becomes "#star-wars"
             //    all tags begin with #, but strip # out when saving to DB
+
+            _context.SaveChanges();
 
             return Redirect("/admin/posts");
         }
