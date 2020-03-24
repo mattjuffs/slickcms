@@ -2,37 +2,20 @@
 
 A Blog/CMS inspired by WordPress, built using ASP.NET MVC and SQL Server
 
-_Work in progress..._
+## Releases
 
-## Demo site
+v1.0 Coming soon!
 
-The demo site can be found here
-http://slickcms.azurewebsites.net/
+## [Milestones](https://github.com/mattjuffs/slickcms/milestones)
 
-## branches
+1. [Beta](https://github.com/mattjuffs/slickcms/milestone/1) - First release of SlickCMS with the core features required to run a Blog.
+2. [Integrations](https://github.com/mattjuffs/slickcms/milestone/2) - Integrating with third parties to further enhance SlickCMS.
+3. [New Features](https://github.com/mattjuffs/slickcms/milestone/3)
 
-The following **branching model** is used:
+## Links
 
-### master
-
-Production branch, used for deploying releases. This is branched from and merged back to the development branch.
-
-### develop
-
-Development branch where all development work is gathered. Feature branches merge into this branch.
-
-### bugfix/
-
-Used for work fixing product bugs. Merged back to develop.
-
-### feature/
-
-Used for work on new features. Merged back to develop
-
-### hotfix/
-
-Used for fixing urgent bugs on production, that have high impact. Merged back to master.
-
-### release/
-
-Used for preparing and testing work for release. Merged back to master.
+* [Demo](http://slickcms.azurewebsites.net/) - _hosted on Azure_
+* [/Branching](/BRANCHING.md)
+* [Code of Conduct](/CODE_OF_CONDUCT.md)
+* [Contributing](/CONTRIBUTING.md)
+* [License](/LICENSE) - _slickcms is licensed under the MIT License_
