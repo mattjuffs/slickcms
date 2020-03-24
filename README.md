@@ -15,7 +15,7 @@ v1.0 Coming soon!
 ## Links
 
 * [Demo](http://slickcms.azurewebsites.net/) - _hosted on Azure_
-* [/Branching](/BRANCHING.md)
+* [Branching](/BRANCHING.md)
 * [Code of Conduct](/CODE_OF_CONDUCT.md)
 * [Contributing](/CONTRIBUTING.md)
 * [License](/LICENSE) - _slickcms is licensed under the MIT License_
