@@ -12,7 +12,7 @@ IIS with support for .NET Core 3.0 required. SQL Server or Azure SQL required fo
 
 ## Installation
 
-1. Checkout the repo
+1. Checkout the repo `master` branch, or download a [release](https://github.com/mattjuffs/slickcms/releases)
 2. [Setup the database using the files provided](/Database)
 3. Run `SlickCMS.Web`
 4. Update the connection string created (`~ConnectionStrings\slickcms.txt`) to point to your database
