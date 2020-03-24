@@ -18,7 +18,7 @@ IIS with support for .NET Core 3.0 required. SQL Server or Azure SQL required fo
 4. Update the connection string created (`~ConnectionStrings\slickcms.txt`) to point to your database
 5. Re-run `SlickCMS.Web`
 6. You should get the homepage as per the [Demo](http://slickcms.azurewebsites.net/)
-7. Insert a record into `tbl_User` for yourself ([MD5 hash the password](http://slickhouse.com/tools/Hash.aspx)) to login to the Admin
+7. [Insert a record](http://snippets.slickhouse.com/sql/205/insert-slickcms-user/) into `tbl_User` for yourself ([MD5 hash the password](http://slickhouse.com/tools/Hash.aspx)) to login to the Admin
 
 ## [Milestones](https://github.com/mattjuffs/slickcms/milestones)
 
