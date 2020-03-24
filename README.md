@@ -4,7 +4,7 @@ A Blog/CMS inspired by WordPress, built using ASP.NET MVC and SQL Server
 
 ## Releases
 
-[v1.0 is available now](https://github.com/mattjuffs/slickcms/releases/tag/v1.0)! This incorporates everything from the [Beta milestone](https://github.com/mattjuffs/slickcms/milestone/1).
+[v1.0 is available now](https://github.com/mattjuffs/slickcms/releases/tag/v1.0)! This incorporates everything from the [Beta milestone](https://github.com/mattjuffs/slickcms/milestone/1). The database is populated with old Posts and Comments from the original Slickhouse.com blog.
 
 ## Requirements
 
