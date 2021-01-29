@@ -114,3 +114,11 @@ Thumbs.db
 # Folder config file
 Desktop.ini
 .vs/SlickCMS/v15/Server/sqlite3/
+.vs/config/applicationhost.config
+.vs/config/applicationhost.config
+.vs/SlickCMS/DesignTimeBuild/.dtbcache
+.vs/SlickCMS/DesignTimeBuild/.dtbcache.v2
+.vs/config/applicationhost.config
+SlickCMS.Web/SlickCMS.Web.csproj
+SlickCMS.Web/Properties/PublishProfiles/slickcms.PublishSettings
+SlickCMS.Web/.config/dotnet-tools.json
