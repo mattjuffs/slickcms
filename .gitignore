@@ -103,6 +103,7 @@ UpgradeLog*.XML
 
 # SlickCMS
 ConnectionStrings
+Published
 
 ############
 ## Windows
