@@ -33,3 +33,13 @@ IIS with support for .NET Core 3.0 required. SQL Server or Azure SQL required fo
 * [Code of Conduct](/CODE_OF_CONDUCT.md)
 * [Contributing](/CONTRIBUTING.md)
 * [License](/LICENSE) - _slickcms is licensed under the MIT License_
+
+# dotnet Commands
+
+You can use the following commands, from within the root of the repo:
+
+```
+dotnet build SlickCMS.Web
+
+dotnet run --project SlickCMS.Web
+```
