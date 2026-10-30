@@ -1,0 +1,13 @@
+@model List<SlickCMS.Data.Entities.Category>
+
+<section id="categories">
+    <h2>Categories <span>that this Post has been filed under</span></h2>
+    <ul>
+        @{
+            foreach (var category in Model)
+            {
+                <li><a href="/category/@category.Name.ToLower()">@category.Name</a> - <em>@category.Description</em></li>
+            }
+        }
+    </ul>
+</section>
