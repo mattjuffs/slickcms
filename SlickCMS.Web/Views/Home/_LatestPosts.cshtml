@@ -1,0 +1,11 @@
+<h3>Latest Posts</h3>
+<ol class="no-list-style">
+    @{
+        var posts = (List<SlickCMS.Data.Entities.Post>)ViewData["LatestPosts"];
+
+        foreach (var post in posts)
+        {
+            <li><a href="/post/@post.Url" title="published @post.DateCreated.ToHumanDate()">@post.Title</a></li>
+        }
+    }
+</ol>

@@ -2,7 +2,7 @@
 
 @{
     ViewData["MetaTitle"] = "Search";
-    ViewData["MetaDescription"] = "";
+    ViewData["MetaDescription"] = ("Search results for: " + Model.Pagination.Query);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 

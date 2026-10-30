@@ -121,7 +121,7 @@ namespace SlickCMS.Web.Controllers
             var categories = _categoryService.GetCategories(id);
             var tags = _tagService.GetTags(id);
 
-            var allCategories = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.CategorySummary>>("Categories|Posts");
+            var allCategories = _categoryService.GetMultiple(c => (c.Name + "") != "", d => d.OrderBy(e => e.Name), 0, 1000).ToList();
             var allTags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
 
             var postModel = new Models.PostModel
@@ -130,7 +130,7 @@ namespace SlickCMS.Web.Controllers
                 Comments = null,// not loading comments on the Admin page
                 Categories = categories,
                 Tags = tags,
-                AllCategories = allCategories ?? new List<Data.Entities.CategorySummary>(),
+                AllCategories = allCategories ?? new List<Data.Entities.Category>(),
                 AllTags = allTags ?? new List<Data.Entities.TagSummary>(),
             };
 
@@ -180,8 +180,6 @@ namespace SlickCMS.Web.Controllers
             {
                 //_context.Post.Add(post);
                 _context.Set<Data.Entities.Post>().Add(post);
-
-                postID = post.PostId;
             }
             else
             {
@@ -189,6 +187,8 @@ namespace SlickCMS.Web.Controllers
                 _context.Set<Data.Entities.Post>().Update(post);
             }
             _context.SaveChanges();
+
+            postID = post.PostId;
 
             SaveCategories(postID, form);
             SaveTags(postID, form);

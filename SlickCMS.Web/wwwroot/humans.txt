@@ -17,4 +17,4 @@
 # TECHNOLOGY COLOPHON
 	Standards: HTML5, CSS3
 	Components: Modernizr, jQuery
-	Software: Microsoft Visual Studio 2012, Google Chrome
+	Software: Microsoft Visual Studio 2022, Google Chrome

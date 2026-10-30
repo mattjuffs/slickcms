@@ -8,5 +8,6 @@ namespace SlickCMS.Data.Interfaces
     public interface ICommentService : IEntityService<Comment>
     {
         List<Comment> GetPublished(int postID);
+        List<CommentSummary> GetLatestPublished(int take);
     }
 }

@@ -1,0 +1,22 @@
+@model SlickCMS.Web.Models.PostModel
+
+<p>
+    <label for="selCategories">Categories</label><br />
+    <select multiple name="selCategories" id="selCategories">
+        @{
+            foreach (var category in Model.AllCategories.OrderBy(c => c.Name))
+            {
+                bool selected = Model.Categories.Exists(p => p.Name == category.Name);
+
+                if (selected)
+                {
+                    <option value="@category.CategoryId" selected>@category.Name.ToLower()</option>
+                }
+                else
+                {
+                    <option value="@category.CategoryId">@category.Name.ToLower()</option>
+                }
+            }
+        }
+    </select>
+</p>
