@@ -2,13 +2,14 @@
 
 @{
     ViewData["MetaTitle"] = Model.Name + " Tag";
-    ViewData["MetaDescription"] = "";
+    ViewData["MetaDescription"] = "Posts tagged: " + Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h1 class="title"><span>@Model.Name</span></h1>
+
 <div class="block">
     <section>
-        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
             @*<li><a href="/tags">Tags</a></li>*@
@@ -25,9 +26,11 @@
         </ol>
     </section>
 
-    <section class="clearfix">
-        <h2>@Model.Name <span>Tag</span></h2>
+    <section class="">
         <p>@Model.Pagination.TotalPosts posts tagged <strong>@Model.Name</strong></p>
+    </section>
+
+    <section>
         <partial name="_Posts" model="Model.Posts" />
     </section>
 
