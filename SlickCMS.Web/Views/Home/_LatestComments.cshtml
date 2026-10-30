@@ -1,0 +1,14 @@
+<h3>Latest Comments</h3>
+<ol class="no-list-style">
+    @{
+        var comments = (List<SlickCMS.Data.Entities.CommentSummary>)ViewData["LatestComments"];
+
+        foreach (var comment in comments)
+        {
+            <li>
+                <a href="/post/@comment.Url#comments" title="published @comment.DateCreated.ToHumanDate()">@comment.Name</a><br />
+                <em>@comment.Content.MaxLength(100)...</em>
+            </li>
+        }
+    }
+</ol>
