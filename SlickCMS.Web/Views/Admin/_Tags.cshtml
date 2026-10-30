@@ -1,0 +1,23 @@
+@model SlickCMS.Web.Models.PostModel
+
+@{
+    string tagsList = "";
+    foreach (var tag in Model.Tags)
+    {
+        tagsList += $"#{tag.Name.ToLower()} ";
+    }
+}
+
+<p>
+    <label for="txtTags">Tags</label><br />
+    <input type="text" name="txtTags" id="txtTags" style="width: 95%;" value="@tagsList" /><br />
+    <small>
+        <strong>Popular tags: </strong>
+        @{
+            foreach (var tag in Model.AllTags)
+            {
+                <text>#@tag.Name </text>
+            }
+        }
+    </small>
+</p>

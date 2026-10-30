@@ -57,11 +57,6 @@
                     <input type="datetime-local" name="txtDateCreated" id="txtDateCreated" value="@Model.Post.DateCreated.ToString("s")" disabled />
                 </p>
 
-                <!--<p>
-        <label for="txtDateModified">Date Modified</label><br />
-        <input type="datetime-local" name="txtDateModified" id="txtDateModified" value="@Model.Post.DateModified.ToString("s")" />
-    </p>-->
-
                 <p>
                     <label for="chkPublished">Published?</label>
                     <input type="checkbox" name="chkPublished" id="chkPublished" @(Model.Post.Published == 1 ? "checked" : "") />
@@ -72,47 +67,9 @@
                     <input type="checkbox" name="chkPageable" id="chkPageable" @(Model.Post.Pageable == 1 ? "checked" : "") />
                 </p>
 
-                <p>
-                    <label for="selCategories">Categories</label><br />
-                    <select multiple name="selCategories" id="selCategories">
-                        @{
-                            foreach (var category in Model.AllCategories.OrderBy(c => c.Name))
-                            {
-                                bool selected = Model.Categories.Exists(p => p.Name == category.Name);
+                <partial name="_Categories" model="Model" />
 
-                                if (selected)
-                                {
-                                    <option value="@category.CategoryID" selected>@category.Name.ToLower()</option>
-                                }
-                                else
-                                {
-                                    <option value="@category.CategoryID">@category.Name.ToLower()</option>
-                                }
-                            }
-                        }
-                    </select>
-                </p>
-
-                @{
-                    string tagsList = "";
-                    foreach (var tag in Model.Tags)
-                    {
-                        tagsList += $"#{tag.Name.ToLower()} ";
-                    }
-                }
-                <p>
-                    <label for="txtTags">Tags</label><br />
-                    <input type="text" name="txtTags" id="txtTags" style="width: 95%;" value="@tagsList" /><br />
-                    <small>
-                        <strong>Popular tags: </strong>
-                        @{
-                            foreach (var tag in Model.AllTags)
-                            {
-                                <text>#@tag.Name </text>
-                            }
-                        }
-                    </small>
-                </p>
+                <partial name="_Tags" model="Model" />
 
                 <p class="">
                     <a class="btn btn-warning" href="/admin/posts">Cancel</a>
