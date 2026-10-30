@@ -78,13 +78,20 @@ namespace SlickCMS.Web
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
             }
             else if (env.IsProduction())
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
                 //app.UseHsts();
                 //app.UseWebMarkupMin();
+
+                // shows the status code in the response body
+                //app.UseStatusCodePages();
+
+                // thanks to: https://www.infoworld.com/article/2258127/how-to-handle-404-errors-in-aspnet-core-mvc.html
+                app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
             }
 
             //app.UseResponseCompression();
@@ -111,9 +118,7 @@ namespace SlickCMS.Web
                 routes.MapRoute(name: "Posts_Category", template: "category/{name}", defaults: new { controller = "Posts", action = "Category" });
                 routes.MapRoute(name: "Posts_Tag", template: "tag/{name}", defaults: new { controller = "Posts", action = "Tag" });
 
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

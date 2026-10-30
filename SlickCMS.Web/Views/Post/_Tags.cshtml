@@ -1,0 +1,13 @@
+@model List<SlickCMS.Data.Entities.Tag>
+
+<section id="tags">
+    <h2>Tags <span>that this Post has been tagged with</span></h2>
+    <ul>
+        @{ 
+            foreach (var tag in Model)
+            {
+                <li><a href="/tag/@tag.Name.ToLower()">#@tag.Name</a></li>
+            }
+        }
+    </ul>
+</section>

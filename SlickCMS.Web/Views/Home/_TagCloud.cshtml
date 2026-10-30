@@ -1,0 +1,11 @@
+<h3>Tags</h3>
+<p>
+    @{
+        var tags = SlickCMS.Core.Caching.MemoryCache.Get<List<SlickCMS.Data.Entities.TagSummary>>("Tags");
+
+        foreach (var tag in tags)
+        {
+            <a href="/tag/@tag.Name.ToLower()" title="@tag.Count posts tagged with #@tag.Name">#@tag.Name</a>
+        }
+    }
+</p>

@@ -95,9 +95,12 @@ namespace SlickCMS.Data.Services
             // using IQueryable https://stackoverflow.com/a/2876655/63100
 
             var posts = this.GetMultiple(
-                p => p.Title.Contains(query)
+                p =>
+                (
+                    p.Title.Contains(query)
                     || p.Content.Contains(query)
-                    || p.Search.Contains(query),
+                    || p.Search.Contains(query)
+                ) && p.Published == 1,
                 q => q.OrderByDescending(r => r.DateCreated),
                 0,
                 1000

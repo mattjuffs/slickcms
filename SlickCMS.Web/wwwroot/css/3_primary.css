@@ -122,12 +122,14 @@ header
         display: block;
         float: left;
         padding: 0 10px 0 10px;
+        border: none;
     }
 
         header li a:hover
         {
             background-color: #444444;
             color: #F1F1F1;
+            border: none;
         }
 
     header div#search
@@ -202,12 +204,14 @@ ul.mobileMenu
             padding: 5px 0px 5px 10px;
             color: #CCCCCC;
             width: 100%;
+            border: none;
         }
 
             ul.mobileMenu li a:hover
             {
                 background-color: #444444;;
                 color: #F1F1F1;
+                border: none;
             }
 
 header a.mobileMenu
@@ -275,6 +279,7 @@ main[role=main]
     {
         color: #0099FF;
         text-decoration: none;
+        border-bottom: 1px solid #0099FF;
     }
 
         figure a:hover,
@@ -283,6 +288,7 @@ main[role=main]
         table a:hover
         {
             color: #FF9900;
+            border-bottom: 1px dashed #FF9900;
         }
 
 /*  =============================================================================
@@ -314,13 +320,20 @@ footer
     {
         color: #0099FF;
         text-decoration: none;
+        border-bottom: 1px solid #0099FF;
     }
 
         footer a:hover
         {
             color: #FF9900;
-            border-bottom: 1px solid #FF9900;
+            border-bottom: 1px dashed #FF9900;
         }
+
+    footer.sticky {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
 
 /*  =============================================================================
     Web Fonts
@@ -385,8 +398,9 @@ h2
 p, address
 {
 	font-size: 16px;
-	line-height: 1.5em;
+	line-height: 1.7em;
 	margin: 10px;
+    text-align: justify;
 }
 		
 p + p/* second+ p's */
@@ -507,6 +521,7 @@ ol
     ol li
     {
         margin: 0 0 0.2em 0;
+        line-height: 1.7em;
     }
 
 ul.no-list-style,
@@ -640,7 +655,7 @@ pre
 
 ol.breadcrumbs
 {
-    margin: 1em 10px 1em 10px;
+    margin: 1em 10px 20px 10px;
     padding: 0px;
     list-style: none;
     font-size: 12px;
@@ -656,6 +671,7 @@ ol.breadcrumbs
         ol.breadcrumbs li a
         {
             color: #CCCCCC;
+            border: none;
         }
 
             ol.breadcrumbs li a:hover
@@ -693,6 +709,15 @@ ol.breadcrumbs
         }
 
 /*  =============================================================================
+    Posts
+    ========================================================================== */
+ul.posts {
+    list-style: none;
+    padding: 0px;
+    margin: 10px 10px 10px 0;
+}
+
+/*  =============================================================================
     Pagination
     ========================================================================== */
 
@@ -724,6 +749,7 @@ ol.pagination
             padding: 0.3em 0.7em 0.3em 0.7em;
             color: #0099FF;
             text-decoration: none;
+            border: none;
         }
 
     ol.pagination li.current
@@ -907,6 +933,47 @@ img
 {
     max-width: 100%;
 }
+
+/*  =============================================================================
+    Meta
+    ========================================================================== */
+p.meta {
+    font-size: 12px;
+    text-align: right;
+    font-style: italic;
+}
+
+/*  =============================================================================
+    Comments
+    ========================================================================== */
+section#comments {
+    border-bottom: 1px solid #CCCCCC;
+}
+
+    section#comments hr {
+        clear: both;
+        color: #FFFFFF;
+        background-color: #FFFFFF;
+        border: none;
+    }
+
+    div.comment {
+        border: 1px solid #0099FF;
+        border-radius: 7px;
+        width: 45%;
+        clear: both;
+    }
+
+    div.comment-even {
+        float: right;
+        margin-right: 2%;
+    }
+
+    div.comment-odd {
+        float: left;
+        margin-left: 2%;
+        border-color: #FF9900;
+    }
 
 /*  =============================================================================
     Framework demo styles - can be dropped from projects

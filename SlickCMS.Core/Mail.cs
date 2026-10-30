@@ -30,6 +30,7 @@ namespace SlickCMS.Core
                 {
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.Host = "smtp.mailgun.org";
+                    client.Port = 587;
                     client.Credentials = new System.Net.NetworkCredential("username@mailserver.example.com", "password-goes-here");
 
                     client.Send(mailMessage);

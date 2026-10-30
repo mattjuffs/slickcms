@@ -2,14 +2,14 @@
 
 @{
     ViewData["MetaTitle"] = "Posts";
-    ViewData["MetaDescription"] = "";
+    ViewData["MetaDescription"] = "Blog Posts archive";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h1 class="title"><span>Posts</span></h1>
+
 <div class="block">
     <section>
-        <p>&nbsp;</p>@*Note: this p is required to clear the header*@
-
         <ol class="breadcrumbs clearfix">
             <li><a href="/">Home</a></li>
             @{
@@ -26,8 +26,6 @@
     </section>
 
     <section class="clearfix">
-        <h2>Posts</h2>
-        @*<p><a asp-action="Create">Create New</a></p>*@
         <partial name="_Posts" model="Model.Posts" />
     </section>
 

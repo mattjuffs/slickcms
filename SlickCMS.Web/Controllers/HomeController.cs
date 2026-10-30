@@ -16,13 +16,15 @@ namespace SlickCMS.Web.Controllers
         public IHostingEnvironment HostingEnvironment { get; }
         private readonly SlickCMSContext _context;
         private readonly IPostService _postService;
+        private readonly ICommentService _commentService;
 
-        public HomeController(IConfiguration config, IHostingEnvironment env, SlickCMSContext context, IPostService postService) : base(context)
+        public HomeController(IConfiguration config, IHostingEnvironment env, SlickCMSContext context, IPostService postService, ICommentService commentService) : base(context)
         {
             this._config = config;
             this.HostingEnvironment = env;
             this._context = context;
             this._postService = postService;
+            this._commentService = commentService;
         }
 
         public IActionResult Index()
@@ -34,6 +36,9 @@ namespace SlickCMS.Web.Controllers
 
             var posts = _postService.GetPublished(1, 5);
             ViewData["LatestPosts"] = posts;
+
+            var comments = _commentService.GetLatestPublished(5);
+            ViewData["LatestComments"] = comments;
 
             return View();
         }
@@ -66,10 +71,16 @@ namespace SlickCMS.Web.Controllers
             return View();
         }
 
+        [Route("/Home/Error/{code:int}")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int statusCode)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var errorViewModel = new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                HttpStatusCode = statusCode,
+            };
+            return View(errorViewModel);
         }
     }
 }

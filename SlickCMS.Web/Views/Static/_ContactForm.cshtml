@@ -1,0 +1,33 @@
+<form method="post" action="/save-contact">
+    <fieldset>
+        <legend>Contact form</legend>
+        <p>
+            <label for="contact-name">Your Name</label><br />
+            <input type="text" name="contact-name" id="contact-name" placeholder="Leia Organa" required /><!--NOTE: use to specify required fields-->
+        </p>
+        <p>
+            <label for="contact-email">Your Email</label><br />
+            <input type="email" name="contact-email" id="contact-email" placeholder="your.name@domain.com" required />
+        </p>
+        <p>
+            <label for="contact-message">Your Message</label><br />
+            <textarea name="contact-message" id="contact-message" placeholder="Help me Obi-Wan Kenobi, you're my only hope." required></textarea>
+        </p>
+        <p>
+            <input class="btn btn-primary" type="submit" value="Submit" />
+        </p>
+        @if ((ViewData["ContactFormResult"] + "") != "")
+        {
+            bool successful = (ViewData["ContactFormResult"] + "") == "success";
+
+            if (successful)
+            {
+                <p class="success">Your message has been sent successfully!</p>
+            }
+            else
+            {
+                <p class="error">Your message failed to send, please try again!</p>
+            }
+        }
+    </fieldset>
+</form>

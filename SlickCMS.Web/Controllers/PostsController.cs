@@ -19,12 +19,6 @@ namespace SlickCMS.Web.Controllers
             _postService = postService;
         }
 
-        // GET: Posts
-        /*public async Task<IActionResult> Index()
-        {
-            return View(await _context.Post.ToListAsync());
-        }*/
-
         public IActionResult Index(int page = 1, bool viewall = false)
         {
             int take = _config.GetValue<int>("SlickCMS:PostsPerPage", 10);
@@ -96,7 +90,7 @@ namespace SlickCMS.Web.Controllers
 
             var postsModel = new Models.PostsModel
             {
-                Name = name,
+                Name = string.IsNullOrEmpty(name) ? name : name[0].ToString().ToUpper() + name.Substring(1),
                 Posts = posts,
                 Pagination = new Models.PaginationModel
                 {
@@ -124,7 +118,7 @@ namespace SlickCMS.Web.Controllers
 
             var postsModel = new Models.PostsModel
             {
-                Name = name,
+                Name = string.IsNullOrEmpty(name) ? name : name[0].ToString().ToUpper() + name.Substring(1),
                 Posts = posts,
                 Pagination = new Models.PaginationModel
                 {

@@ -50,7 +50,7 @@ ul.mobileMenu {display: none;}
     #search {display: none;}
 	header div#search input[type="search"] {width: 100px;}
     
-    #container {width: 100%; overflow: hidden;}
+    #container {width: 100%; overflow: hidden; margin: 0 0 70px 0;}
 
 	h1 {font-size: 48px;}
     h1 {margin: 0.5em 0 0.5em 0;}
@@ -63,6 +63,8 @@ ul.mobileMenu {display: none;}
     ul.colour-palette li { width: 50%; }
 
     fieldset {margin: 10px;}
+    
+    div.comment {width: 90%;}
 }
 
 /* Smartphones */
@@ -100,6 +102,13 @@ only screen and (min-device-pixel-ratio: 1.5){}*/
     ul.colour-palette li { width: 30%; }
 
     fieldset {margin: 10px 0 10px 0;}
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea
+    {
+        min-width: 90%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -164,6 +173,8 @@ only screen and (min-device-pixel-ratio: 1.5){}*/
     ul.colour-palette li { width: 20%; }
 	
 	header div#search input[type="search"] {width: 250px;}
+
+    div.comment {width: 45%;}
 }
 
 /*  =============================================================================
@@ -188,4 +199,167 @@ only screen and (min-device-pixel-ratio: 1.5){}*/
     p#netbook { display: none; }
     p#laptop { display: none; }
     p#desktop { display: block; }
+}
+
+/*  =============================================================================
+    Dark Mode!
+    ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222222;
+        color: #FFFFFF;
+    }
+
+    header
+    {
+        background-color: #000000;
+        /* remove the drop-shadow  */
+        border-bottom: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    h1, h2, h3, h4, h5, h6
+    {
+        color: #FFFFFF;
+    }
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+    {
+        color: #FFFFFF;
+    }
+
+    h1.title
+    {
+        background-color: #333333;
+        border-bottom: 1px solid #CCCCCC;
+        background-image: none;
+    }
+
+    h2 span
+    {
+        color: #444444;
+    }
+
+    .hero
+    {
+        background-color: #CCCCCC;
+        color: #333333;
+    }
+
+        .hero h1,
+        .hero h2,
+        .hero h3,
+        .hero h4,
+        .hero h5,
+        .hero h6 {
+            color: #444444;
+            border-bottom-color: #444444;
+        }
+
+    /* inspired by Dracula Theme! */
+    code, pre
+    {
+        background-color: #282A36;
+        color: #FF6E9D;
+    }
+
+    table thead
+    {
+        background-color: #000000;
+        color: #CCCCCC;
+    }
+
+    table tbody tr
+    {
+        border-bottom: none;
+    }
+    
+        table tbody tr.alt
+        {
+            background-color: #444444;
+        }
+
+    section#comments {
+        border-bottom: none;
+    }
+
+        section#comments hr {
+            color: #222222;
+            background-color: #222222;
+        }
+
+    ol.pagination li
+    {
+        border: 1px solid #CCCCCC;
+        background-color: #444444;
+    }
+
+        ol.pagination li:hover
+        {
+            border: 1px solid #FF9900;
+        }
+
+        ol.pagination li a
+        {
+            color: #0099FF;
+        }
+
+    ol.pagination li.current
+    {
+        border: 1px solid #222222;
+        background-color: #CCCCCC;
+    }
+    
+        ol.pagination li.current a
+        {
+            color: #222222;
+        }
+
+        ol.pagination li.disabled a
+        {
+            color: #CCCCCC;
+        }
+    
+        ol.pagination li.disabled:hover
+        {
+            border: 1px solid #CCCCCC;
+            background-color: #444444;
+        }
+
+    form input[type="text"],
+    form input[type="email"],
+    form textarea
+    {
+        border: 1px solid #CCCCCC;
+        color: #222222;
+    }
+
+    form select
+    {
+        border: 1px solid #CCCCCC;
+    }
+
+    fieldset
+    {
+        border: 1px solid #CCCCCC;
+    }
+
+        fieldset legend
+        {
+            background-color: #333333;
+        }
+
+    footer
+    {
+        border-top: none;
+        background-color: #000000;
+    }
+
+    .grid-demo [class*="span"] {
+        background-color: #F1F1F1;
+        color: #222222;
+    }
 }
