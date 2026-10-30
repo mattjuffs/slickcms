@@ -39,6 +39,10 @@ namespace SlickCMS.Web.Controllers
                 url = Request.QueryString("url");*/
 
             var post = _postService.GetPost(url);
+
+            if (post == null)
+                return NotFound();
+
             var comments = _commentService.GetPublished(post.PostId);
             var categories = _categoryService.GetCategories(post.PostId);
             var tags = _tagService.GetTags(post.PostId);
